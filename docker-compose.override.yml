@@ -1,0 +1,18 @@
+services:
+    ada-api:
+        command: ["npm", "run", "start:dev"]
+        volumes:
+            - ./:/usr/src/app
+            - node-modules:/usr/src/app/node_modules
+
+    mariadb:
+        ports:
+            - 3306:3306
+
+    nginx:
+        image: nginx
+        volumes:
+            - ./nginx/http.conf:/etc/nginx/conf.d/default.conf
+
+volumes:
+    node-modules:
