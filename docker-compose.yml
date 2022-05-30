@@ -1,0 +1,45 @@
+services:
+    ada-api:
+        image: rodekruis/ada-api
+        build: .
+        restart: on-failure:5
+        env_file: .env
+        depends_on:
+            - mariadb
+        networks:
+            - db
+            - server
+
+    mariadb:
+        image: mariadb
+        command: "mysqld --init-file /data/app/init.sql"
+        restart: on-failure:5
+        env_file: .env
+        volumes:
+            - ./mariadb/init.sql:/data/app/init.sql
+            - mariadb-data:/var/lib/mysql
+        networks:
+            - db
+
+    nginx:
+        image: staticfloat/nginx-certbot
+        restart: on-failure:5
+        env_file: .env
+        ports:
+            - 80:80
+            - 443:443
+        volumes:
+            - ./nginx/https.conf:/etc/nginx/user.conf.d/ada.conf
+            - letsencrypt:/etc/letsencrypt
+        depends_on:
+            - ada-api
+        networks:
+            - server
+
+volumes:
+    mariadb-data:
+    letsencrypt:
+
+networks:
+    db:
+    server:
