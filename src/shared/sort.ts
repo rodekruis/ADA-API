@@ -1,5 +1,3 @@
-import { EntityFieldsNames } from "typeorm/common/EntityFieldsNames";
-
 const defaultSort: string = "id";
 
 enum SortOrder {
@@ -12,7 +10,7 @@ type SortPrefix = keyof typeof SortOrder;
 
 function getOrderClause<T>(
     sort: string,
-    sortEntityFieldsNames: NonNullable<EntityFieldsNames<T>>[],
+    sortEntityFieldsNames: NonNullable<keyof T>[],
 ) {
     let sortPrefix = "" as SortPrefix;
     let sortField = sort;
@@ -24,7 +22,7 @@ function getOrderClause<T>(
 
     const sortOrder = SortOrder[sortPrefix];
     const isValidSortField = sortEntityFieldsNames.includes(
-        sortField as NonNullable<EntityFieldsNames<T>>,
+        sortField as NonNullable<keyof T>,
     );
     sortField = isValidSortField ? sortField : defaultSort;
 

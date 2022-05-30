@@ -1,18 +1,15 @@
 import { ILike } from "typeorm";
-import { EntityFieldsNames } from "typeorm/common/EntityFieldsNames";
 
 function getWhereClause<T>(
     search: string,
-    searchEntityFieldsNames: NonNullable<EntityFieldsNames<T>>[],
+    searchEntityFieldsNames: NonNullable<keyof T>[],
 ) {
     return search
-        ? searchEntityFieldsNames.map(
-              (fieldName: NonNullable<EntityFieldsNames<T>>) => {
-                  return {
-                      [fieldName]: ILike(`%${search}%`),
-                  };
-              },
-          )
+        ? searchEntityFieldsNames.map((fieldName: NonNullable<keyof T>) => {
+              return {
+                  [fieldName]: ILike(`%${search}%`),
+              };
+          })
         : [];
 }
 

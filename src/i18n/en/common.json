@@ -1,4 +1,5 @@
 {
     "HELLO_WORLD": "Hello World",
-    "EVENT": "Event"
+    "EVENT": "Event",
+    "EVENT_CODE": "Event Code"
 }

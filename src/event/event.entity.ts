@@ -1,4 +1,3 @@
-import { ApiProperty, PartialType } from "@nestjs/swagger";
 import {
     IsOptional,
     IsString,
@@ -10,24 +9,9 @@ import {
     IsEnum,
 } from "class-validator";
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
-import { EntityFieldsNames } from "typeorm/common/EntityFieldsNames";
-import BaseEntity, {
-    searchBaseEntityFieldsNames,
-    sortBaseEntityFieldsNames,
-} from "src/shared/base.entity";
-
-enum EventType {
-    Hurricane,
-    Eruption,
-    Storm,
-    Explosion,
-    Typhoon,
-}
-
-enum EventAccess {
-    Private,
-    Public,
-}
+import BaseEntity, { baseEntityFieldsNames } from "src/shared/base.entity";
+import EventAccess from "./event-access.enum";
+import EventType from "./event-type.enum";
 
 @Entity()
 export default class EventEntity extends BaseEntity {
@@ -35,66 +19,64 @@ export default class EventEntity extends BaseEntity {
     id!: EventId;
 
     @Column()
-    @ApiProperty({ example: "Irma" })
     @IsString()
     @IsNotEmpty()
     name!: string;
 
-    @Column({ nullable: true })
-    @ApiProperty({ example: EventType.Hurricane })
+    @Column({ type: "enum", enum: EventType, default: EventType.Hurricane })
     @IsEnum(EventType)
     type!: EventType;
 
     @Column()
-    @ApiProperty({ example: "Sint-Maarten" })
     @IsString()
     @IsNotEmpty()
     country!: string;
 
     @Column()
-    @ApiProperty({ example: "2022-12-31" })
     @IsDateString()
     startDate!: Date;
 
-    @Column()
-    @ApiProperty({ example: "2023-12-31" })
+    @Column({ nullable: true, default: null })
     @IsOptional()
     @IsDateString()
     endDate?: Date;
 
-    @Column()
-    @ApiProperty({ example: EventAccess.Public })
-    @IsEnum(EventType)
+    @Column({ type: "enum", enum: EventAccess, default: EventAccess.Public })
+    @IsEnum(EventAccess)
     access!: EventAccess;
 
     @Column()
-    @ApiProperty({ example: 0 })
     @IsInt()
     @Min(0)
     peopleAffected!: number;
 
     @Column()
-    @ApiProperty({ example: 0 })
     @IsInt()
     @Min(0)
     buildingsDamaged!: number;
 
     @Column()
-    @ApiProperty({ example: 0 })
     @IsInt()
     @Min(0)
     @Max(100)
     buildingsDamagedPercentage!: number;
 
     @Column()
-    @ApiProperty({ example: "Province,District,Municipality" })
     @IsString()
     adminLevelLabels!: string;
 }
 
-export class PartialEventEntity extends PartialType(EventEntity) {}
+type EventEntityFieldsName = NonNullable<keyof EventEntity>;
 
-type EventEntityFieldsName = NonNullable<EntityFieldsNames<EventEntity>>;
+export const eventEntityFieldsNames: EventEntityFieldsName[] = [
+    "name",
+    "type",
+    "country",
+    "startDate",
+    "endDate",
+    "access",
+    ...baseEntityFieldsNames,
+];
 
 export const sortEventEntityFieldsNames: EventEntityFieldsName[] = [
     "name",
@@ -106,10 +88,11 @@ export const sortEventEntityFieldsNames: EventEntityFieldsName[] = [
     "peopleAffected",
     "buildingsDamaged",
     "buildingsDamagedPercentage",
-    ...sortBaseEntityFieldsNames,
+    ...baseEntityFieldsNames,
 ];
 
 export const searchEventEntityFieldsNames: EventEntityFieldsName[] = [
+    "id",
     "name",
     "type",
     "country",
@@ -119,7 +102,6 @@ export const searchEventEntityFieldsNames: EventEntityFieldsName[] = [
     "peopleAffected",
     "buildingsDamaged",
     "buildingsDamagedPercentage",
-    ...searchBaseEntityFieldsNames,
 ];
 
-export type EventId = string & { __brand: "eventId" };
+export type EventId = string & { __brand: "EventId" };

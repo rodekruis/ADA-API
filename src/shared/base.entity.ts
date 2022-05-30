@@ -6,7 +6,6 @@ import {
     UpdateDateColumn,
     VersionColumn,
 } from "typeorm";
-import { EntityFieldsNames } from "typeorm/common/EntityFieldsNames";
 
 @Entity()
 export default abstract class BaseEntity extends TypeOrmBaseEntity {
@@ -19,13 +18,11 @@ export default abstract class BaseEntity extends TypeOrmBaseEntity {
     @VersionColumn() version!: number;
 }
 
-type BaseEntityFieldsName = NonNullable<EntityFieldsNames<BaseEntity>>;
+type BaseEntityFieldsName = NonNullable<keyof BaseEntity>;
 
-export const sortBaseEntityFieldsNames: BaseEntityFieldsName[] = [
+export const baseEntityFieldsNames: BaseEntityFieldsName[] = [
     "createdAt",
     "updatedAt",
     "version",
     "id",
 ];
-
-export const searchBaseEntityFieldsNames: BaseEntityFieldsName[] = [];
