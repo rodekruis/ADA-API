@@ -7,18 +7,23 @@ import {
     Param,
     Delete,
     Query,
+    UseGuards,
 } from "@nestjs/common";
-import { ApiQuery, ApiTags } from "@nestjs/swagger";
+import { ApiBearerAuth, ApiQuery, ApiTags } from "@nestjs/swagger";
 import defaultSort, { getSortEntityFieldNames } from "src/shared/sort";
+import EventGuard from "src/auth/event.guard";
+import AuthService from "src/auth/auth.service";
+import AdminGuard from "src/auth/admin.guard";
 import EventService from "./event.service";
 import EventEntity, {
     sortEventEntityFieldsNames,
     EventId,
 } from "./event.entity";
-import CreateEventDto from "./dto/create-entity.dto";
-import UpdateEventDto from "./dto/update-entity.dto";
+import CreateEventDto from "./dto/create-event.dto";
+import UpdateEventDto from "./dto/update-event.dto";
 import EventCodeEntity from "./event-code.entity";
 import EventCodeService from "./event-code.service";
+import AccessEventDto from "./dto/access-event.dto";
 
 @ApiTags("event")
 @Controller("events")
@@ -26,9 +31,12 @@ export default class EventController {
     constructor(
         private readonly eventService: EventService,
         private readonly eventCodeService: EventCodeService,
+        private readonly authService: AuthService,
     ) {}
 
     @Post()
+    @UseGuards(AdminGuard)
+    @ApiBearerAuth()
     async create(@Body() createEventDto: CreateEventDto) {
         const eventEntity = new EventEntity();
         eventEntity.name = createEventDto.name;
@@ -72,11 +80,15 @@ export default class EventController {
     }
 
     @Get(":id")
+    @UseGuards(EventGuard)
+    @ApiBearerAuth()
     findOne(@Param("id") id: EventId) {
         return this.eventService.findOne(id);
     }
 
     @Patch(":id")
+    @UseGuards(EventGuard)
+    @ApiBearerAuth()
     async update(
         @Param("id") id: EventId,
         @Body() updateEventDto: UpdateEventDto,
@@ -120,7 +132,15 @@ export default class EventController {
     }
 
     @Delete(":id")
+    @UseGuards(EventGuard)
+    @ApiBearerAuth()
     remove(@Param("id") id: EventId) {
         return this.eventService.remove(id);
+    }
+
+    @Post(":id/code")
+    @ApiBearerAuth()
+    code(@Param("id") id: EventId, @Body() accessEventDto: AccessEventDto) {
+        return this.authService.grantEventAccess(id, accessEventDto.code);
     }
 }
