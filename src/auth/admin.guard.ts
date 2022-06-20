@@ -14,7 +14,7 @@ export default class AdminGuard implements CanActivate {
     ): boolean | Promise<boolean> | Observable<boolean> {
         const request = context.switchToHttp().getRequest();
         const authHeader = request.headers.authorization;
-        if (!authHeader.startsWith("Bearer "))
+        if (!(authHeader && authHeader.startsWith("Bearer ")))
             throw new UnauthorizedException();
         const token = authHeader.substring(7, authHeader.length);
         return token === process.env.ADMIN_CODE;
