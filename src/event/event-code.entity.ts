@@ -9,8 +9,8 @@ import {
 } from "typeorm";
 import { IsDate, IsNotEmpty, IsOptional, IsString } from "class-validator";
 import argon2 from "argon2";
-import BaseEntity, { baseEntityFieldsNames } from "src/shared/base.entity";
-import EventEntity from "src/event/event.entity";
+import BaseEntity, { baseEntityFieldsNames } from "../shared/base.entity";
+import EventEntity from "./event.entity";
 
 @Entity()
 export default class EventCodeEntity extends BaseEntity {

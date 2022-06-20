@@ -2,8 +2,8 @@ import { Injectable, NotFoundException } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { I18nRequestScopeService } from "nestjs-i18n";
 import { FindManyOptions, FindOneOptions, Repository } from "typeorm";
-import { getOrderClause } from "src/shared/sort";
-import getWhereClause from "src/shared/search";
+import { getOrderClause } from "../shared/sort";
+import getWhereClause from "../shared/search";
 import EventEntity, {
     searchEventEntityFieldsNames,
     sortEventEntityFieldsNames,
