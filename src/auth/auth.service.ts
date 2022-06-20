@@ -1,10 +1,10 @@
 import { Injectable, UnauthorizedException } from "@nestjs/common";
 import { JwtService } from "@nestjs/jwt";
 import { InjectRepository } from "@nestjs/typeorm";
-import argon2 from "argon2";
-import EventCodeEntity from "src/event/event-code.entity";
-import { EventId } from "src/event/event.entity";
 import { Repository } from "typeorm";
+import argon2 from "argon2";
+import EventCodeEntity from "../event/event-code.entity";
+import { EventId } from "../event/event.entity";
 
 type JwtToken = {
     eventId: EventId;

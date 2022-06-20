@@ -10,10 +10,10 @@ import {
     UseGuards,
 } from "@nestjs/common";
 import { ApiBearerAuth, ApiQuery, ApiTags } from "@nestjs/swagger";
-import defaultSort, { getSortEntityFieldNames } from "src/shared/sort";
-import EventGuard from "src/auth/event.guard";
-import AuthService from "src/auth/auth.service";
-import AdminGuard from "src/auth/admin.guard";
+import defaultSort, { getSortEntityFieldNames } from "../shared/sort";
+import EventGuard from "../auth/event.guard";
+import AuthService from "../auth/auth.service";
+import AdminGuard from "../auth/admin.guard";
 import EventService from "./event.service";
 import EventEntity, {
     sortEventEntityFieldsNames,

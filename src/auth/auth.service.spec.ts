@@ -1,4 +1,7 @@
+import { JwtService } from "@nestjs/jwt";
 import { Test, TestingModule } from "@nestjs/testing";
+import { getRepositoryToken } from "@nestjs/typeorm";
+import EventCodeEntity from "../event/event-code.entity";
 import AuthService from "./auth.service";
 
 describe("AuthService", () => {
@@ -6,7 +9,20 @@ describe("AuthService", () => {
 
     beforeEach(async () => {
         const module: TestingModule = await Test.createTestingModule({
-            providers: [AuthService],
+            providers: [
+                AuthService,
+                {
+                    provide: getRepositoryToken(EventCodeEntity),
+                    useValue: { findOne: jest.fn() },
+                },
+                {
+                    provide: JwtService,
+                    useValue: {
+                        sign: jest.fn(),
+                        verify: jest.fn(),
+                    },
+                },
+            ],
         }).compile();
 
         service = module.get<AuthService>(AuthService);

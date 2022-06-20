@@ -9,7 +9,7 @@ import {
     IsEnum,
 } from "class-validator";
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
-import BaseEntity, { baseEntityFieldsNames } from "src/shared/base.entity";
+import BaseEntity, { baseEntityFieldsNames } from "../shared/base.entity";
 import EventAccess from "./event-access.enum";
 import EventType from "./event-type.enum";
 
