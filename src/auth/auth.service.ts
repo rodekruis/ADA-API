@@ -32,14 +32,19 @@ export default class AuthService {
         return this.jwtService.sign({ eventId } as JwtToken);
     }
 
-    async verifyEventAccess(eventId: EventId, authHeader: string) {
-        if (!(authHeader && authHeader.startsWith("Bearer ")))
-            throw new UnauthorizedException();
-        const token = authHeader.substring(7, authHeader.length);
-        if (!token) throw new UnauthorizedException();
+    async verifyEventAccess(eventId: EventId, token: string) {
         try {
             const decodedToken = this.jwtService.verify(token) as JwtToken;
-            return eventId === decodedToken.eventId;
+            const eventAccess = eventId === decodedToken.eventId;
+            if (eventAccess) {
+                const eventCode = await this.eventCodesRepository.findOne({
+                    where: { event: eventId },
+                });
+                if (!eventCode) throw new UnauthorizedException();
+                eventCode.accessedAt = new Date();
+                await eventCode.save();
+            }
+            return eventAccess;
         } catch (error) {
             throw new UnauthorizedException();
         }

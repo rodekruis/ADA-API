@@ -24,6 +24,10 @@ import UpdateEventDto from "./dto/update-event.dto";
 import EventCodeEntity from "./event-code.entity";
 import EventCodeService from "./event-code.service";
 import AccessEventDto from "./dto/access-event.dto";
+import EventLayerName from "./event-layer-name.enum";
+import CreateEventLayerDto from "./dto/create-event-layer.dto";
+import EventLayerEntity from "./event-layer.entity";
+import EventLayerService from "./event-layer.service";
 
 @ApiTags("event")
 @Controller("events")
@@ -31,6 +35,7 @@ export default class EventController {
     constructor(
         private readonly eventService: EventService,
         private readonly eventCodeService: EventCodeService,
+        private readonly eventLayerService: EventLayerService,
         private readonly authService: AuthService,
     ) {}
 
@@ -142,5 +147,47 @@ export default class EventController {
     @ApiBearerAuth()
     code(@Param("id") id: EventId, @Body() accessEventDto: AccessEventDto) {
         return this.authService.grantEventAccess(id, accessEventDto.code);
+    }
+
+    @Get(":id/layer/:name")
+    @UseGuards(EventGuard)
+    @ApiBearerAuth()
+    readLayer(
+        @Param("id") id: EventId,
+        @Param("name") layerName: EventLayerName,
+    ) {
+        return this.eventLayerService.findOne(id, layerName);
+    }
+
+    @Post(":id/layer/:name")
+    @UseGuards(AdminGuard)
+    @ApiBearerAuth()
+    async createLayer(
+        @Param("id") id: EventId,
+        @Param("name") layerName: EventLayerName,
+        @Body() createEventLayerDto: CreateEventLayerDto,
+    ) {
+        const eventEntity = await this.eventService.findOne(id);
+
+        const eventLayerEntity =
+            (await this.eventLayerService.findOne(id, layerName)) ||
+            new EventLayerEntity();
+
+        eventLayerEntity.name = layerName;
+        eventLayerEntity.event = eventEntity;
+        eventLayerEntity.geojson = createEventLayerDto.geojson;
+        eventLayerEntity.information = createEventLayerDto.information;
+
+        return this.eventLayerService.save(id, layerName, eventLayerEntity);
+    }
+
+    @Delete(":id/layer/:name")
+    @UseGuards(AdminGuard)
+    @ApiBearerAuth()
+    removeLayer(
+        @Param("id") id: EventId,
+        @Param("name") layerName: EventLayerName,
+    ) {
+        return this.eventLayerService.remove(id, layerName);
     }
 }
