@@ -1,12 +1,16 @@
-import { Injectable, UnauthorizedException } from "@nestjs/common";
+import {
+    BadRequestException,
+    Injectable,
+    UnauthorizedException,
+} from "@nestjs/common";
 import { JwtService } from "@nestjs/jwt";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
 import argon2 from "argon2";
+import { I18nRequestScopeService } from "nestjs-i18n";
 import EventCodeEntity from "../event/event-code.entity";
+import EventAccess from "../event/event-access.enum";
 import EventEntity, { EventId } from "../event/event.entity";
-import EventAccess from "src/event/event-access.enum";
-import e from "express";
 
 type JwtToken = {
     eventId: EventId;
@@ -14,15 +18,33 @@ type JwtToken = {
 
 @Injectable()
 export default class AuthService {
+    private eventCodeNotRequired = "Event Code not required";
+
     constructor(
         @InjectRepository(EventCodeEntity)
         private eventCodesRepository: Repository<EventCodeEntity>,
         @InjectRepository(EventEntity)
         private eventsRepository: Repository<EventEntity>,
         private readonly jwtService: JwtService,
-    ) {}
+        private readonly i18n: I18nRequestScopeService,
+    ) {
+        this.prepareTranslations();
+    }
+
+    private prepareTranslations = async () => {
+        this.eventCodeNotRequired = await this.i18n.translate(
+            "error.NOT_REQUIRED",
+            {
+                args: {
+                    entity: await this.i18n.translate("common.EVENT_CODE"),
+                },
+            },
+        );
+    };
 
     async grantEventAccess(eventId: EventId, code: string) {
+        if (await this.isPublicEvent(eventId))
+            throw new BadRequestException([this.eventCodeNotRequired]);
         const eventCode = await this.eventCodesRepository.findOne({
             where: { event: eventId },
         });

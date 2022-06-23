@@ -9,7 +9,7 @@ import {
     Query,
     UseGuards,
 } from "@nestjs/common";
-import { ApiBearerAuth, ApiQuery, ApiTags } from "@nestjs/swagger";
+import { ApiBearerAuth, ApiParam, ApiQuery, ApiTags } from "@nestjs/swagger";
 import defaultSort, { getSortEntityFieldNames } from "../shared/sort";
 import EventGuard from "../auth/event.guard";
 import AuthService from "../auth/auth.service";
@@ -150,6 +150,10 @@ export default class EventController {
     }
 
     @Get(":id/layer/:name")
+    @ApiParam({
+        name: "name",
+        enum: EventLayerName,
+    })
     @UseGuards(EventGuard)
     @ApiBearerAuth()
     readLayer(
@@ -160,6 +164,10 @@ export default class EventController {
     }
 
     @Post(":id/layer/:name")
+    @ApiParam({
+        name: "name",
+        enum: EventLayerName,
+    })
     @UseGuards(AdminGuard)
     @ApiBearerAuth()
     async createLayer(
@@ -169,9 +177,15 @@ export default class EventController {
     ) {
         const eventEntity = await this.eventService.findOne(id);
 
+        const eventLayerEntities = await this.eventLayerService.find(
+            id,
+            layerName,
+        );
+
         const eventLayerEntity =
-            (await this.eventLayerService.findOne(id, layerName)) ||
-            new EventLayerEntity();
+            eventLayerEntities.length > 0
+                ? eventLayerEntities[0]
+                : new EventLayerEntity();
 
         eventLayerEntity.name = layerName;
         eventLayerEntity.event = eventEntity;
@@ -182,6 +196,10 @@ export default class EventController {
     }
 
     @Delete(":id/layer/:name")
+    @ApiParam({
+        name: "name",
+        enum: EventLayerName,
+    })
     @UseGuards(AdminGuard)
     @ApiBearerAuth()
     removeLayer(

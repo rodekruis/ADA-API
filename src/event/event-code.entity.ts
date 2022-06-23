@@ -7,7 +7,7 @@ import {
     BeforeInsert,
     BeforeUpdate,
 } from "typeorm";
-import { IsDate, IsNotEmpty, IsOptional, IsString } from "class-validator";
+import { IsDate, IsJWT, IsNotEmpty, IsOptional } from "class-validator";
 import argon2 from "argon2";
 import BaseEntity, { baseEntityFieldsNames } from "../shared/base.entity";
 import EventEntity from "./event.entity";
@@ -22,7 +22,7 @@ export default class EventCodeEntity extends BaseEntity {
     event!: EventEntity;
 
     @Column()
-    @IsString()
+    @IsJWT()
     @IsNotEmpty()
     code!: string;
 

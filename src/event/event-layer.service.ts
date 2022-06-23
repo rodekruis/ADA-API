@@ -1,14 +1,14 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { I18nRequestScopeService } from "nestjs-i18n";
-import { Repository, FindOneOptions } from "typeorm";
+import { Repository, FindOneOptions, FindManyOptions } from "typeorm";
 import EventLayerName from "./event-layer-name.enum";
 import EventLayerEntity from "./event-layer.entity";
 import { EventId } from "./event.entity";
 
 @Injectable()
 export default class EventLayerService {
-    private eventLayerNotFound = "Event layer not found";
+    private eventLayerNotFound = "Event Layer not found";
 
     constructor(
         @InjectRepository(EventLayerEntity)
@@ -22,6 +22,20 @@ export default class EventLayerService {
         this.eventLayerNotFound = await this.i18n.translate("error.NOT_FOUND", {
             args: { entity: await this.i18n.translate("common.EVENT_LAYER") },
         });
+    };
+
+    find = (
+        eventId: EventId,
+        layerName: EventLayerName,
+    ): Promise<EventLayerEntity[]> => {
+        const findManyOptions: FindManyOptions = {
+            where: {
+                event: eventId,
+                name: layerName,
+            },
+        };
+
+        return this.eventLayersRepository.find(findManyOptions);
     };
 
     findOne = async (
@@ -49,12 +63,15 @@ export default class EventLayerService {
         layerName: EventLayerName,
         eventLayerEntity: EventLayerEntity,
     ): Promise<EventLayerEntity> => {
-        const eventLayer = await this.findOne(eventId, layerName);
-
-        await this.eventLayersRepository.update(
-            eventLayer.id,
-            eventLayerEntity,
-        );
+        try {
+            const eventLayer = await this.findOne(eventId, layerName);
+            await this.eventLayersRepository.update(
+                eventLayer.id,
+                eventLayerEntity,
+            );
+        } catch (error) {
+            await this.eventLayersRepository.save(eventLayerEntity);
+        }
 
         return this.findOne(eventId, layerName);
     };

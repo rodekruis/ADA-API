@@ -27,12 +27,12 @@ export default class EventLayerEntity extends BaseEntity {
     @JoinColumn()
     event!: EventEntity;
 
-    @Column()
+    @Column({ type: "json" })
     @IsJSON()
     @IsNotEmpty()
     geojson!: string;
 
-    @Column()
+    @Column({ type: "text" })
     @IsString()
     @IsNotEmpty()
     information!: string;
