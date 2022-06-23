@@ -17,10 +17,13 @@ export default class EventGuard implements CanActivate {
         const request = context.switchToHttp().getRequest();
         const authHeader = request.headers.authorization;
         const eventId = request.params.id;
-        if (!(authHeader && authHeader.startsWith("Bearer ")))
-            throw new UnauthorizedException();
-        const token = authHeader.substring(7, authHeader.length);
-        if (!token) throw new UnauthorizedException();
+        let token;
+        if (authHeader) {
+            if (authHeader.startsWith("Bearer ")) {
+                token = authHeader.substring(7, authHeader.length);
+                if (!token) throw new UnauthorizedException();
+            } else throw new UnauthorizedException();
+        }
         return this.authService.verifyEventAccess(eventId, token);
     }
 }
