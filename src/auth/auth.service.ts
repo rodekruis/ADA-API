@@ -44,14 +44,12 @@ export default class AuthService {
     }
 
     async isPublicEvent(eventId: EventId) {
-        console.log("isPublicEvent");
         const eventEntity = await this.eventsRepository.findOne(eventId);
         if (!eventEntity) throw new UnauthorizedException();
         return EventAccess.Public === eventEntity.access;
     }
 
     async hasPrivateEventToken(eventId: EventId, token: string) {
-        console.log("hasPrivateEventToken");
         try {
             const decodedToken = this.jwtService.verify(token) as JwtToken;
             const eventAccess = eventId === decodedToken.eventId;
