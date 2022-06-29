@@ -76,14 +76,14 @@ export default class AuthService {
             const decodedToken = this.jwtService.verify(token) as JwtToken;
             const eventAccess = eventId === decodedToken.eventId;
             if (eventAccess) {
-                const eventCodeEntity = await this.eventCodesRepository.findOne(
-                    {
-                        where: { event: eventId },
-                    },
+                const eventEntity = await this.eventsRepository.findOne(
+                    eventId,
                 );
-                if (!eventCodeEntity) throw new UnauthorizedException();
-                eventCodeEntity.accessedAt = new Date();
-                await eventCodeEntity.save();
+                if (!eventEntity) throw new UnauthorizedException();
+                await this.eventCodesRepository.update(
+                    { event: eventEntity },
+                    { accessedAt: new Date() },
+                );
             }
             return eventAccess;
         } catch (error) {
