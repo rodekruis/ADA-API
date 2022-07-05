@@ -92,7 +92,7 @@ export default class EventController {
     }
 
     @Patch(":id")
-    @UseGuards(EventGuard)
+    @UseGuards(AdminGuard)
     @ApiBearerAuth()
     async update(
         @Param("id") id: EventId,
@@ -137,7 +137,7 @@ export default class EventController {
     }
 
     @Delete(":id")
-    @UseGuards(EventGuard)
+    @UseGuards(AdminGuard)
     @ApiBearerAuth()
     remove(@Param("id") id: EventId) {
         return this.eventService.remove(id);
