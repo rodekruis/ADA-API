@@ -17,7 +17,7 @@ export default class EventCodeEntity extends BaseEntity {
     @PrimaryGeneratedColumn("uuid")
     id!: EventCodeId;
 
-    @OneToOne(() => EventEntity)
+    @OneToOne(() => EventEntity, { onDelete: "CASCADE" })
     @JoinColumn()
     event!: EventEntity;
 
