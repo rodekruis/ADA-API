@@ -59,9 +59,11 @@ export default class AuthService {
     }
 
     async verifyEventAccess(eventId: EventId, token?: string) {
+        const isPublicEvent = await this.isPublicEvent(eventId);
+        if (!isPublicEvent && !token) throw new UnauthorizedException();
         return (
-            (await this.isPublicEvent(eventId)) ||
-            (!!token && (await this.hasPrivateEventToken(eventId, token)))
+            isPublicEvent ||
+            (!!token && (await this.isPrivateEventTokenValid(eventId, token)))
         );
     }
 
@@ -71,7 +73,7 @@ export default class AuthService {
         return EventAccess.Public === eventEntity.access;
     }
 
-    async hasPrivateEventToken(eventId: EventId, token: string) {
+    async isPrivateEventTokenValid(eventId: EventId, token: string) {
         try {
             const decodedToken = this.jwtService.verify(token) as JwtToken;
             const eventAccess = eventId === decodedToken.eventId;
