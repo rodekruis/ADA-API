@@ -198,6 +198,8 @@ export default class EventController {
         eventLayerEntity.event = eventEntity;
         eventLayerEntity.geojson = createEventLayerDto.geojson;
         eventLayerEntity.information = createEventLayerDto.information;
+        if (Number.isInteger(eventLayerEntity.version))
+            eventLayerEntity.version += 1;
 
         return this.eventLayerService.save(id, layerName, eventLayerEntity);
     }
