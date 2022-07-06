@@ -29,7 +29,6 @@ import CreateEventLayerDto from "./dto/create-event-layer.dto";
 import EventLayerEntity from "./event-layer.entity";
 import EventLayerService from "./event-layer.service";
 
-@ApiTags("event")
 @Controller("events")
 export default class EventController {
     constructor(
@@ -42,6 +41,7 @@ export default class EventController {
     @Post()
     @UseGuards(AdminGuard)
     @ApiBearerAuth()
+    @ApiTags("event")
     async create(@Body() createEventDto: CreateEventDto) {
         const eventEntity = new EventEntity();
         eventEntity.name = createEventDto.name;
@@ -80,6 +80,7 @@ export default class EventController {
         required: false,
         example: defaultSort,
     })
+    @ApiTags("event")
     findAll(@Query("search") search: string, @Query("sort") sort: string) {
         return this.eventService.find(search, sort);
     }
@@ -87,6 +88,7 @@ export default class EventController {
     @Get(":id")
     @UseGuards(EventGuard)
     @ApiBearerAuth()
+    @ApiTags("event")
     findOne(@Param("id") id: EventId) {
         return this.eventService.findOne(id);
     }
@@ -94,6 +96,7 @@ export default class EventController {
     @Patch(":id")
     @UseGuards(AdminGuard)
     @ApiBearerAuth()
+    @ApiTags("event")
     async update(
         @Param("id") id: EventId,
         @Body() updateEventDto: UpdateEventDto,
@@ -139,23 +142,26 @@ export default class EventController {
     @Delete(":id")
     @UseGuards(AdminGuard)
     @ApiBearerAuth()
+    @ApiTags("event")
     remove(@Param("id") id: EventId) {
         return this.eventService.remove(id);
     }
 
     @Post(":id/code")
     @ApiBearerAuth()
+    @ApiTags("event-code")
     code(@Param("id") id: EventId, @Body() accessEventDto: AccessEventDto) {
         return this.authService.grantEventAccess(id, accessEventDto.code);
     }
 
-    @Get(":id/layer/:name")
+    @Get(":id/layers/:name")
+    @UseGuards(EventGuard)
     @ApiParam({
         name: "name",
         enum: EventLayerName,
     })
-    @UseGuards(EventGuard)
     @ApiBearerAuth()
+    @ApiTags("event-layer")
     readLayer(
         @Param("id") id: EventId,
         @Param("name") layerName: EventLayerName,
@@ -163,13 +169,14 @@ export default class EventController {
         return this.eventLayerService.findOne(id, layerName);
     }
 
-    @Post(":id/layer/:name")
+    @Post(":id/layers/:name")
+    @UseGuards(AdminGuard)
     @ApiParam({
         name: "name",
         enum: EventLayerName,
     })
-    @UseGuards(AdminGuard)
     @ApiBearerAuth()
+    @ApiTags("event-layer")
     async createLayer(
         @Param("id") id: EventId,
         @Param("name") layerName: EventLayerName,
@@ -195,13 +202,14 @@ export default class EventController {
         return this.eventLayerService.save(id, layerName, eventLayerEntity);
     }
 
-    @Delete(":id/layer/:name")
+    @Delete(":id/layers/:name")
+    @UseGuards(AdminGuard)
     @ApiParam({
         name: "name",
         enum: EventLayerName,
     })
-    @UseGuards(AdminGuard)
     @ApiBearerAuth()
+    @ApiTags("event-layer")
     removeLayer(
         @Param("id") id: EventId,
         @Param("name") layerName: EventLayerName,
