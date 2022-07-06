@@ -23,7 +23,7 @@ export default class EventLayerEntity extends BaseEntity {
     @IsEnum(EventLayerName)
     name!: EventLayerName;
 
-    @OneToOne(() => EventEntity)
+    @OneToOne(() => EventEntity, { onDelete: "CASCADE" })
     @JoinColumn()
     event!: EventEntity;
 
