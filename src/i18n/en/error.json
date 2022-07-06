@@ -1,4 +1,5 @@
 {
     "NOT_FOUND": "{entity} not found",
-    "NOT_UNIQUE": "{field} must be unique"
+    "NOT_UNIQUE": "{entity} must be unique",
+    "NOT_REQUIRED": "{entity} not required"
 }

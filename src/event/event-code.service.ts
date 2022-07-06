@@ -12,7 +12,7 @@ import EventCodeEntity, {
 
 @Injectable()
 export default class EventCodeService {
-    private eventCodeNotFound = "Event code not found";
+    private eventCodeNotFound = "Event Code not found";
 
     private defaultSearch = "";
 

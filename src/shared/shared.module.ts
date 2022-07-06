@@ -3,8 +3,8 @@ import { I18nModule } from "nestjs-i18n";
 import { LoggerModule } from "nestjs-pino";
 import { APP_INTERCEPTOR, APP_FILTER } from "@nestjs/core";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import loggerConfig from "src/config/logger.config";
-import i18nConfig from "src/config/i18n.config";
+import loggerConfig from "../config/logger.config";
+import i18nConfig from "../config/i18n.config";
 import HttpResponseInterceptor from "./http-response.interceptor";
 import HttpExceptionFilter from "./http-exception.filter";
 
