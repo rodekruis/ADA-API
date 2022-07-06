@@ -3,7 +3,7 @@ import {
     PrimaryGeneratedColumn,
     Column,
     JoinColumn,
-    OneToOne,
+    ManyToOne,
 } from "typeorm";
 import { IsEnum, IsJSON, IsNotEmpty, IsString } from "class-validator";
 import BaseEntity, { baseEntityFieldsNames } from "../shared/base.entity";
@@ -23,7 +23,7 @@ export default class EventLayerEntity extends BaseEntity {
     @IsEnum(EventLayerName)
     name!: EventLayerName;
 
-    @OneToOne(() => EventEntity, { onDelete: "CASCADE" })
+    @ManyToOne(() => EventEntity, { onDelete: "CASCADE" })
     @JoinColumn()
     event!: EventEntity;
 
