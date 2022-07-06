@@ -38,6 +38,23 @@ export default class EventController {
         private readonly authService: AuthService,
     ) {}
 
+    @Get()
+    @ApiQuery({
+        name: "search",
+        type: String,
+        required: false,
+    })
+    @ApiQuery({
+        name: "sort",
+        enum: getSortEntityFieldNames(sortEventEntityFieldsNames),
+        required: false,
+        example: defaultSort,
+    })
+    @ApiTags("event")
+    findAll(@Query("search") search: string, @Query("sort") sort: string) {
+        return this.eventService.find(search, sort);
+    }
+
     @Post()
     @UseGuards(AdminGuard)
     @ApiBearerAuth()
@@ -66,23 +83,6 @@ export default class EventController {
         }
 
         return eventEntity;
-    }
-
-    @Get()
-    @ApiQuery({
-        name: "search",
-        type: String,
-        required: false,
-    })
-    @ApiQuery({
-        name: "sort",
-        enum: getSortEntityFieldNames(sortEventEntityFieldsNames),
-        required: false,
-        example: defaultSort,
-    })
-    @ApiTags("event")
-    findAll(@Query("search") search: string, @Query("sort") sort: string) {
-        return this.eventService.find(search, sort);
     }
 
     @Get(":id")
