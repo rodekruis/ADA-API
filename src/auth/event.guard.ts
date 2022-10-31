@@ -24,6 +24,7 @@ export default class EventGuard implements CanActivate {
                 if (!token) throw new UnauthorizedException();
             } else throw new UnauthorizedException();
         }
-        return this.authService.verifyEventAccess(eventId, token);
+        const isAdmin = token === process.env.ADMIN_CODE;
+        return isAdmin || this.authService.verifyEventAccess(eventId, token);
     }
 }
