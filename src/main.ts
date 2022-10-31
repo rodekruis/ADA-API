@@ -11,12 +11,16 @@ import {
     SwaggerCustomOptions,
 } from "@nestjs/swagger";
 import { Logger } from "nestjs-pino";
+import { urlencoded, json } from "express";
+import expressConfig from "./config/express.config";
 import AppModule from "./app.module";
 
 async function bootstrap() {
     const app = await NestFactory.create(AppModule, { bufferLogs: true });
 
     app.useLogger(app.get(Logger));
+    app.use(json(expressConfig.json));
+    app.use(urlencoded(expressConfig.urlencoded));
 
     const validationPipeOptions: ValidationPipeOptions = {
         forbidUnknownValues: true, // https://github.com/typestack/class-validator#passing-options
