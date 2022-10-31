@@ -157,6 +157,14 @@ export default class EventController {
         return this.authService.grantEventAccess(id, accessEventDto.code);
     }
 
+    @Get(":id/layers")
+    @UseGuards(EventGuard)
+    @ApiBearerAuth()
+    @ApiTags("event-layer")
+    readLayers(@Param("id") id: EventId) {
+        return this.eventLayerService.find(id);
+    }
+
     @Get(":id/layers/:name")
     @UseGuards(EventGuard)
     @ApiParam({
