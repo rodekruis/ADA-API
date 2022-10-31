@@ -3,6 +3,7 @@ import {
     IsDateString,
     IsEnum,
     IsInt,
+    IsJSON,
     IsNotEmpty,
     IsOptional,
     IsString,
@@ -26,6 +27,13 @@ export default class CreateEventDto {
     @IsString()
     @IsNotEmpty()
     readonly country!: string;
+
+    @ApiProperty({
+        example: '{"type":"Point","coordinates":[18.0290545,-63.2026324]}',
+    })
+    @IsJSON()
+    @IsNotEmpty()
+    readonly geometry!: string;
 
     @ApiProperty({ example: "2022-12-31" })
     @IsDateString()
