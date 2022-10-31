@@ -64,6 +64,7 @@ export default class EventController {
         eventEntity.name = createEventDto.name;
         eventEntity.type = createEventDto.type;
         eventEntity.country = createEventDto.country;
+        eventEntity.geometry = createEventDto.geometry;
         eventEntity.startDate = createEventDto.startDate;
         eventEntity.endDate = createEventDto.endDate;
         eventEntity.access = createEventDto.access;
@@ -121,6 +122,8 @@ export default class EventController {
         if (updateEventDto.type) eventEntity.type = updateEventDto.type;
         if (updateEventDto.country)
             eventEntity.country = updateEventDto.country;
+        if (updateEventDto.geometry)
+            eventEntity.geometry = updateEventDto.geometry;
         if (updateEventDto.startDate)
             eventEntity.startDate = updateEventDto.startDate;
         if (updateEventDto.endDate)

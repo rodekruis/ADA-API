@@ -7,6 +7,7 @@ import {
     Max,
     Min,
     IsEnum,
+    IsJSON,
 } from "class-validator";
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 import BaseEntity, { baseEntityFieldsNames } from "../shared/base.entity";
@@ -31,6 +32,11 @@ export default class EventEntity extends BaseEntity {
     @IsString()
     @IsNotEmpty()
     country!: string;
+
+    @Column({ type: "json" })
+    @IsJSON()
+    @IsNotEmpty()
+    geometry!: string;
 
     @Column()
     @IsDateString()
@@ -72,6 +78,7 @@ export const eventEntityFieldsNames: EventEntityFieldsName[] = [
     "name",
     "type",
     "country",
+    "geometry",
     "startDate",
     "endDate",
     "access",
