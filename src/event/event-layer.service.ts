@@ -5,6 +5,7 @@ import { Repository, FindOneOptions, FindManyOptions } from "typeorm";
 import EventLayerName from "./event-layer-name.enum";
 import EventLayerEntity from "./event-layer.entity";
 import { EventId } from "./event.entity";
+import { baseEntityFieldsNames } from "../shared/base.entity";
 
 @Injectable()
 export default class EventLayerService {
@@ -26,14 +27,21 @@ export default class EventLayerService {
 
     find = (
         eventId: EventId,
-        layerName: EventLayerName,
+        layerName?: EventLayerName,
     ): Promise<EventLayerEntity[]> => {
         const findManyOptions: FindManyOptions = {
-            where: {
-                event: eventId,
-                name: layerName,
-            },
+            where: { event: eventId },
         };
+
+        if (layerName) {
+            findManyOptions.where.name = layerName;
+        } else {
+            findManyOptions.select = [
+                "name",
+                "information",
+                ...baseEntityFieldsNames,
+            ];
+        }
 
         return this.eventLayersRepository.find(findManyOptions);
     };
