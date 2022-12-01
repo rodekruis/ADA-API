@@ -151,7 +151,6 @@ export default class EventController {
     }
 
     @Post(":id/code")
-    @ApiBearerAuth()
     @ApiTags("event-code")
     code(@Param("id") id: EventId, @Body() accessEventDto: AccessEventDto) {
         return this.authService.grantEventAccess(id, accessEventDto.code);

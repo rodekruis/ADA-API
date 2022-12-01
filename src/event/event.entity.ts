@@ -7,7 +7,7 @@ import {
     Max,
     Min,
     IsEnum,
-    IsJSON,
+    IsNumber,
 } from "class-validator";
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 import BaseEntity, { baseEntityFieldsNames } from "../shared/base.entity";
@@ -24,7 +24,7 @@ export default class EventEntity extends BaseEntity {
     @IsNotEmpty()
     name!: string;
 
-    @Column({ type: "enum", enum: EventType, default: EventType.Hurricane })
+    @Column({ type: "enum", enum: EventType, default: EventType.hurricane })
     @IsEnum(EventType)
     type!: EventType;
 
@@ -34,9 +34,8 @@ export default class EventEntity extends BaseEntity {
     country!: string;
 
     @Column({ type: "json" })
-    @IsJSON()
     @IsNotEmpty()
-    geometry!: string;
+    geometry!: GeoJSON.Point;
 
     @Column()
     @IsDateString()
@@ -47,7 +46,7 @@ export default class EventEntity extends BaseEntity {
     @IsDateString()
     endDate?: Date;
 
-    @Column({ type: "enum", enum: EventAccess, default: EventAccess.Public })
+    @Column({ type: "enum", enum: EventAccess, default: EventAccess.public })
     @IsEnum(EventAccess)
     access!: EventAccess;
 
@@ -62,9 +61,9 @@ export default class EventEntity extends BaseEntity {
     buildingsDamaged!: number;
 
     @Column()
-    @IsInt()
+    @IsNumber()
     @Min(0)
-    @Max(100)
+    @Max(1)
     buildingsDamagedPercentage!: number;
 
     @Column()

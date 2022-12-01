@@ -3,8 +3,8 @@ import {
     IsDateString,
     IsEnum,
     IsInt,
-    IsJSON,
     IsNotEmpty,
+    IsNumber,
     IsOptional,
     IsString,
     Max,
@@ -19,7 +19,7 @@ export default class CreateEventDto {
     @IsNotEmpty()
     readonly name!: string;
 
-    @ApiProperty({ example: EventType.Hurricane, enum: EventType })
+    @ApiProperty({ example: EventType.hurricane, enum: EventType })
     @IsEnum(EventType)
     readonly type!: EventType;
 
@@ -29,11 +29,10 @@ export default class CreateEventDto {
     readonly country!: string;
 
     @ApiProperty({
-        example: '{"type":"Point","coordinates":[18.0290545,-63.2026324]}',
+        example: { type: "Point", coordinates: [18.0291075, -63.0591] },
     })
-    @IsJSON()
     @IsNotEmpty()
-    readonly geometry!: string;
+    readonly geometry!: GeoJSON.Point;
 
     @ApiProperty({ example: "2022-12-31" })
     @IsDateString()
@@ -44,7 +43,7 @@ export default class CreateEventDto {
     @IsDateString()
     readonly endDate?: Date;
 
-    @ApiProperty({ example: EventAccess.Public, enum: EventAccess })
+    @ApiProperty({ example: EventAccess.public, enum: EventAccess })
     @IsEnum(EventAccess)
     readonly access!: EventAccess;
 
@@ -59,9 +58,9 @@ export default class CreateEventDto {
     readonly buildingsDamaged!: number;
 
     @ApiProperty({ example: 0 })
-    @IsInt()
+    @IsNumber()
     @Min(0)
-    @Max(100)
+    @Max(1)
     readonly buildingsDamagedPercentage!: number;
 
     @ApiProperty({ example: "Province,District,Municipality" })

@@ -1,9 +1,9 @@
 enum EventType {
-    Hurricane = "Hurricane",
-    Eruption = "Eruption",
-    Storm = "Storm",
-    Explosion = "Explosion",
-    Typhoon = "Typhoon",
+    typhoon = "Typhoon",
+    hurricane = "Hurricane",
+    storm = "Storm",
+    explosion = "Explosion",
+    eruption = "Eruption",
 }
 
 export default EventType;

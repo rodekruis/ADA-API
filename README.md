@@ -50,7 +50,7 @@ Protected APIs are accessible by providing a [Bearer](https://swagger.io/docs/sp
     -   Required to Create Event, Update Event, Delete Event, Create Event Layer, and Delete Event Layer.
 -   Event read access is granted by using the response from [POST /events/{id}/code](http://localhost:3000/swagger/#/event-code/EventController_code) as token.
     -   POST body should send the `code` set for event with id {id}.
-    -   Required to Read Private Event, and Read Private Event Layer.
+    -   Required to Read Restricted Event, and Read Restricted Event Layer.
 
 ## License
 
