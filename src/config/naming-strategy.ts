@@ -1,12 +1,12 @@
-const { SnakeNamingStrategy } = require("typeorm-naming-strategies");
-const { snakeCase } = require("typeorm/util/StringUtils");
+import { SnakeNamingStrategy } from "typeorm-naming-strategies";
+import { snakeCase } from "typeorm/util/StringUtils";
 
 class NamingStrategy extends SnakeNamingStrategy {
-    tableName = (tableName, customName) => {
+    tableName = (tableName: string, customName: string) => {
         const tableNameSplit = snakeCase(tableName).split("_");
         tableNameSplit.pop();
         return customName || `${tableNameSplit.join("_")}s`;
     };
 }
 
-module.exports = NamingStrategy;
+export default NamingStrategy;

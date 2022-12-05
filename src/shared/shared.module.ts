@@ -5,6 +5,7 @@ import { APP_INTERCEPTOR, APP_FILTER } from "@nestjs/core";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import loggerConfig from "../config/logger.config";
 import i18nConfig from "../config/i18n.config";
+import { ormConfig } from "../config/orm.config";
 import HttpResponseInterceptor from "./http-response.interceptor";
 import HttpExceptionFilter from "./http-exception.filter";
 
@@ -12,7 +13,7 @@ import HttpExceptionFilter from "./http-exception.filter";
     imports: [
         I18nModule.forRoot(i18nConfig),
         LoggerModule.forRoot(loggerConfig),
-        TypeOrmModule.forRoot(),
+        TypeOrmModule.forRoot(ormConfig),
     ],
     controllers: [],
     providers: [

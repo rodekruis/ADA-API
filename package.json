@@ -19,8 +19,8 @@
     "test:cov": "jest --config ./jest.json --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./e2e/jest.json",
-    "migration:generate": "npx typeorm migration:generate -o -n",
-    "migration:run": "npx typeorm migration:run"
+    "migration:generate": "npx typeorm -o -d dist/config/orm.config.js migration:generate",
+    "migration:run": "npx typeorm migration:run -d dist/config/orm.config.js"
   },
   "dependencies": {
     "@nestjs/common": "^8.0.6",
@@ -28,7 +28,7 @@
     "@nestjs/jwt": "^8.0.1",
     "@nestjs/platform-express": "^8.0.6",
     "@nestjs/swagger": "^5.0.9",
-    "@nestjs/typeorm": "^8.0.3",
+    "@nestjs/typeorm": "^9.0.1",
     "@types/geojson": "^7946.0.10",
     "argon2": "^0.28.3",
     "class-transformer": "^0.4.0",
@@ -37,13 +37,14 @@
     "nestjs-i18n": "^8.2.2",
     "nestjs-pino": "^2.5.0",
     "pino": "^7.6.4",
+    "pino-http": "^8.2.1",
     "pino-http-print": "^3.1.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.3.0",
     "statuses": "^2.0.1",
     "swagger-ui-express": "^4.1.6",
-    "typeorm": "^0.2.41",
+    "typeorm": "^0.3.10",
     "typeorm-naming-strategies": "^2.0.0"
   },
   "devDependencies": {
