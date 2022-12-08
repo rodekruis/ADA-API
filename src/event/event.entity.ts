@@ -60,7 +60,7 @@ export default class EventEntity extends BaseEntity {
     @Min(0)
     buildingsDamaged!: number;
 
-    @Column()
+    @Column("float")
     @IsNumber()
     @Min(0)
     @Max(1)
