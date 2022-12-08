@@ -5,6 +5,8 @@ import {
     CreateDateColumn,
     UpdateDateColumn,
     VersionColumn,
+    BeforeInsert,
+    BeforeUpdate,
 } from "typeorm";
 
 @Entity()
@@ -16,6 +18,16 @@ export default abstract class BaseEntity extends TypeOrmBaseEntity {
     @UpdateDateColumn() updatedAt!: Date;
 
     @VersionColumn() version!: number;
+
+    @BeforeInsert()
+    @BeforeUpdate()
+    async removeBaseFields() {
+        // the database will populate these fields correctly
+        // if these fields are specified the values override the database
+        baseEntityFieldsNames.forEach(
+            (baseEntityFieldsName) => delete this[baseEntityFieldsName],
+        );
+    }
 }
 
 type BaseEntityFieldsName = NonNullable<keyof BaseEntity>;

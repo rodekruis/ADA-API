@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { I18nRequestScopeService } from "nestjs-i18n";
-import { FindManyOptions, FindOneOptions, Repository } from "typeorm";
+import { Equal, FindManyOptions, FindOneOptions, Repository } from "typeorm";
 import { getOrderClause } from "../shared/sort";
 import getWhereClause from "../shared/search";
 import EventEntity, {
@@ -78,7 +78,7 @@ export default class EventService {
         id: EventId,
         eventEntity: EventEntity,
     ): Promise<EventEntity> => {
-        await this.eventsRepository.update(id, eventEntity);
+        await this.eventsRepository.update({ id: Equal(id) }, eventEntity);
 
         return this.findOne(id);
     };

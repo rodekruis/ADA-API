@@ -5,7 +5,7 @@ import {
     JoinColumn,
     ManyToOne,
 } from "typeorm";
-import { IsEnum, IsJSON, IsNotEmpty, IsString } from "class-validator";
+import { IsEnum, IsNotEmpty, IsString } from "class-validator";
 import BaseEntity, { baseEntityFieldsNames } from "../shared/base.entity";
 import EventEntity from "./event.entity";
 import EventLayerName from "./event-layer-name.enum";
@@ -18,7 +18,7 @@ export default class EventLayerEntity extends BaseEntity {
     @Column({
         type: "enum",
         enum: EventLayerName,
-        default: EventLayerName.Buildings,
+        default: EventLayerName.buildings,
     })
     @IsEnum(EventLayerName)
     name!: EventLayerName;
@@ -28,9 +28,8 @@ export default class EventLayerEntity extends BaseEntity {
     event!: EventEntity;
 
     @Column({ type: "json" })
-    @IsJSON()
     @IsNotEmpty()
-    geojson!: string;
+    geojson!: GeoJSON.FeatureCollection;
 
     @Column({ type: "text" })
     @IsString()

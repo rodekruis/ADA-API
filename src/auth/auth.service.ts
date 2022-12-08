@@ -5,7 +5,7 @@ import {
 } from "@nestjs/common";
 import { JwtService } from "@nestjs/jwt";
 import { InjectRepository } from "@nestjs/typeorm";
-import { Repository } from "typeorm";
+import { Equal, Repository } from "typeorm";
 import argon2 from "argon2";
 import { I18nRequestScopeService } from "nestjs-i18n";
 import EventCodeEntity from "../event/event-code.entity";
@@ -46,7 +46,7 @@ export default class AuthService {
         if (await this.isPublicEvent(eventId))
             throw new BadRequestException([this.eventCodeNotRequired]);
         const eventCode = await this.eventCodesRepository.findOne({
-            where: { event: eventId },
+            where: { event: { id: Equal(eventId) } },
         });
         if (!eventCode) throw new UnauthorizedException();
         try {
@@ -63,27 +63,30 @@ export default class AuthService {
         if (!isPublicEvent && !token) throw new UnauthorizedException();
         return (
             isPublicEvent ||
-            (!!token && (await this.isPrivateEventTokenValid(eventId, token)))
+            (!!token &&
+                (await this.isRestrictedEventTokenValid(eventId, token)))
         );
     }
 
     async isPublicEvent(eventId: EventId) {
-        const eventEntity = await this.eventsRepository.findOne(eventId);
+        const eventEntity = await this.eventsRepository.findOne({
+            where: { id: Equal(eventId) },
+        });
         if (!eventEntity) throw new UnauthorizedException();
-        return EventAccess.Public === eventEntity.access;
+        return EventAccess.public === eventEntity.access;
     }
 
-    async isPrivateEventTokenValid(eventId: EventId, token: string) {
+    async isRestrictedEventTokenValid(eventId: EventId, token: string) {
         try {
             const decodedToken = this.jwtService.verify(token) as JwtToken;
             const eventAccess = eventId === decodedToken.eventId;
             if (eventAccess) {
-                const eventEntity = await this.eventsRepository.findOne(
-                    eventId,
-                );
+                const eventEntity = await this.eventsRepository.findOne({
+                    where: { id: Equal(eventId) },
+                });
                 if (!eventEntity) throw new UnauthorizedException();
                 await this.eventCodesRepository.update(
-                    { event: eventEntity },
+                    { event: Equal(eventId) },
                     { accessedAt: new Date() },
                 );
             }
