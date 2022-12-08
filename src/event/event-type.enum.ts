@@ -1,9 +1,13 @@
 enum EventType {
-    typhoon = "Typhoon",
-    hurricane = "Hurricane",
-    storm = "Storm",
-    explosion = "Explosion",
+    tropicalCyclone = "Tropical Cyclone",
+    conflict = "Conflict",
     eruption = "Eruption",
+    earthquake = "Earthquake",
+    fire = "Fire",
+    flood = "Flood",
+    heavyRain = "Heavy Rain",
+    landslide = "Landslide",
+    tsunami = "Tsunami",
 }
 
 export default EventType;

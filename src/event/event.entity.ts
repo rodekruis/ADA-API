@@ -24,7 +24,7 @@ export default class EventEntity extends BaseEntity {
     @IsNotEmpty()
     name!: string;
 
-    @Column({ type: "enum", enum: EventType, default: EventType.hurricane })
+    @Column({ type: "enum", enum: EventType, default: EventType.earthquake })
     @IsEnum(EventType)
     type!: EventType;
 

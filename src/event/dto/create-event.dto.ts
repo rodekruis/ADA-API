@@ -19,7 +19,7 @@ export default class CreateEventDto {
     @IsNotEmpty()
     readonly name!: string;
 
-    @ApiProperty({ example: EventType.hurricane, enum: EventType })
+    @ApiProperty({ example: EventType.tropicalCyclone, enum: EventType })
     @IsEnum(EventType)
     readonly type!: EventType;
 
