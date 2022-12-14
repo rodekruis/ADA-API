@@ -29,7 +29,7 @@ COPY package*.json ./
 
 RUN npm ci
 
-COPY . .
+COPY --chown=node:node . .
 
 COPY --from=builder /usr/src/app/dist ./dist
 

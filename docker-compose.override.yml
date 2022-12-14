@@ -9,10 +9,5 @@ services:
         ports:
             - 3306:3306
 
-    nginx:
-        image: nginx
-        volumes:
-            - ./nginx/http.conf:/etc/nginx/conf.d/default.conf
-
 volumes:
     node-modules:
