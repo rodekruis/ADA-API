@@ -4,13 +4,15 @@ function getWhereClause<T>(
     search: string,
     searchEntityFieldsNames: NonNullable<keyof T>[],
 ) {
+    let whereClause;
     if (search) {
-        return searchEntityFieldsNames.map(
+        whereClause = searchEntityFieldsNames.map(
             (fieldName: NonNullable<keyof T>) => {
                 return { [fieldName]: ILike(`%${search}%`) };
             },
         );
     }
+    return whereClause;
 }
 
 export default getWhereClause;

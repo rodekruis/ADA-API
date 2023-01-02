@@ -1,4 +1,3 @@
-import { JwtModule } from "@nestjs/jwt";
 import { Test, TestingModule } from "@nestjs/testing";
 import { getRepositoryToken } from "@nestjs/typeorm";
 import { I18nRequestScopeService } from "nestjs-i18n";

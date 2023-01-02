@@ -9,6 +9,15 @@ import {
     BeforeUpdate,
 } from "typeorm";
 
+type BaseEntityFieldsName = NonNullable<keyof BaseEntity>;
+
+export const baseEntityFieldsNames: BaseEntityFieldsName[] = [
+    "createdAt",
+    "updatedAt",
+    "version",
+    "id",
+];
+
 @Entity()
 export default abstract class BaseEntity extends TypeOrmBaseEntity {
     @PrimaryGeneratedColumn("uuid") id!: string;
@@ -29,12 +38,3 @@ export default abstract class BaseEntity extends TypeOrmBaseEntity {
         );
     }
 }
-
-type BaseEntityFieldsName = NonNullable<keyof BaseEntity>;
-
-export const baseEntityFieldsNames: BaseEntityFieldsName[] = [
-    "createdAt",
-    "updatedAt",
-    "version",
-    "id",
-];
