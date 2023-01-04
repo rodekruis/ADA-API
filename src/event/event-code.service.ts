@@ -1,22 +1,22 @@
-import { Injectable, NotFoundException } from "@nestjs/common";
-import { InjectRepository } from "@nestjs/typeorm";
-import { I18nRequestScopeService } from "nestjs-i18n";
-import { Repository, FindManyOptions, FindOneOptions } from "typeorm";
-import getWhereClause from "../shared/search";
-import { getOrderClause } from "../shared/sort";
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { I18nRequestScopeService } from 'nestjs-i18n';
+import { Repository, FindManyOptions, FindOneOptions } from 'typeorm';
+import getWhereClause from '../shared/search';
+import { getOrderClause } from '../shared/sort';
 import EventCodeEntity, {
     searchEventCodeEntityFieldsNames,
     sortEventCodeEntityFieldsNames,
     EventCodeId,
-} from "./event-code.entity";
+} from './event-code.entity';
 
 @Injectable()
 export default class EventCodeService {
-    private eventCodeNotFound = "Event Code not found";
+    private eventCodeNotFound = 'Event Code not found';
 
-    private defaultSearch = "";
+    private defaultSearch = '';
 
-    private defaultSort = "accessedAt";
+    private defaultSort = 'accessedAt';
 
     constructor(
         @InjectRepository(EventCodeEntity)
@@ -27,8 +27,8 @@ export default class EventCodeService {
     }
 
     private prepareTranslations = async () => {
-        this.eventCodeNotFound = await this.i18n.translate("error.NOT_FOUND", {
-            args: { entity: await this.i18n.translate("common.EVENT_CODE") },
+        this.eventCodeNotFound = await this.i18n.translate('error.NOT_FOUND', {
+            args: { entity: await this.i18n.translate('common.EVENT_CODE') },
         });
     };
 

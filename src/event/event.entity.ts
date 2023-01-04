@@ -8,15 +8,15 @@ import {
     Min,
     IsEnum,
     IsNumber,
-} from "class-validator";
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
-import BaseEntity, { baseEntityFieldsNames } from "../shared/base.entity";
-import EventAccess from "./event-access.enum";
-import EventType from "./event-type.enum";
+} from 'class-validator';
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import BaseEntity, { baseEntityFieldsNames } from '../shared/base.entity';
+import EventAccess from './event-access.enum';
+import EventType from './event-type.enum';
 
 @Entity()
 export default class EventEntity extends BaseEntity {
-    @PrimaryGeneratedColumn("uuid")
+    @PrimaryGeneratedColumn('uuid')
     id!: EventId;
 
     @Column()
@@ -24,7 +24,7 @@ export default class EventEntity extends BaseEntity {
     @IsNotEmpty()
     name!: string;
 
-    @Column({ type: "enum", enum: EventType, default: EventType.earthquake })
+    @Column({ type: 'enum', enum: EventType, default: EventType.earthquake })
     @IsEnum(EventType)
     type!: EventType;
 
@@ -33,7 +33,7 @@ export default class EventEntity extends BaseEntity {
     @IsNotEmpty()
     country!: string;
 
-    @Column({ type: "json" })
+    @Column({ type: 'json' })
     @IsNotEmpty()
     geometry!: GeoJSON.Point;
 
@@ -46,7 +46,7 @@ export default class EventEntity extends BaseEntity {
     @IsDateString()
     endDate?: Date;
 
-    @Column({ type: "enum", enum: EventAccess, default: EventAccess.public })
+    @Column({ type: 'enum', enum: EventAccess, default: EventAccess.public })
     @IsEnum(EventAccess)
     access!: EventAccess;
 
@@ -60,7 +60,7 @@ export default class EventEntity extends BaseEntity {
     @Min(0)
     buildingsDamaged!: number;
 
-    @Column("float")
+    @Column('float')
     @IsNumber()
     @Min(0)
     @Max(1)
@@ -74,40 +74,40 @@ export default class EventEntity extends BaseEntity {
 type EventEntityFieldsName = NonNullable<keyof EventEntity>;
 
 export const eventEntityFieldsNames: EventEntityFieldsName[] = [
-    "name",
-    "type",
-    "country",
-    "geometry",
-    "startDate",
-    "endDate",
-    "access",
+    'name',
+    'type',
+    'country',
+    'geometry',
+    'startDate',
+    'endDate',
+    'access',
     ...baseEntityFieldsNames,
 ];
 
 export const sortEventEntityFieldsNames: EventEntityFieldsName[] = [
-    "name",
-    "type",
-    "country",
-    "startDate",
-    "endDate",
-    "access",
-    "peopleAffected",
-    "buildingsDamaged",
-    "buildingsDamagedPercentage",
+    'name',
+    'type',
+    'country',
+    'startDate',
+    'endDate',
+    'access',
+    'peopleAffected',
+    'buildingsDamaged',
+    'buildingsDamagedPercentage',
     ...baseEntityFieldsNames,
 ];
 
 export const searchEventEntityFieldsNames: EventEntityFieldsName[] = [
-    "id",
-    "name",
-    "type",
-    "country",
-    "startDate",
-    "endDate",
-    "access",
-    "peopleAffected",
-    "buildingsDamaged",
-    "buildingsDamagedPercentage",
+    'id',
+    'name',
+    'type',
+    'country',
+    'startDate',
+    'endDate',
+    'access',
+    'peopleAffected',
+    'buildingsDamaged',
+    'buildingsDamagedPercentage',
 ];
 
-export type EventId = string & { __brand: "EventId" };
+export type EventId = string & { __brand: 'EventId' };

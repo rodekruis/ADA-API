@@ -7,11 +7,20 @@ import {
     VersionColumn,
     BeforeInsert,
     BeforeUpdate,
-} from "typeorm";
+} from 'typeorm';
+
+type BaseEntityFieldsName = NonNullable<keyof BaseEntity>;
+
+export const baseEntityFieldsNames: BaseEntityFieldsName[] = [
+    'createdAt',
+    'updatedAt',
+    'version',
+    'id',
+];
 
 @Entity()
 export default abstract class BaseEntity extends TypeOrmBaseEntity {
-    @PrimaryGeneratedColumn("uuid") id!: string;
+    @PrimaryGeneratedColumn('uuid') id!: string;
 
     @CreateDateColumn() createdAt!: Date;
 
@@ -29,12 +38,3 @@ export default abstract class BaseEntity extends TypeOrmBaseEntity {
         );
     }
 }
-
-type BaseEntityFieldsName = NonNullable<keyof BaseEntity>;
-
-export const baseEntityFieldsNames: BaseEntityFieldsName[] = [
-    "createdAt",
-    "updatedAt",
-    "version",
-    "id",
-];

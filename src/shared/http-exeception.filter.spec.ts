@@ -4,24 +4,24 @@ import {
     HttpStatus,
     NotFoundException,
     UnauthorizedException,
-} from "@nestjs/common";
-import HttpExceptionFilter from "./http-exception.filter";
+} from '@nestjs/common';
+import HttpExceptionFilter from './http-exception.filter';
 
-describe("HttpExceptionFilter", () => {
+describe('HttpExceptionFilter', () => {
     let httpExceptionFilter: HttpExceptionFilter;
     const errors = {
-        email: ["Email is required"],
+        email: ['Email is required'],
     };
 
     beforeEach(() => {
         httpExceptionFilter = new HttpExceptionFilter();
     });
 
-    it("should be defined", () => {
+    it('should be defined', () => {
         expect(httpExceptionFilter).toBeDefined();
     });
 
-    describe("catch", () => {
+    describe('catch', () => {
         let mockJson: jest.Mock;
         let mockStatus: jest.Mock;
         let mockGetResponse: jest.Mock;
@@ -56,11 +56,11 @@ describe("HttpExceptionFilter", () => {
 
             createHttpExceptionMessageSpy = jest.spyOn(
                 httpExceptionFilter,
-                "createHttpExceptionMessage",
+                'createHttpExceptionMessage',
             );
         });
 
-        it("should handle http exception with no argument", () => {
+        it('should handle http exception with no argument', () => {
             const statusCode = HttpStatus.NOT_FOUND;
             const message = httpExceptionFilter.getStatusMessage(statusCode);
             const exception = { message, statusCode };
@@ -86,9 +86,9 @@ describe("HttpExceptionFilter", () => {
             expect(mockJson).toBeCalledWith(httpException);
         });
 
-        it("should handle http exception with string argument", () => {
+        it('should handle http exception with string argument', () => {
             const statusCode = HttpStatus.BAD_REQUEST;
-            const message = "Bad Request Http Exception Message";
+            const message = 'Bad Request Http Exception Message';
             const error = httpExceptionFilter.getStatusMessage(statusCode);
             const exception = { error, message, statusCode };
             const httpException = { message };
@@ -113,9 +113,9 @@ describe("HttpExceptionFilter", () => {
             expect(mockJson).toBeCalledWith(httpException);
         });
 
-        it("should handle http exception with message key and without errors key in error object as argument", () => {
+        it('should handle http exception with message key and without errors key in error object as argument', () => {
             const statusCode = HttpStatus.UNAUTHORIZED;
-            const message = "Unauthorized Http Exception Message";
+            const message = 'Unauthorized Http Exception Message';
             const errorObject = { message };
             const error = httpExceptionFilter.getStatusMessage(statusCode);
             const httpException = { message };
@@ -140,9 +140,9 @@ describe("HttpExceptionFilter", () => {
             expect(mockJson).toBeCalledWith(httpException);
         });
 
-        it("should handle http exception with message key and with errors key in error object as argument", () => {
+        it('should handle http exception with message key and with errors key in error object as argument', () => {
             const statusCode = HttpStatus.UNAUTHORIZED;
-            const message = "Unauthorized Http Exception Message";
+            const message = 'Unauthorized Http Exception Message';
             const errorObject = { message, errors };
             const error = httpExceptionFilter.getStatusMessage(statusCode);
             const httpException = { message, errors };
@@ -167,7 +167,7 @@ describe("HttpExceptionFilter", () => {
             expect(mockJson).toBeCalledWith(httpException);
         });
 
-        it("should handle http exception without message key and with errors key in error object as argument", () => {
+        it('should handle http exception without message key and with errors key in error object as argument', () => {
             const statusCode = HttpStatus.UNAUTHORIZED;
             const errorObject = { errors };
             const error = httpExceptionFilter.getStatusMessage(statusCode);
@@ -194,10 +194,10 @@ describe("HttpExceptionFilter", () => {
         });
     });
 
-    describe("createHttpExceptionMessage", () => {
-        it("should return http exception for exception with message string and without errors object", () => {
+    describe('createHttpExceptionMessage', () => {
+        it('should return http exception for exception with message string and without errors object', () => {
             const statusCode = HttpStatus.BAD_REQUEST;
-            const message = "Bad Request Http Exception Message";
+            const message = 'Bad Request Http Exception Message';
             const error = httpExceptionFilter.getStatusMessage(statusCode);
             const exception = { error, message, statusCode };
             const httpException = { message };
@@ -211,7 +211,7 @@ describe("HttpExceptionFilter", () => {
             expect(httpExceptionMessage).toStrictEqual(httpException);
         });
 
-        it("should return http exception for exception without message string and without errors object", () => {
+        it('should return http exception for exception without message string and without errors object', () => {
             const statusCode = HttpStatus.BAD_REQUEST;
             const error = httpExceptionFilter.getStatusMessage(statusCode);
             const exception = { error, statusCode };
@@ -226,9 +226,9 @@ describe("HttpExceptionFilter", () => {
             expect(httpExceptionMessage).toStrictEqual(httpException);
         });
 
-        it("should return http exception for exception with message string and with errors object", () => {
+        it('should return http exception for exception with message string and with errors object', () => {
             const statusCode = HttpStatus.BAD_REQUEST;
-            const message = "Bad Request Http Exception Message";
+            const message = 'Bad Request Http Exception Message';
             const error = httpExceptionFilter.getStatusMessage(statusCode);
             const exception = { error, message, statusCode, errors };
             const httpException = { message, errors };
@@ -242,7 +242,7 @@ describe("HttpExceptionFilter", () => {
             expect(httpExceptionMessage).toStrictEqual(httpException);
         });
 
-        it("should return http exception for exception without message string and with errors object", () => {
+        it('should return http exception for exception without message string and with errors object', () => {
             const statusCode = HttpStatus.BAD_REQUEST;
             const error = httpExceptionFilter.getStatusMessage(statusCode);
             const exception = { error, statusCode, errors };
@@ -257,10 +257,10 @@ describe("HttpExceptionFilter", () => {
             expect(httpExceptionMessage).toStrictEqual(httpException);
         });
 
-        it("should return http exception for string as exception", () => {
+        it('should return http exception for string as exception', () => {
             const statusCode = HttpStatus.BAD_REQUEST;
             const error = httpExceptionFilter.getStatusMessage(statusCode);
-            const message = "string";
+            const message = 'string';
             const httpException = { message };
 
             const httpExceptionMessage =
@@ -270,16 +270,16 @@ describe("HttpExceptionFilter", () => {
         });
     });
 
-    describe("createHttpExceptionMessage", () => {
-        it("should return http exception message for matching http status code", () => {
+    describe('createHttpExceptionMessage', () => {
+        it('should return http exception message for matching http status code', () => {
             const statusCode = HttpStatus.BAD_REQUEST;
             const error = httpExceptionFilter.getStatusMessage(statusCode);
-            const statusMessage = "Bad Request";
+            const statusMessage = 'Bad Request';
 
             expect(error).toBe(statusMessage);
         });
 
-        it("should return default status message for invalid http status code", () => {
+        it('should return default status message for invalid http status code', () => {
             const statusCode = -1;
             const error = httpExceptionFilter.getStatusMessage(statusCode);
             const statusMessage = httpExceptionFilter.defaultStatusMessage;

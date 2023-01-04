@@ -1,4 +1,12 @@
 {
-    "tabWidth": 4,
-    "trailingComma": "all"
+  "tabWidth": 4,
+  "trailingComma": "all",
+  "overrides": [
+    {
+      "files": ["*.json", "*.yml", ".prettierrc"],
+      "options": {
+        "tabWidth": 2
+      }
+    }
+  ]
 }

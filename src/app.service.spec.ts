@@ -1,8 +1,8 @@
-import { Test, TestingModule } from "@nestjs/testing";
-import { I18nRequestScopeService } from "nestjs-i18n";
-import AppService from "./app.service";
+import { Test, TestingModule } from '@nestjs/testing';
+import { I18nRequestScopeService } from 'nestjs-i18n';
+import AppService from './app.service';
 
-describe("AppService", () => {
+describe('AppService', () => {
     let appService: AppService;
     let i18n: I18nRequestScopeService;
 
@@ -23,11 +23,11 @@ describe("AppService", () => {
         i18n = app.get<I18nRequestScopeService>(I18nRequestScopeService);
     });
 
-    describe("getHello", () => {
+    describe('getHello', () => {
         it("should call i18n translate with 'common.HELLO_WORLD'", () => {
-            const translateSpy = jest.spyOn(i18n, "translate");
+            const translateSpy = jest.spyOn(i18n, 'translate');
             appService.getHello();
-            expect(translateSpy).toHaveBeenCalledWith("common.HELLO_WORLD");
+            expect(translateSpy).toHaveBeenCalledWith('common.HELLO_WORLD');
         });
     });
 });

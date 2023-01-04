@@ -1,26 +1,27 @@
-import { NestFactory, Reflector } from "@nestjs/core";
+import { NestFactory, Reflector } from '@nestjs/core';
 import {
     ClassSerializerInterceptor,
     ValidationPipe,
     ValidationPipeOptions,
     VersioningType,
-} from "@nestjs/common";
+} from '@nestjs/common';
 import {
     SwaggerModule,
     DocumentBuilder,
     SwaggerCustomOptions,
-} from "@nestjs/swagger";
-import { Logger } from "nestjs-pino";
-import { urlencoded, json } from "express";
-import expressConfig from "./config/express.config";
-import AppModule from "./app.module";
+} from '@nestjs/swagger';
+import { Logger } from 'nestjs-pino';
+import { urlencoded, json } from 'express';
+import serverConfig from './config/server.config';
+import AppModule from './app.module';
 
 async function bootstrap() {
     const app = await NestFactory.create(AppModule, { bufferLogs: true });
 
+    app.setGlobalPrefix(serverConfig.globalPrefix);
     app.useLogger(app.get(Logger));
-    app.use(json(expressConfig.json));
-    app.use(urlencoded(expressConfig.urlencoded));
+    app.use(json(serverConfig.json));
+    app.use(urlencoded(serverConfig.urlencoded));
 
     const validationPipeOptions: ValidationPipeOptions = {
         forbidUnknownValues: true, // https://github.com/typestack/class-validator#passing-options
@@ -33,27 +34,23 @@ async function bootstrap() {
         new ClassSerializerInterceptor(app.get(Reflector)),
     );
 
-    const title = "ADA API";
-    const version = "1.0";
-
     app.enableVersioning({
         type: VersioningType.MEDIA_TYPE,
-        key: "version=",
+        key: serverConfig.versionKey,
     });
 
     const config = new DocumentBuilder()
-        .setTitle(title)
-        .setVersion(version)
+        .setTitle(serverConfig.title)
+        .setVersion(serverConfig.version)
         .addBearerAuth()
         .build();
     const document = SwaggerModule.createDocument(app, config);
     const options: SwaggerCustomOptions = {
-        customCss:
-            ".swagger-ui .topbar, .swagger-ui section.models { display: none }",
-        customSiteTitle: title,
+        customCss: serverConfig.swaggerCustomCss,
+        customSiteTitle: serverConfig.title,
     };
-    SwaggerModule.setup("swagger", app, document, options);
+    SwaggerModule.setup(serverConfig.swaggerPrefix, app, document, options);
 
-    await app.listen(3000);
+    await app.listen(serverConfig.port);
 }
 bootstrap();

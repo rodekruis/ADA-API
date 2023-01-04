@@ -31,5 +31,6 @@
         ".mock.ts"
     ],
     "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "detectOpenHandles": true
 }

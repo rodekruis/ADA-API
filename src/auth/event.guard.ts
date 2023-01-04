@@ -3,9 +3,9 @@ import {
     CanActivate,
     ExecutionContext,
     UnauthorizedException,
-} from "@nestjs/common";
-import { Observable } from "rxjs";
-import AuthService from "./auth.service";
+} from '@nestjs/common';
+import { Observable } from 'rxjs';
+import AuthService from './auth.service';
 
 @Injectable()
 export default class EventGuard implements CanActivate {
@@ -19,7 +19,7 @@ export default class EventGuard implements CanActivate {
         const eventId = request.params.id;
         let token;
         if (authHeader) {
-            if (authHeader.startsWith("Bearer ")) {
+            if (authHeader.startsWith('Bearer ')) {
                 token = authHeader.substring(7, authHeader.length);
                 if (!token) throw new UnauthorizedException();
             } else throw new UnauthorizedException();

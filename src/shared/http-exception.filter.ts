@@ -1,8 +1,8 @@
-import type { ExceptionFilter, ArgumentsHost } from "@nestjs/common";
-import { Catch, HttpException } from "@nestjs/common";
-import type { Response } from "express";
-import statuses from "statuses";
-import { pick } from "./helper";
+import type { ExceptionFilter, ArgumentsHost } from '@nestjs/common';
+import { Catch, HttpException } from '@nestjs/common';
+import type { Response } from 'express';
+import statuses from 'statuses';
+import { pick } from './helper';
 
 interface HttpExceptionMessage {
     message: string;
@@ -11,7 +11,7 @@ interface HttpExceptionMessage {
 
 @Catch(HttpException)
 export default class HttpExceptionFilter implements ExceptionFilter {
-    readonly defaultStatusMessage = "Unknown Error";
+    readonly defaultStatusMessage = 'Unknown Error';
 
     catch(exception: HttpException, host: ArgumentsHost) {
         const ctx = host.switchToHttp();
@@ -29,15 +29,15 @@ export default class HttpExceptionFilter implements ExceptionFilter {
 
     createHttpExceptionMessage = (message: any, defaultMessage: string) => {
         const httpExceptionMessage = (
-            typeof message === "string" ? { message } : message
+            typeof message === 'string' ? { message } : message
         ) as HttpExceptionMessage;
 
         httpExceptionMessage.message =
-            "message" in httpExceptionMessage
+            'message' in httpExceptionMessage
                 ? httpExceptionMessage.message
                 : defaultMessage;
 
-        return pick(httpExceptionMessage, "message", "errors");
+        return pick(httpExceptionMessage, 'message', 'errors');
     };
 
     getStatusMessage = (statusCode: number) =>

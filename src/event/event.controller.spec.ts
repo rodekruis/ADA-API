@@ -1,11 +1,11 @@
-import { Test, TestingModule } from "@nestjs/testing";
-import AuthService from "../auth/auth.service";
-import EventCodeService from "./event-code.service";
-import EventLayerService from "./event-layer.service";
-import EventController from "./event.controller";
-import EventService from "./event.service";
+import { Test, TestingModule } from '@nestjs/testing';
+import AuthService from '../auth/auth.service';
+import EventCodeService from './event-code.service';
+import EventLayerService from './event-layer.service';
+import EventController from './event.controller';
+import EventService from './event.service';
 
-describe("EventController", () => {
+describe('EventController', () => {
     let controller: EventController;
 
     beforeEach(async () => {
@@ -48,7 +48,7 @@ describe("EventController", () => {
         controller = module.get<EventController>(EventController);
     });
 
-    it("should be defined", () => {
+    it('should be defined', () => {
         expect(controller).toBeDefined();
     });
 });

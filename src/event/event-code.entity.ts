@@ -6,18 +6,18 @@ import {
     OneToOne,
     BeforeInsert,
     BeforeUpdate,
-} from "typeorm";
-import { IsDate, IsJWT, IsNotEmpty, IsOptional } from "class-validator";
-import argon2 from "argon2";
-import BaseEntity, { baseEntityFieldsNames } from "../shared/base.entity";
-import EventEntity from "./event.entity";
+} from 'typeorm';
+import { IsDate, IsJWT, IsNotEmpty, IsOptional } from 'class-validator';
+import argon2 from 'argon2';
+import BaseEntity, { baseEntityFieldsNames } from '../shared/base.entity';
+import EventEntity from './event.entity';
 
 @Entity()
 export default class EventCodeEntity extends BaseEntity {
-    @PrimaryGeneratedColumn("uuid")
+    @PrimaryGeneratedColumn('uuid')
     id!: EventCodeId;
 
-    @OneToOne(() => EventEntity, { onDelete: "CASCADE" })
+    @OneToOne(() => EventEntity, { onDelete: 'CASCADE' })
     @JoinColumn()
     event!: EventEntity;
 
@@ -41,13 +41,13 @@ export default class EventCodeEntity extends BaseEntity {
 type EventCodeEntityFieldsName = NonNullable<keyof EventCodeEntity>;
 
 export const sortEventCodeEntityFieldsNames: EventCodeEntityFieldsName[] = [
-    "accessedAt",
+    'accessedAt',
     ...baseEntityFieldsNames,
 ];
 
 export const searchEventCodeEntityFieldsNames: EventCodeEntityFieldsName[] = [
-    "id",
-    "event",
+    'id',
+    'event',
 ];
 
-export type EventCodeId = string & { __brand: "EventCodeId" };
+export type EventCodeId = string & { __brand: 'EventCodeId' };

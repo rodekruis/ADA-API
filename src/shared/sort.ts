@@ -1,9 +1,9 @@
-const defaultSort: string = "id";
+const defaultSort: string = 'id';
 
 enum SortOrder {
-    "+" = "ASC",
-    "-" = "DESC",
-    "" = "ASC",
+    '+' = 'ASC',
+    '-' = 'DESC',
+    '' = 'ASC',
 }
 
 type SortPrefix = keyof typeof SortOrder;
@@ -12,7 +12,7 @@ function getOrderClause<T>(
     sort: string,
     sortEntityFieldsNames: NonNullable<keyof T>[],
 ) {
-    let sortPrefix = "" as SortPrefix;
+    let sortPrefix = '' as SortPrefix;
     let sortField = sort;
 
     if (sort && sort.charAt(0) in SortOrder) {
@@ -31,7 +31,7 @@ function getOrderClause<T>(
 
 function getSortEntityFieldNames(entityFieldNames: string[]) {
     const descEntityFieldNames = entityFieldNames.map(
-        (fieldName: string) => `${"-" as SortPrefix}${fieldName}`,
+        (fieldName: string) => `${'-' as SortPrefix}${fieldName}`,
     );
     return [...entityFieldNames, ...descEntityFieldNames];
 }

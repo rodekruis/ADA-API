@@ -4,11 +4,12 @@ services:
         build: .
         restart: on-failure:5
         env_file: .env
+        ports:
+            - 3000:3000
         depends_on:
             - mariadb
         networks:
             - db
-            - server
 
     mariadb:
         image: mariadb
@@ -21,25 +22,8 @@ services:
         networks:
             - db
 
-    nginx:
-        image: staticfloat/nginx-certbot
-        restart: on-failure:5
-        env_file: .env
-        ports:
-            - 80:80
-            - 443:443
-        volumes:
-            - ./nginx/https.conf:/etc/nginx/user.conf.d/ada.conf
-            - letsencrypt:/etc/letsencrypt
-        depends_on:
-            - ada-api
-        networks:
-            - server
-
 volumes:
     mariadb-data:
-    letsencrypt:
 
 networks:
     db:
-    server:

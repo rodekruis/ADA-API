@@ -1,10 +1,10 @@
-import { Test, TestingModule } from "@nestjs/testing";
-import { getRepositoryToken } from "@nestjs/typeorm";
-import { I18nRequestScopeService } from "nestjs-i18n";
-import EventCodeEntity from "./event-code.entity";
-import EventCodeService from "./event-code.service";
+import { Test, TestingModule } from '@nestjs/testing';
+import { getRepositoryToken } from '@nestjs/typeorm';
+import { I18nRequestScopeService } from 'nestjs-i18n';
+import EventCodeEntity from './event-code.entity';
+import EventCodeService from './event-code.service';
 
-describe("EventCodeService", () => {
+describe('EventCodeService', () => {
     let service: EventCodeService;
 
     beforeEach(async () => {
@@ -33,7 +33,7 @@ describe("EventCodeService", () => {
         service = module.get<EventCodeService>(EventCodeService);
     });
 
-    it("should be defined", () => {
+    it('should be defined', () => {
         expect(service).toBeDefined();
     });
 });
