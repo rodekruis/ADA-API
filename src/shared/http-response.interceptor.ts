@@ -2,10 +2,10 @@ import type {
     NestInterceptor,
     ExecutionContext,
     CallHandler,
-} from "@nestjs/common";
-import { Injectable } from "@nestjs/common";
-import type { Observable } from "rxjs";
-import { map } from "rxjs/operators";
+} from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
+import type { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export default class HttpResponseInterceptor implements NestInterceptor {
@@ -14,5 +14,5 @@ export default class HttpResponseInterceptor implements NestInterceptor {
     }
 
     transformHttpResponse = (message: any) =>
-        typeof message === "string" ? { message } : message;
+        typeof message === 'string' ? { message } : message;
 }

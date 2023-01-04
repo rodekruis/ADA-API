@@ -1,9 +1,9 @@
-import { Test, TestingModule } from "@nestjs/testing";
-import AppController from "./app.controller";
-import AppService from "./app.service";
-import AppServiceMock from "./app.service.mock";
+import { Test, TestingModule } from '@nestjs/testing';
+import AppController from './app.controller';
+import AppService from './app.service';
+import AppServiceMock from './app.service.mock';
 
-describe("AppController", () => {
+describe('AppController', () => {
     let appController: AppController;
     let appService: AppService;
 
@@ -23,11 +23,11 @@ describe("AppController", () => {
         appService = app.get<AppService>(AppService);
     });
 
-    describe("getHello", () => {
+    describe('getHello', () => {
         it('should return "Hello World"', () => {
-            const appServiceGetHello = jest.spyOn(appService, "getHello");
+            const appServiceGetHello = jest.spyOn(appService, 'getHello');
             const appControllerGetHello = appController.getHello();
-            expect(appControllerGetHello).resolves.toBe("Hello World");
+            expect(appControllerGetHello).resolves.toBe('Hello World');
             expect(appServiceGetHello).toHaveBeenCalledTimes(1);
         });
     });

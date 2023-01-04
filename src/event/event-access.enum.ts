@@ -1,6 +1,6 @@
 enum EventAccess {
-    restricted = "Restricted",
-    public = "Public",
+    restricted = 'Restricted',
+    public = 'Public',
 }
 
 export default EventAccess;

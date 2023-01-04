@@ -2,15 +2,15 @@ import {
     BadRequestException,
     Injectable,
     UnauthorizedException,
-} from "@nestjs/common";
-import { JwtService } from "@nestjs/jwt";
-import { InjectRepository } from "@nestjs/typeorm";
-import { Equal, Repository } from "typeorm";
-import argon2 from "argon2";
-import { I18nRequestScopeService } from "nestjs-i18n";
-import EventCodeEntity from "../event/event-code.entity";
-import EventAccess from "../event/event-access.enum";
-import EventEntity, { EventId } from "../event/event.entity";
+} from '@nestjs/common';
+import { JwtService } from '@nestjs/jwt';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Equal, Repository } from 'typeorm';
+import argon2 from 'argon2';
+import { I18nRequestScopeService } from 'nestjs-i18n';
+import EventCodeEntity from '../event/event-code.entity';
+import EventAccess from '../event/event-access.enum';
+import EventEntity, { EventId } from '../event/event.entity';
 
 type JwtToken = {
     eventId: EventId;
@@ -18,7 +18,7 @@ type JwtToken = {
 
 @Injectable()
 export default class AuthService {
-    private eventCodeNotRequired = "Event Code not required";
+    private eventCodeNotRequired = 'Event Code not required';
 
     constructor(
         @InjectRepository(EventCodeEntity)
@@ -33,10 +33,10 @@ export default class AuthService {
 
     private prepareTranslations = async () => {
         this.eventCodeNotRequired = await this.i18n.translate(
-            "error.NOT_REQUIRED",
+            'error.NOT_REQUIRED',
             {
                 args: {
-                    entity: await this.i18n.translate("common.EVENT_CODE"),
+                    entity: await this.i18n.translate('common.EVENT_CODE'),
                 },
             },
         );

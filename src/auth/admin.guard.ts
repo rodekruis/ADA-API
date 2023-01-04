@@ -4,8 +4,8 @@ import {
     CanActivate,
     ExecutionContext,
     UnauthorizedException,
-} from "@nestjs/common";
-import { Observable } from "rxjs";
+} from '@nestjs/common';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export default class AdminGuard implements CanActivate {
@@ -14,7 +14,7 @@ export default class AdminGuard implements CanActivate {
     ): boolean | Promise<boolean> | Observable<boolean> {
         const request = context.switchToHttp().getRequest();
         const authHeader = request.headers.authorization;
-        if (!(authHeader && authHeader.startsWith("Bearer ")))
+        if (!(authHeader && authHeader.startsWith('Bearer ')))
             throw new UnauthorizedException();
         const token = authHeader.substring(7, authHeader.length);
         return token === process.env.ADMIN_CODE;

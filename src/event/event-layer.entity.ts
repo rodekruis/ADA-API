@@ -4,34 +4,34 @@ import {
     Column,
     JoinColumn,
     ManyToOne,
-} from "typeorm";
-import { IsEnum, IsNotEmpty, IsString } from "class-validator";
-import BaseEntity, { baseEntityFieldsNames } from "../shared/base.entity";
-import EventEntity from "./event.entity";
-import EventLayerName from "./event-layer-name.enum";
+} from 'typeorm';
+import { IsEnum, IsNotEmpty, IsString } from 'class-validator';
+import BaseEntity, { baseEntityFieldsNames } from '../shared/base.entity';
+import EventEntity from './event.entity';
+import EventLayerName from './event-layer-name.enum';
 
 @Entity()
 export default class EventLayerEntity extends BaseEntity {
-    @PrimaryGeneratedColumn("uuid")
+    @PrimaryGeneratedColumn('uuid')
     id!: EventLayerId;
 
     @Column({
-        type: "enum",
+        type: 'enum',
         enum: EventLayerName,
         default: EventLayerName.buildings,
     })
     @IsEnum(EventLayerName)
     name!: EventLayerName;
 
-    @ManyToOne(() => EventEntity, { onDelete: "CASCADE" })
+    @ManyToOne(() => EventEntity, { onDelete: 'CASCADE' })
     @JoinColumn()
     event!: EventEntity;
 
-    @Column({ type: "json" })
+    @Column({ type: 'json' })
     @IsNotEmpty()
     geojson!: GeoJSON.FeatureCollection;
 
-    @Column({ type: "text" })
+    @Column({ type: 'text' })
     @IsString()
     @IsNotEmpty()
     information!: string;
@@ -40,13 +40,13 @@ export default class EventLayerEntity extends BaseEntity {
 type EventLayerEntityFieldsName = NonNullable<keyof EventLayerEntity>;
 
 export const sortEventLayerEntityFieldsNames: EventLayerEntityFieldsName[] = [
-    "name",
+    'name',
     ...baseEntityFieldsNames,
 ];
 
 export const searchEventLayerEntityFieldsNames: EventLayerEntityFieldsName[] = [
-    "id",
-    "event",
+    'id',
+    'event',
 ];
 
-export type EventLayerId = string & { __brand: "EventLayerId" };
+export type EventLayerId = string & { __brand: 'EventLayerId' };

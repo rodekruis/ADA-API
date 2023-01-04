@@ -1,19 +1,19 @@
-import { CallHandler, ExecutionContext } from "@nestjs/common";
-import { of } from "rxjs";
-import HttpResponseInterceptor from "./http-response.interceptor";
+import { CallHandler, ExecutionContext } from '@nestjs/common';
+import { of } from 'rxjs';
+import HttpResponseInterceptor from './http-response.interceptor';
 
-describe("HttpResponseInterceptor", () => {
+describe('HttpResponseInterceptor', () => {
     let httpResponseInterceptor: HttpResponseInterceptor;
 
     beforeEach(() => {
         httpResponseInterceptor = new HttpResponseInterceptor();
     });
 
-    it("should be defined", () => {
+    it('should be defined', () => {
         expect(httpResponseInterceptor).toBeDefined();
     });
 
-    describe("intercept", () => {
+    describe('intercept', () => {
         const mockExecutionContext = {} as ExecutionContext;
         const mapIndex = 0;
         let transformHttpResponseSpy: jest.SpyInstance;
@@ -21,12 +21,12 @@ describe("HttpResponseInterceptor", () => {
         beforeEach(() => {
             transformHttpResponseSpy = jest.spyOn(
                 httpResponseInterceptor,
-                "transformHttpResponse",
+                'transformHttpResponse',
             );
         });
 
-        it("should handle string http response", () => {
-            const httpResponse = "string";
+        it('should handle string http response', () => {
+            const httpResponse = 'string';
             const mockCallHandler: CallHandler = {
                 handle: () => of(httpResponse),
             };
@@ -45,8 +45,8 @@ describe("HttpResponseInterceptor", () => {
             );
         });
 
-        it("should handle non-string http response", () => {
-            const httpResponse = [{ message: "string" }];
+        it('should handle non-string http response', () => {
+            const httpResponse = [{ message: 'string' }];
             const mockCallHandler: CallHandler = {
                 handle: () => of(httpResponse),
             };
@@ -66,9 +66,9 @@ describe("HttpResponseInterceptor", () => {
         });
     });
 
-    describe("transformHttpResponse", () => {
-        it("should scaffold string http response", () => {
-            const httpResponse = "string";
+    describe('transformHttpResponse', () => {
+        it('should scaffold string http response', () => {
+            const httpResponse = 'string';
             const transformedHttpResponse =
                 httpResponseInterceptor.transformHttpResponse(httpResponse);
 
@@ -77,8 +77,8 @@ describe("HttpResponseInterceptor", () => {
             });
         });
 
-        it("should not scaffold non-string http response", () => {
-            const httpResponse = { message: "string" };
+        it('should not scaffold non-string http response', () => {
+            const httpResponse = { message: 'string' };
             const transformedHttpResponse =
                 httpResponseInterceptor.transformHttpResponse(httpResponse);
 

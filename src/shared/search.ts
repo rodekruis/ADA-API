@@ -1,4 +1,4 @@
-import { ILike } from "typeorm";
+import { ILike } from 'typeorm';
 
 function getWhereClause<T>(
     search: string,

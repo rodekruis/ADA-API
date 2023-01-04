@@ -1,19 +1,19 @@
-import { NestFactory, Reflector } from "@nestjs/core";
+import { NestFactory, Reflector } from '@nestjs/core';
 import {
     ClassSerializerInterceptor,
     ValidationPipe,
     ValidationPipeOptions,
     VersioningType,
-} from "@nestjs/common";
+} from '@nestjs/common';
 import {
     SwaggerModule,
     DocumentBuilder,
     SwaggerCustomOptions,
-} from "@nestjs/swagger";
-import { Logger } from "nestjs-pino";
-import { urlencoded, json } from "express";
-import serverConfig from "./config/server.config";
-import AppModule from "./app.module";
+} from '@nestjs/swagger';
+import { Logger } from 'nestjs-pino';
+import { urlencoded, json } from 'express';
+import serverConfig from './config/server.config';
+import AppModule from './app.module';
 
 async function bootstrap() {
     const app = await NestFactory.create(AppModule, { bufferLogs: true });

@@ -1,4 +1,4 @@
-import { ApiProperty } from "@nestjs/swagger";
+import { ApiProperty } from '@nestjs/swagger';
 import {
     IsDateString,
     IsEnum,
@@ -9,12 +9,12 @@ import {
     IsString,
     Max,
     Min,
-} from "class-validator";
-import EventAccess from "../event-access.enum";
-import EventType from "../event-type.enum";
+} from 'class-validator';
+import EventAccess from '../event-access.enum';
+import EventType from '../event-type.enum';
 
 export default class CreateEventDto {
-    @ApiProperty({ example: "Irma" })
+    @ApiProperty({ example: 'Irma' })
     @IsString()
     @IsNotEmpty()
     readonly name!: string;
@@ -23,22 +23,22 @@ export default class CreateEventDto {
     @IsEnum(EventType)
     readonly type!: EventType;
 
-    @ApiProperty({ example: "Sint-Maarten" })
+    @ApiProperty({ example: 'Sint-Maarten' })
     @IsString()
     @IsNotEmpty()
     readonly country!: string;
 
     @ApiProperty({
-        example: { type: "Point", coordinates: [18.0291075, -63.0591] },
+        example: { type: 'Point', coordinates: [18.0291075, -63.0591] },
     })
     @IsNotEmpty()
     readonly geometry!: GeoJSON.Point;
 
-    @ApiProperty({ example: "2022-12-31" })
+    @ApiProperty({ example: '2022-12-31' })
     @IsDateString()
     readonly startDate!: Date;
 
-    @ApiProperty({ example: "2023-12-31" })
+    @ApiProperty({ example: '2023-12-31' })
     @IsOptional()
     @IsDateString()
     readonly endDate?: Date;
@@ -63,11 +63,11 @@ export default class CreateEventDto {
     @Max(1)
     readonly buildingsDamagedPercentage!: number;
 
-    @ApiProperty({ example: "Province,District,Municipality" })
+    @ApiProperty({ example: 'Province,District,Municipality' })
     @IsString()
     readonly adminLevelLabels!: string;
 
-    @ApiProperty({ example: "RVXaCUeUT4gBwzvy" })
+    @ApiProperty({ example: 'RVXaCUeUT4gBwzvy' })
     @IsOptional()
     @IsString()
     @IsNotEmpty()

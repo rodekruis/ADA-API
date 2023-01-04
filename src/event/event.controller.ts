@@ -8,28 +8,28 @@ import {
     Delete,
     Query,
     UseGuards,
-} from "@nestjs/common";
-import { ApiBearerAuth, ApiParam, ApiQuery, ApiTags } from "@nestjs/swagger";
-import defaultSort, { getSortEntityFieldNames } from "../shared/sort";
-import EventGuard from "../auth/event.guard";
-import AuthService from "../auth/auth.service";
-import AdminGuard from "../auth/admin.guard";
-import EventService from "./event.service";
+} from '@nestjs/common';
+import { ApiBearerAuth, ApiParam, ApiQuery, ApiTags } from '@nestjs/swagger';
+import defaultSort, { getSortEntityFieldNames } from '../shared/sort';
+import EventGuard from '../auth/event.guard';
+import AuthService from '../auth/auth.service';
+import AdminGuard from '../auth/admin.guard';
+import EventService from './event.service';
 import EventEntity, {
     sortEventEntityFieldsNames,
     EventId,
-} from "./event.entity";
-import CreateEventDto from "./dto/create-event.dto";
-import UpdateEventDto from "./dto/update-event.dto";
-import EventCodeEntity from "./event-code.entity";
-import EventCodeService from "./event-code.service";
-import AccessEventDto from "./dto/access-event.dto";
-import EventLayerName from "./event-layer-name.enum";
-import CreateEventLayerDto from "./dto/create-event-layer.dto";
-import EventLayerEntity from "./event-layer.entity";
-import EventLayerService from "./event-layer.service";
+} from './event.entity';
+import CreateEventDto from './dto/create-event.dto';
+import UpdateEventDto from './dto/update-event.dto';
+import EventCodeEntity from './event-code.entity';
+import EventCodeService from './event-code.service';
+import AccessEventDto from './dto/access-event.dto';
+import EventLayerName from './event-layer-name.enum';
+import CreateEventLayerDto from './dto/create-event-layer.dto';
+import EventLayerEntity from './event-layer.entity';
+import EventLayerService from './event-layer.service';
 
-@Controller("events")
+@Controller('events')
 export default class EventController {
     constructor(
         private readonly eventService: EventService,
@@ -40,25 +40,25 @@ export default class EventController {
 
     @Get()
     @ApiQuery({
-        name: "search",
+        name: 'search',
         type: String,
         required: false,
     })
     @ApiQuery({
-        name: "sort",
+        name: 'sort',
         enum: getSortEntityFieldNames(sortEventEntityFieldsNames),
         required: false,
         example: defaultSort,
     })
-    @ApiTags("event")
-    findAll(@Query("search") search: string, @Query("sort") sort: string) {
+    @ApiTags('event')
+    findAll(@Query('search') search: string, @Query('sort') sort: string) {
         return this.eventService.find(search, sort);
     }
 
     @Post()
     @UseGuards(AdminGuard)
     @ApiBearerAuth()
-    @ApiTags("event")
+    @ApiTags('event')
     async create(@Body() createEventDto: CreateEventDto) {
         const eventEntity = new EventEntity();
         eventEntity.name = createEventDto.name;
@@ -86,20 +86,20 @@ export default class EventController {
         return eventEntity;
     }
 
-    @Get(":id")
+    @Get(':id')
     @UseGuards(EventGuard)
     @ApiBearerAuth()
-    @ApiTags("event")
-    findOne(@Param("id") id: EventId) {
+    @ApiTags('event')
+    findOne(@Param('id') id: EventId) {
         return this.eventService.findOne(id);
     }
 
-    @Patch(":id")
+    @Patch(':id')
     @UseGuards(AdminGuard)
     @ApiBearerAuth()
-    @ApiTags("event")
+    @ApiTags('event')
     async update(
-        @Param("id") id: EventId,
+        @Param('id') id: EventId,
         @Body() updateEventDto: UpdateEventDto,
     ) {
         const eventEntity = await this.eventService.findOne(id);
@@ -142,54 +142,54 @@ export default class EventController {
         return this.eventService.update(id, eventEntity);
     }
 
-    @Delete(":id")
+    @Delete(':id')
     @UseGuards(AdminGuard)
     @ApiBearerAuth()
-    @ApiTags("event")
-    remove(@Param("id") id: EventId) {
+    @ApiTags('event')
+    remove(@Param('id') id: EventId) {
         return this.eventService.remove(id);
     }
 
-    @Post(":id/code")
-    @ApiTags("event-code")
-    code(@Param("id") id: EventId, @Body() accessEventDto: AccessEventDto) {
+    @Post(':id/code')
+    @ApiTags('event-code')
+    code(@Param('id') id: EventId, @Body() accessEventDto: AccessEventDto) {
         return this.authService.grantEventAccess(id, accessEventDto.code);
     }
 
-    @Get(":id/layers")
+    @Get(':id/layers')
     @UseGuards(EventGuard)
     @ApiBearerAuth()
-    @ApiTags("event-layer")
-    readLayers(@Param("id") id: EventId) {
+    @ApiTags('event-layer')
+    readLayers(@Param('id') id: EventId) {
         return this.eventLayerService.find(id);
     }
 
-    @Get(":id/layers/:name")
+    @Get(':id/layers/:name')
     @UseGuards(EventGuard)
     @ApiParam({
-        name: "name",
+        name: 'name',
         enum: EventLayerName,
     })
     @ApiBearerAuth()
-    @ApiTags("event-layer")
+    @ApiTags('event-layer')
     readLayer(
-        @Param("id") id: EventId,
-        @Param("name") layerName: EventLayerName,
+        @Param('id') id: EventId,
+        @Param('name') layerName: EventLayerName,
     ) {
         return this.eventLayerService.findOne(id, layerName);
     }
 
-    @Post(":id/layers/:name")
+    @Post(':id/layers/:name')
     @UseGuards(AdminGuard)
     @ApiParam({
-        name: "name",
+        name: 'name',
         enum: EventLayerName,
     })
     @ApiBearerAuth()
-    @ApiTags("event-layer")
+    @ApiTags('event-layer')
     async createLayer(
-        @Param("id") id: EventId,
-        @Param("name") layerName: EventLayerName,
+        @Param('id') id: EventId,
+        @Param('name') layerName: EventLayerName,
         @Body() createEventLayerDto: CreateEventLayerDto,
     ) {
         const eventEntity = await this.eventService.findOne(id);
@@ -214,17 +214,17 @@ export default class EventController {
         return this.eventLayerService.save(id, layerName, eventLayerEntity);
     }
 
-    @Delete(":id/layers/:name")
+    @Delete(':id/layers/:name')
     @UseGuards(AdminGuard)
     @ApiParam({
-        name: "name",
+        name: 'name',
         enum: EventLayerName,
     })
     @ApiBearerAuth()
-    @ApiTags("event-layer")
+    @ApiTags('event-layer')
     removeLayer(
-        @Param("id") id: EventId,
-        @Param("name") layerName: EventLayerName,
+        @Param('id') id: EventId,
+        @Param('name') layerName: EventLayerName,
     ) {
         return this.eventLayerService.remove(id, layerName);
     }

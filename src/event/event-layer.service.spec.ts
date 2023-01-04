@@ -1,10 +1,10 @@
-import { Test, TestingModule } from "@nestjs/testing";
-import { getRepositoryToken } from "@nestjs/typeorm";
-import { I18nRequestScopeService } from "nestjs-i18n";
-import EventLayerEntity from "./event-layer.entity";
-import EventLayerService from "./event-layer.service";
+import { Test, TestingModule } from '@nestjs/testing';
+import { getRepositoryToken } from '@nestjs/typeorm';
+import { I18nRequestScopeService } from 'nestjs-i18n';
+import EventLayerEntity from './event-layer.entity';
+import EventLayerService from './event-layer.service';
 
-describe("EventLayerService", () => {
+describe('EventLayerService', () => {
     let service: EventLayerService;
 
     beforeEach(async () => {
@@ -27,7 +27,7 @@ describe("EventLayerService", () => {
         service = module.get<EventLayerService>(EventLayerService);
     });
 
-    it("should be defined", () => {
+    it('should be defined', () => {
         expect(service).toBeDefined();
     });
 });

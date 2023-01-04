@@ -1,49 +1,49 @@
-import { Params } from "nestjs-pino";
-import { join } from "path";
-import { TransportTargetOptions } from "pino";
+import { Params } from 'nestjs-pino';
+import { join } from 'path';
+import { TransportTargetOptions } from 'pino';
 
-const logDirectory = join(__dirname, "..", "..", "logs");
+const logDirectory = join(__dirname, '..', '..', 'logs');
 
 const pinoTargetHttpPrint: TransportTargetOptions = {
-    target: "pino-http-print",
+    target: 'pino-http-print',
     options: {
         colorize: true,
         all: true,
         translateTime: true,
         relativeUrl: true,
         prettyOptions: {
-            ignore: "pid,hostname",
+            ignore: 'pid,hostname',
             singleLine: true,
         },
     },
-    level: process.env.NODE_ENV === "production" ? "info" : "debug",
+    level: process.env.NODE_ENV === 'production' ? 'info' : 'debug',
 };
 
 const pinoTargetFileDebug: TransportTargetOptions = {
-    target: "pino/file",
+    target: 'pino/file',
     options: {
-        destination: join(logDirectory, "ada-api.debug.log"),
+        destination: join(logDirectory, 'ada-api.debug.log'),
         mkdir: true,
     },
-    level: "debug",
+    level: 'debug',
 };
 
 const pinoTargetFileInfo: TransportTargetOptions = {
-    target: "pino/file",
+    target: 'pino/file',
     options: {
-        destination: join(logDirectory, "ada-api.info.log"),
+        destination: join(logDirectory, 'ada-api.info.log'),
         mkdir: true,
     },
-    level: "info",
+    level: 'info',
 };
 
 const pinoTargetFileError: TransportTargetOptions = {
-    target: "pino/file",
+    target: 'pino/file',
     options: {
-        destination: join(logDirectory, "ada-api.error.log"),
+        destination: join(logDirectory, 'ada-api.error.log'),
         mkdir: true,
     },
-    level: "error",
+    level: 'error',
 };
 
 const loggerConfig: Params = {
