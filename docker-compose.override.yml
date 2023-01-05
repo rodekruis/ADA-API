@@ -1,13 +1,13 @@
 services:
-    ada-api:
-        command: ["npm", "run", "start:dev"]
-        volumes:
-            - ./:/usr/src/app
-            - node-modules:/usr/src/app/node_modules
+  ada-api:
+    command: ["npm", "run", "start:dev"]
+    volumes:
+      - ./:/usr/src/app
+      - node-modules:/usr/src/app/node_modules
 
-    mariadb:
-        ports:
-            - 3306:3306
+  mariadb:
+    ports:
+      - 3306:3306
 
 volumes:
-    node-modules:
+  node-modules:
