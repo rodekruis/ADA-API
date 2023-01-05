@@ -1,29 +1,28 @@
 services:
-    ada-api:
-        image: rodekruis/ada-api
-        build: .
-        restart: on-failure:5
-        env_file: .env
-        ports:
-            - 3000:3000
-        depends_on:
-            - mariadb
-        networks:
-            - db
+  ada-api:
+    build: .
+    restart: on-failure:5
+    env_file: .env
+    ports:
+      - 3000:3000
+    depends_on:
+      - mariadb
+    networks:
+      - db
 
-    mariadb:
-        image: mariadb
-        command: "mysqld --init-file /data/app/init.sql"
-        restart: on-failure:5
-        env_file: .env
-        volumes:
-            - ./mariadb/init.sql:/data/app/init.sql
-            - mariadb-data:/var/lib/mysql
-        networks:
-            - db
+  mariadb:
+    image: mariadb
+    command: "mysqld --init-file /data/app/init.sql"
+    restart: on-failure:5
+    env_file: .env
+    volumes:
+      - ./mariadb/init.sql:/data/app/init.sql
+      - mariadb-data:/var/lib/mysql
+    networks:
+      - db
 
 volumes:
-    mariadb-data:
+  mariadb-data:
 
 networks:
-    db:
+  db:
