@@ -1,4 +1,13 @@
-# 0.1.0 (2023-01-04)
+## [0.1.1](https://github.com/rodekruis/ADA-API/compare/v0.1.0...v0.1.1) (2023-01-05)
+
+
+### Bug Fixes
+
+* remove image name from local image ([5f41fe2](https://github.com/rodekruis/ADA-API/commit/5f41fe26db0930cb356bbb279a201519f9662b40))
+
+
+
+# [0.1.0](https://github.com/rodekruis/ADA-API/compare/97e6ed83b66ca386b201baf7b8436891ef4b50b4...v0.1.0) (2023-01-04)
 
 
 ### Bug Fixes
