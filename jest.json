@@ -1,36 +1,36 @@
 {
-    "moduleFileExtensions": ["js", "json", "ts"],
-    "rootDir": "src",
-    "testRegex": ".*\\.spec\\.ts$",
-    "transform": {
-        "^.+\\.(t|j)s$": "ts-jest"
-    },
-    "coverageThreshold": {
-        "global": {
-            "branches": 80,
-            "functions": 20,
-            "lines": 60,
-            "statements": 60
-        }
-    },
-    "collectCoverageFrom": [
-        "**/*.(t|j)s",
-        "!main.(t|j)s",
-        "!**/*.module.(t|j)s",
-        "!**/*.input.(t|j)s",
-        "!**/*.entity.(t|j)s",
-        "!**/*.config.(t|j)s"
-    ],
-    "coveragePathIgnorePatterns": [
-        "node_modules",
-        "test-config",
-        "interfaces",
-        "jestGlobalMocks.ts",
-        ".module.ts",
-        "./src/main.ts",
-        ".mock.ts"
-    ],
-    "coverageDirectory": "../coverage",
-    "testEnvironment": "node",
-    "detectOpenHandles": true
+  "moduleFileExtensions": ["js", "json", "ts"],
+  "rootDir": "src",
+  "testRegex": ".*\\.spec\\.ts$",
+  "transform": {
+    "^.+\\.(t|j)s$": "ts-jest"
+  },
+  "coverageThreshold": {
+    "global": {
+      "branches": 80,
+      "functions": 20,
+      "lines": 60,
+      "statements": 60
+    }
+  },
+  "collectCoverageFrom": [
+    "**/*.(t|j)s",
+    "!main.(t|j)s",
+    "!**/*.module.(t|j)s",
+    "!**/*.input.(t|j)s",
+    "!**/*.entity.(t|j)s",
+    "!**/*.config.(t|j)s"
+  ],
+  "coveragePathIgnorePatterns": [
+    "node_modules",
+    "test-config",
+    "interfaces",
+    "jestGlobalMocks.ts",
+    ".module.ts",
+    "./src/main.ts",
+    ".mock.ts"
+  ],
+  "coverageDirectory": "../coverage",
+  "testEnvironment": "node",
+  "detectOpenHandles": true
 }

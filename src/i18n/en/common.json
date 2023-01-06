@@ -1,6 +1,6 @@
 {
-    "HELLO_WORLD": "Hello World",
-    "EVENT": "Event",
-    "EVENT_CODE": "Event Code",
-    "EVENT_LAYER": "Event Layer"
+  "HELLO_WORLD": "Hello World",
+  "EVENT": "Event",
+  "EVENT_CODE": "Event Code",
+  "EVENT_LAYER": "Event Layer"
 }
