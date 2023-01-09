@@ -1,6 +1,7 @@
 node_modules
 coverage
 dist
+package.json
 package-lock.json
 migration
 CHANGELOG.md
