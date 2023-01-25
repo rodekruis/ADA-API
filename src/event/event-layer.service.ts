@@ -31,6 +31,7 @@ export default class EventLayerService {
     ): Promise<EventLayerEntity[]> => {
         const findManyOptions: FindManyOptions<EventLayerEntity> = {
             where: { event: Equal(eventId) },
+            order: { name: 'ASC' },
         };
 
         if (name) {
