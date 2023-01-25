@@ -1,3 +1,12 @@
+# [0.2.0](https://github.com/rodekruis/ADA-API/compare/v0.1.1...v0.2.0) (2023-01-25)
+
+
+### Features
+
+* remove building damage and population affected layers ([ab638fa](https://github.com/rodekruis/ADA-API/commit/ab638fac414f06cb4e3cb2602f54034564ecf69a))
+
+
+
 ## [0.1.1](https://github.com/rodekruis/ADA-API/compare/v0.1.0...v0.1.1) (2023-01-05)
 
 
