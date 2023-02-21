@@ -8,6 +8,8 @@ import {
     Delete,
     Query,
     UseGuards,
+    ParseEnumPipe,
+    ParseUUIDPipe,
 } from '@nestjs/common';
 import { ApiBearerAuth, ApiParam, ApiQuery, ApiTags } from '@nestjs/swagger';
 import defaultSort, { getSortEntityFieldNames } from '../shared/sort';
@@ -90,7 +92,7 @@ export default class EventController {
     @UseGuards(EventGuard)
     @ApiBearerAuth()
     @ApiTags('event')
-    findOne(@Param('id') id: EventId) {
+    findOne(@Param('id', ParseUUIDPipe) id: EventId) {
         return this.eventService.findOne(id);
     }
 
@@ -99,7 +101,7 @@ export default class EventController {
     @ApiBearerAuth()
     @ApiTags('event')
     async update(
-        @Param('id') id: EventId,
+        @Param('id', ParseUUIDPipe) id: EventId,
         @Body() updateEventDto: UpdateEventDto,
     ) {
         const eventEntity = await this.eventService.findOne(id);
@@ -146,13 +148,16 @@ export default class EventController {
     @UseGuards(AdminGuard)
     @ApiBearerAuth()
     @ApiTags('event')
-    remove(@Param('id') id: EventId) {
+    remove(@Param('id', ParseUUIDPipe) id: EventId) {
         return this.eventService.remove(id);
     }
 
     @Post(':id/code')
     @ApiTags('event-code')
-    code(@Param('id') id: EventId, @Body() accessEventDto: AccessEventDto) {
+    code(
+        @Param('id', ParseUUIDPipe) id: EventId,
+        @Body() accessEventDto: AccessEventDto,
+    ) {
         return this.authService.grantEventAccess(id, accessEventDto.code);
     }
 
@@ -160,7 +165,7 @@ export default class EventController {
     @UseGuards(EventGuard)
     @ApiBearerAuth()
     @ApiTags('event-layer')
-    readLayers(@Param('id') id: EventId) {
+    readLayers(@Param('id', ParseUUIDPipe) id: EventId) {
         return this.eventLayerService.find(id);
     }
 
@@ -173,8 +178,9 @@ export default class EventController {
     @ApiBearerAuth()
     @ApiTags('event-layer')
     readLayer(
-        @Param('id') id: EventId,
-        @Param('name') layerName: EventLayerName,
+        @Param('id', ParseUUIDPipe) id: EventId,
+        @Param('name', new ParseEnumPipe(EventLayerName))
+        layerName: EventLayerName,
     ) {
         return this.eventLayerService.findOne(id, layerName);
     }
@@ -188,8 +194,9 @@ export default class EventController {
     @ApiBearerAuth()
     @ApiTags('event-layer')
     async createLayer(
-        @Param('id') id: EventId,
-        @Param('name') layerName: EventLayerName,
+        @Param('id', ParseUUIDPipe) id: EventId,
+        @Param('name', new ParseEnumPipe(EventLayerName))
+        layerName: EventLayerName,
         @Body() createEventLayerDto: CreateEventLayerDto,
     ) {
         const eventEntity = await this.eventService.findOne(id);
@@ -223,8 +230,9 @@ export default class EventController {
     @ApiBearerAuth()
     @ApiTags('event-layer')
     removeLayer(
-        @Param('id') id: EventId,
-        @Param('name') layerName: EventLayerName,
+        @Param('id', ParseUUIDPipe) id: EventId,
+        @Param('name', new ParseEnumPipe(EventLayerName))
+        layerName: EventLayerName,
     ) {
         return this.eventLayerService.remove(id, layerName);
     }
