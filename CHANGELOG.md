@@ -1,3 +1,12 @@
+## [0.2.1](https://github.com/rodekruis/ADA-API/compare/v0.2.0...v0.2.1) (2023-02-21)
+
+
+### Bug Fixes
+
+* use validation pipes for path params ([4f34e5e](https://github.com/rodekruis/ADA-API/commit/4f34e5ea85df7604109d921a6e5c85c0573ef1d1))
+
+
+
 # [0.2.0](https://github.com/rodekruis/ADA-API/compare/v0.1.1...v0.2.0) (2023-01-25)
 
 
