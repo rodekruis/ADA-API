@@ -31,12 +31,10 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:3000/events",
-									"protocol": "http",
+									"raw": "{{HOST}}/events",
 									"host": [
-										"localhost"
+										"{{HOST}}"
 									],
-									"port": "3000",
 									"path": [
 										"events"
 									]
@@ -102,20 +100,24 @@
 									"value": "Express"
 								},
 								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
 									"key": "Content-Type",
 									"value": "application/json; charset=utf-8"
 								},
 								{
 									"key": "Content-Length",
-									"value": "1746"
+									"value": "1434"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"6d2-vzgLtI3s8DO6E+XD13rh9iRzWRk\""
+									"value": "W/\"59a-Fj/muPqjMKnPUd1pbgMQioCwgdo\""
 								},
 								{
 									"key": "Date",
-									"value": "Tue, 05 Jul 2022 13:11:51 GMT"
+									"value": "Tue, 21 Feb 2023 13:01:54 GMT"
 								},
 								{
 									"key": "Connection",
@@ -127,7 +129,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "[\n    {\n        \"id\": \"221cf4e4-e658-4b84-8351-bb8b1ca0fdda\",\n        \"createdAt\": \"2022-06-29T11:47:00.507Z\",\n        \"updatedAt\": \"2022-06-29T11:47:00.507Z\",\n        \"version\": 1,\n        \"name\": \"Kazoo\",\n        \"type\": \"Hurricane\",\n        \"country\": \"Sint-Maarten\",\n        \"startDate\": \"2022-12-31T00:00:00.000Z\",\n        \"endDate\": \"2023-12-31T00:00:00.000Z\",\n        \"access\": \"Public\"\n    },\n    {\n        \"id\": \"3da5fd59-23ce-433c-82e6-fd7f117a9176\",\n        \"createdAt\": \"2022-06-29T11:39:48.603Z\",\n        \"updatedAt\": \"2022-06-29T11:39:48.603Z\",\n        \"version\": 1,\n        \"name\": \"Latifah\",\n        \"type\": \"Hurricane\",\n        \"country\": \"Sint-Maarten\",\n        \"startDate\": \"2022-12-31T00:00:00.000Z\",\n        \"endDate\": \"2023-12-31T00:00:00.000Z\",\n        \"access\": \"Private\"\n    },\n    {\n        \"id\": \"7cddc686-35a6-4c22-a08d-5f108cf81d37\",\n        \"createdAt\": \"2022-06-29T11:49:07.434Z\",\n        \"updatedAt\": \"2022-06-29T11:49:07.434Z\",\n        \"version\": 1,\n        \"name\": \"Bolo\",\n        \"type\": \"Hurricane\",\n        \"country\": \"Sint-Maarten\",\n        \"startDate\": \"2022-12-31T00:00:00.000Z\",\n        \"endDate\": \"2023-12-31T00:00:00.000Z\",\n        \"access\": \"Private\"\n    },\n    {\n        \"id\": \"b740867d-e112-4202-8640-d808aad7209f\",\n        \"createdAt\": \"2022-06-29T11:26:06.946Z\",\n        \"updatedAt\": \"2022-06-29T11:26:06.946Z\",\n        \"version\": 1,\n        \"name\": \"Tyrone\",\n        \"type\": \"Hurricane\",\n        \"country\": \"Sint-Maarten\",\n        \"startDate\": \"2022-12-31T00:00:00.000Z\",\n        \"endDate\": \"2023-12-31T00:00:00.000Z\",\n        \"access\": \"Private\"\n    },\n    {\n        \"id\": \"ca69cf3e-e2ed-415c-940c-25adec84ce17\",\n        \"createdAt\": \"2022-06-29T11:23:46.228Z\",\n        \"updatedAt\": \"2022-06-29T11:23:46.228Z\",\n        \"version\": 1,\n        \"name\": \"Irma Update\",\n        \"type\": \"Hurricane\",\n        \"country\": \"Sint-Maarten\",\n        \"startDate\": \"2022-12-31T00:00:00.000Z\",\n        \"endDate\": \"2023-12-31T00:00:00.000Z\",\n        \"access\": \"Public\"\n    },\n    {\n        \"id\": \"efa6788a-b075-4a57-afba-db983c267872\",\n        \"createdAt\": \"2022-06-29T12:03:15.829Z\",\n        \"updatedAt\": \"2022-06-29T12:03:15.829Z\",\n        \"version\": 1,\n        \"name\": \"Aeor\",\n        \"type\": \"Hurricane\",\n        \"country\": \"Sint-Maarten\",\n        \"startDate\": \"2022-12-31T00:00:00.000Z\",\n        \"endDate\": \"2023-12-31T00:00:00.000Z\",\n        \"access\": \"Private\"\n    }\n]"
+							"body": "[\n    {\n        \"id\": \"28a22461-9d97-45e7-9fcd-62a527c95b57\",\n        \"createdAt\": \"2023-01-02T12:46:27.770Z\",\n        \"updatedAt\": \"2023-01-02T12:46:27.770Z\",\n        \"version\": 1,\n        \"name\": \"Beirut\",\n        \"type\": \"Conflict\",\n        \"country\": \"Lebanon\",\n        \"geometry\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n                33.8908586,\n                35.4945584\n            ]\n        },\n        \"startDate\": \"2020-08-04T00:00:00.000Z\",\n        \"endDate\": \"2020-08-04T00:00:00.000Z\",\n        \"access\": \"Restricted\"\n    },\n    {\n        \"id\": \"592685c1-017b-486d-869d-a2b453650a09\",\n        \"createdAt\": \"2023-01-02T12:46:27.773Z\",\n        \"updatedAt\": \"2023-01-02T12:46:27.773Z\",\n        \"version\": 1,\n        \"name\": \"ANA\",\n        \"type\": \"Tropical Cyclone\",\n        \"country\": \"Mozambique\",\n        \"geometry\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n                -25.9704569,\n                32.5727348\n            ]\n        },\n        \"startDate\": \"2022-01-24T00:00:00.000Z\",\n        \"endDate\": null,\n        \"access\": \"Public\"\n    },\n    {\n        \"id\": \"b08bca6e-1ff5-4c91-babd-66438a772e26\",\n        \"createdAt\": \"2023-01-02T12:46:27.773Z\",\n        \"updatedAt\": \"2023-01-02T12:46:27.773Z\",\n        \"version\": 1,\n        \"name\": \"Nyiragongo\",\n        \"type\": \"Eruption\",\n        \"country\": \"Democratic Republic of Congo\",\n        \"geometry\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n                -1.5220377,\n                29.2406804\n            ]\n        },\n        \"startDate\": \"2021-05-22T00:00:00.000Z\",\n        \"endDate\": \"2023-12-31T00:00:00.000Z\",\n        \"access\": \"Restricted\"\n    },\n    {\n        \"id\": \"c78c2827-3e99-4197-aebf-767f20eb3b58\",\n        \"createdAt\": \"2023-01-02T12:46:27.742Z\",\n        \"updatedAt\": \"2023-01-02T12:46:27.742Z\",\n        \"version\": 1,\n        \"name\": \"Mangut\",\n        \"type\": \"Tropical Cyclone\",\n        \"country\": \"Philippines\",\n        \"geometry\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n                14.6152545,\n                121.0052082\n            ]\n        },\n        \"startDate\": \"2018-09-15T00:00:00.000Z\",\n        \"endDate\": \"2018-10-15T00:00:00.000Z\",\n        \"access\": \"Public\"\n    }\n]"
 						}
 					]
 				},
@@ -149,61 +151,7 @@
 					},
 					"response": [
 						{
-							"name": "Public Event",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/events/221cf4e4-e658-4b84-8351-bb8b1ca0fdda",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"events",
-										"221cf4e4-e658-4b84-8351-bb8b1ca0fdda"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "411"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"19b-Yjpp7qo3Y7jEdyqom06KjE7/+KY\""
-								},
-								{
-									"key": "Date",
-									"value": "Tue, 05 Jul 2022 13:12:37 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"id\": \"221cf4e4-e658-4b84-8351-bb8b1ca0fdda\",\n    \"createdAt\": \"2022-06-29T11:47:00.507Z\",\n    \"updatedAt\": \"2022-06-29T11:47:00.507Z\",\n    \"version\": 1,\n    \"name\": \"Kazoo\",\n    \"type\": \"Hurricane\",\n    \"country\": \"Sint-Maarten\",\n    \"startDate\": \"2022-12-31T00:00:00.000Z\",\n    \"endDate\": \"2023-12-31T00:00:00.000Z\",\n    \"access\": \"Public\",\n    \"peopleAffected\": 0,\n    \"buildingsDamaged\": 0,\n    \"buildingsDamagedPercentage\": 0,\n    \"adminLevelLabels\": \"Province,District,Municipality\"\n}"
-						},
-						{
-							"name": "Private Event - Valid Auth Token - OK",
+							"name": "OK - Public Event",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
@@ -227,20 +175,24 @@
 									"value": "Express"
 								},
 								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
 									"key": "Content-Type",
 									"value": "application/json; charset=utf-8"
 								},
 								{
 									"key": "Content-Length",
-									"value": "411"
+									"value": "500"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"19b-tdLxufejJ2pt5DeEKMqCr7Dk0j8\""
+									"value": "W/\"1f4-ZGFTilS3NB5MsYsXjgg6xEcb9qg\""
 								},
 								{
 									"key": "Date",
-									"value": "Tue, 05 Jul 2022 13:20:08 GMT"
+									"value": "Tue, 21 Feb 2023 13:05:12 GMT"
 								},
 								{
 									"key": "Connection",
@@ -252,10 +204,10 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"id\": \"efa6788a-b075-4a57-afba-db983c267872\",\n    \"createdAt\": \"2022-06-29T12:03:15.829Z\",\n    \"updatedAt\": \"2022-06-29T12:03:15.829Z\",\n    \"version\": 1,\n    \"name\": \"Aeor\",\n    \"type\": \"Hurricane\",\n    \"country\": \"Sint-Maarten\",\n    \"startDate\": \"2022-12-31T00:00:00.000Z\",\n    \"endDate\": \"2023-12-31T00:00:00.000Z\",\n    \"access\": \"Private\",\n    \"peopleAffected\": 0,\n    \"buildingsDamaged\": 0,\n    \"buildingsDamagedPercentage\": 0,\n    \"adminLevelLabels\": \"Province,District,Municipality\"\n}"
+							"body": "{\n    \"id\": \"c78c2827-3e99-4197-aebf-767f20eb3b58\",\n    \"createdAt\": \"2023-01-02T12:46:27.742Z\",\n    \"updatedAt\": \"2023-01-02T12:46:27.742Z\",\n    \"version\": 1,\n    \"name\": \"Mangut\",\n    \"type\": \"Tropical Cyclone\",\n    \"country\": \"Philippines\",\n    \"geometry\": {\n        \"type\": \"Point\",\n        \"coordinates\": [\n            14.6152545,\n            121.0052082\n        ]\n    },\n    \"startDate\": \"2018-09-15T00:00:00.000Z\",\n    \"endDate\": \"2018-10-15T00:00:00.000Z\",\n    \"access\": \"Public\",\n    \"peopleAffected\": 456123,\n    \"buildingsDamaged\": 456123,\n    \"buildingsDamagedPercentage\": 0.45,\n    \"adminLevelLabels\": \"Regions,Provinces,Municipalities\"\n}"
 						},
 						{
-							"name": "Private Event - Invalid Auth Token - Forbidden",
+							"name": "OK - Restricted Event - Valid Auth Token",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
@@ -270,8 +222,8 @@
 									]
 								}
 							},
-							"status": "Forbidden",
-							"code": 403,
+							"status": "OK",
+							"code": 200,
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
@@ -279,20 +231,24 @@
 									"value": "Express"
 								},
 								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
 									"key": "Content-Type",
 									"value": "application/json; charset=utf-8"
 								},
 								{
 									"key": "Content-Length",
-									"value": "32"
+									"value": "477"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"20-Cs3qFDR4Qbl1ZINgMvH00qE9dww\""
+									"value": "W/\"1dd-cpNXD7IY5ILMMOWYk87DZ+o35YE\""
 								},
 								{
 									"key": "Date",
-									"value": "Tue, 05 Jul 2022 14:45:24 GMT"
+									"value": "Tue, 21 Feb 2023 13:08:51 GMT"
 								},
 								{
 									"key": "Connection",
@@ -304,10 +260,10 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"message\": \"Forbidden resource\"\n}"
+							"body": "{\n    \"id\": \"28a22461-9d97-45e7-9fcd-62a527c95b57\",\n    \"createdAt\": \"2023-01-02T12:46:27.770Z\",\n    \"updatedAt\": \"2023-01-02T12:46:27.770Z\",\n    \"version\": 1,\n    \"name\": \"Beirut\",\n    \"type\": \"Conflict\",\n    \"country\": \"Lebanon\",\n    \"geometry\": {\n        \"type\": \"Point\",\n        \"coordinates\": [\n            33.8908586,\n            35.4945584\n        ]\n    },\n    \"startDate\": \"2020-08-04T00:00:00.000Z\",\n    \"endDate\": \"2020-08-04T00:00:00.000Z\",\n    \"access\": \"Restricted\",\n    \"peopleAffected\": 345612,\n    \"buildingsDamaged\": 345612,\n    \"buildingsDamagedPercentage\": 0.34,\n    \"adminLevelLabels\": \"Governorates,Cazas\"\n}"
 						},
 						{
-							"name": "Private Event - No Auth Token - Unauthorized",
+							"name": "Unauthorized - Restricted Event - Invalid Auth Token",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
@@ -331,6 +287,10 @@
 									"value": "Express"
 								},
 								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
 									"key": "Content-Type",
 									"value": "application/json; charset=utf-8"
 								},
@@ -344,7 +304,63 @@
 								},
 								{
 									"key": "Date",
-									"value": "Tue, 05 Jul 2022 13:13:27 GMT"
+									"value": "Tue, 21 Feb 2023 13:10:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Unauthorized\"\n}"
+						},
+						{
+							"name": "Unauthorized - Restricted Event - No Auth Token",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/events/{{EVENT_ID}}",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"events",
+										"{{EVENT_ID}}"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a-pljHtlo127JYJR4E/RYOPb6ucbw\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 21 Feb 2023 13:10:52 GMT"
 								},
 								{
 									"key": "Connection",
@@ -367,7 +383,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Mia\",\n    \"type\": \"Typhoon\",\n    \"country\": \"The Netherlands\",\n    \"startDate\": \"2022-12-31\",\n    \"endDate\": \"2023-12-31\",\n    \"access\": \"Public\",\n    \"peopleAffected\": 0,\n    \"buildingsDamaged\": 0,\n    \"code\": \"password\",\n    \"buildingsDamagedPercentage\": 0,\n    \"adminLevelLabels\": \"Province,District,Municipality\"\n}",
+							"raw": "{\n    \"name\": \"Mia\",\n    \"type\": \"Tropical Cyclone\",\n    \"country\": \"The Netherlands\",\n    \"geometry\": {\n        \"type\": \"Point\",\n        \"coordinates\": [ 52.3545686, 4.9183895 ]\n    },\n    \"startDate\": \"2022-12-31\",\n    \"endDate\": \"2023-12-31\",\n    \"access\": \"Public\",\n    \"peopleAffected\": 0,\n    \"buildingsDamaged\": 0,\n    \"code\": \"password\",\n    \"buildingsDamagedPercentage\": 0,\n    \"adminLevelLabels\": \"Province,District,Municipality\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -386,13 +402,13 @@
 					},
 					"response": [
 						{
-							"name": "Valid Auth Token - Created",
+							"name": "Created - Valid Auth Token",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"Mia\",\n    \"type\": \"Typhoon\",\n    \"country\": \"The Netherlands\",\n    \"startDate\": \"2022-12-31\",\n    \"endDate\": \"2023-12-31\",\n    \"access\": \"Private\",\n    \"peopleAffected\": 0,\n    \"buildingsDamaged\": 0,\n    \"buildingsDamagedPercentage\": 0,\n    \"adminLevelLabels\": \"Province,District,Municipality\"\n}",
+									"raw": "{\n    \"name\": \"Mia\",\n    \"type\": \"Tropical Cyclone\",\n    \"country\": \"The Netherlands\",\n    \"geometry\": {\n        \"type\": \"Point\",\n        \"coordinates\": [ 52.3545686, 4.9183895 ]\n    },\n    \"startDate\": \"2022-12-31\",\n    \"endDate\": \"2023-12-31\",\n    \"access\": \"Public\",\n    \"peopleAffected\": 0,\n    \"buildingsDamaged\": 0,\n    \"code\": \"password\",\n    \"buildingsDamagedPercentage\": 0,\n    \"adminLevelLabels\": \"Province,District,Municipality\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -400,12 +416,10 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:3000/events",
-									"protocol": "http",
+									"raw": "{{HOST}}/events",
 									"host": [
-										"localhost"
+										"{{HOST}}"
 									],
-									"port": "3000",
 									"path": [
 										"events"
 									]
@@ -420,20 +434,24 @@
 									"value": "Express"
 								},
 								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
 									"key": "Content-Type",
 									"value": "application/json; charset=utf-8"
 								},
 								{
 									"key": "Content-Length",
-									"value": "397"
+									"value": "470"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"18d-01ds2/frVtY6G+YQc65zJTB1d5E\""
+									"value": "W/\"1d6-kdl4Yqq7lqYw71X2VyAsIjR7NDk\""
 								},
 								{
 									"key": "Date",
-									"value": "Tue, 05 Jul 2022 13:21:56 GMT"
+									"value": "Tue, 21 Feb 2023 13:15:34 GMT"
 								},
 								{
 									"key": "Connection",
@@ -445,16 +463,16 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"name\": \"Mia\",\n    \"type\": \"Typhoon\",\n    \"country\": \"The Netherlands\",\n    \"startDate\": \"2022-12-31\",\n    \"endDate\": \"2023-12-31T00:00:00.000Z\",\n    \"access\": \"Private\",\n    \"peopleAffected\": 0,\n    \"buildingsDamaged\": 0,\n    \"buildingsDamagedPercentage\": 0,\n    \"adminLevelLabels\": \"Province,District,Municipality\",\n    \"id\": \"a46b0b2b-a3ab-47d3-98a1-bccb7d6076f7\",\n    \"createdAt\": \"2022-07-05T11:21:56.509Z\",\n    \"updatedAt\": \"2022-07-05T11:21:56.509Z\",\n    \"version\": 1\n}"
+							"body": "{\n    \"name\": \"Mia\",\n    \"type\": \"Tropical Cyclone\",\n    \"country\": \"The Netherlands\",\n    \"geometry\": {\n        \"type\": \"Point\",\n        \"coordinates\": [\n            52.3545686,\n            4.9183895\n        ]\n    },\n    \"startDate\": \"2022-12-31\",\n    \"endDate\": \"2023-12-30T23:00:00.000Z\",\n    \"access\": \"Public\",\n    \"peopleAffected\": 0,\n    \"buildingsDamaged\": 0,\n    \"buildingsDamagedPercentage\": 0,\n    \"adminLevelLabels\": \"Province,District,Municipality\",\n    \"id\": \"eba43164-fe11-46a7-a151-0cae19d72e4e\",\n    \"createdAt\": \"2023-02-21T12:15:34.489Z\",\n    \"updatedAt\": \"2023-02-21T12:15:34.489Z\",\n    \"version\": 1\n}"
 						},
 						{
-							"name": "Invalid Auth Token - Forbidden",
+							"name": "Forbidden - Invalid Auth Token",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"Mia\",\n    \"type\": \"Typhoon\",\n    \"country\": \"The Netherlands\",\n    \"startDate\": \"2022-12-31\",\n    \"endDate\": \"2023-12-31\",\n    \"access\": \"Private\",\n    \"peopleAffected\": 0,\n    \"buildingsDamaged\": 0,\n    \"buildingsDamagedPercentage\": 0,\n    \"adminLevelLabels\": \"Province,District,Municipality\"\n}",
+									"raw": "{\n    \"name\": \"Mia\",\n    \"type\": \"Tropical Cyclone\",\n    \"country\": \"The Netherlands\",\n    \"geometry\": {\n        \"type\": \"Point\",\n        \"coordinates\": [ 52.3545686, 4.9183895 ]\n    },\n    \"startDate\": \"2022-12-31\",\n    \"endDate\": \"2023-12-31\",\n    \"access\": \"Public\",\n    \"peopleAffected\": 0,\n    \"buildingsDamaged\": 0,\n    \"code\": \"password\",\n    \"buildingsDamagedPercentage\": 0,\n    \"adminLevelLabels\": \"Province,District,Municipality\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -480,6 +498,10 @@
 									"value": "Express"
 								},
 								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
 									"key": "Content-Type",
 									"value": "application/json; charset=utf-8"
 								},
@@ -493,7 +515,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Tue, 05 Jul 2022 13:22:38 GMT"
+									"value": "Tue, 21 Feb 2023 13:16:18 GMT"
 								},
 								{
 									"key": "Connection",
@@ -508,13 +530,13 @@
 							"body": "{\n    \"message\": \"Forbidden resource\"\n}"
 						},
 						{
-							"name": "No Auth Token - Unauthorized",
+							"name": "Unauthorized - No Auth Token",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"Mia\",\n    \"type\": \"Typhoon\",\n    \"country\": \"The Netherlands\",\n    \"startDate\": \"2022-12-31\",\n    \"endDate\": \"2023-12-31\",\n    \"access\": \"Private\",\n    \"peopleAffected\": 0,\n    \"buildingsDamaged\": 0,\n    \"buildingsDamagedPercentage\": 0,\n    \"adminLevelLabels\": \"Province,District,Municipality\"\n}",
+									"raw": "{\n    \"name\": \"Mia\",\n    \"type\": \"Tropical Cyclone\",\n    \"country\": \"The Netherlands\",\n    \"geometry\": {\n        \"type\": \"Point\",\n        \"coordinates\": [ 52.3545686, 4.9183895 ]\n    },\n    \"startDate\": \"2022-12-31\",\n    \"endDate\": \"2023-12-31\",\n    \"access\": \"Public\",\n    \"peopleAffected\": 0,\n    \"buildingsDamaged\": 0,\n    \"code\": \"password\",\n    \"buildingsDamagedPercentage\": 0,\n    \"adminLevelLabels\": \"Province,District,Municipality\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -540,6 +562,10 @@
 									"value": "Express"
 								},
 								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
 									"key": "Content-Type",
 									"value": "application/json; charset=utf-8"
 								},
@@ -553,7 +579,230 @@
 								},
 								{
 									"key": "Date",
-									"value": "Tue, 05 Jul 2022 13:27:28 GMT"
+									"value": "Tue, 21 Feb 2023 13:16:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Unauthorized\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Event",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Riya\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/events/{{EVENT_ID}}",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"events",
+								"{{EVENT_ID}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK - Valid Auth Token",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Riya\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/events/{{EVENT_ID}}",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"events",
+										"{{EVENT_ID}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "498"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1f2-BP5Nw9+vatX5FDpKhdNj9+pjnLA\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 21 Feb 2023 13:55:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"c78c2827-3e99-4197-aebf-767f20eb3b58\",\n    \"createdAt\": \"2023-01-02T12:46:27.742Z\",\n    \"updatedAt\": \"2023-02-21T12:55:32.000Z\",\n    \"version\": 2,\n    \"name\": \"Riya\",\n    \"type\": \"Tropical Cyclone\",\n    \"country\": \"Philippines\",\n    \"geometry\": {\n        \"type\": \"Point\",\n        \"coordinates\": [\n            14.6152545,\n            121.0052082\n        ]\n    },\n    \"startDate\": \"2018-09-15T00:00:00.000Z\",\n    \"endDate\": \"2018-10-15T00:00:00.000Z\",\n    \"access\": \"Public\",\n    \"peopleAffected\": 456123,\n    \"buildingsDamaged\": 456123,\n    \"buildingsDamagedPercentage\": 0.45,\n    \"adminLevelLabels\": \"Regions,Provinces,Municipalities\"\n}"
+						},
+						{
+							"name": "Forbidden - Invalid Auth Token",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Mia\",\n    \"type\": \"Tropical Cyclone\",\n    \"country\": \"The Netherlands\",\n    \"geometry\": {\n        \"type\": \"Point\",\n        \"coordinates\": [ 52.3545686, 4.9183895 ]\n    },\n    \"startDate\": \"2022-12-31\",\n    \"endDate\": \"2023-12-31\",\n    \"access\": \"Public\",\n    \"peopleAffected\": 0,\n    \"buildingsDamaged\": 0,\n    \"code\": \"password\",\n    \"buildingsDamagedPercentage\": 0,\n    \"adminLevelLabels\": \"Province,District,Municipality\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/events/{{EVENT_ID}}",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"events",
+										"{{EVENT_ID}}"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "32"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"20-Cs3qFDR4Qbl1ZINgMvH00qE9dww\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 21 Feb 2023 13:52:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Forbidden resource\"\n}"
+						},
+						{
+							"name": "Unauthorized - No Auth Token",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Mia\",\n    \"type\": \"Tropical Cyclone\",\n    \"country\": \"The Netherlands\",\n    \"geometry\": {\n        \"type\": \"Point\",\n        \"coordinates\": [ 52.3545686, 4.9183895 ]\n    },\n    \"startDate\": \"2022-12-31\",\n    \"endDate\": \"2023-12-31\",\n    \"access\": \"Public\",\n    \"peopleAffected\": 0,\n    \"buildingsDamaged\": 0,\n    \"code\": \"password\",\n    \"buildingsDamagedPercentage\": 0,\n    \"adminLevelLabels\": \"Province,District,Municipality\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/events/{{EVENT_ID}}",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"events",
+										"{{EVENT_ID}}"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a-pljHtlo127JYJR4E/RYOPb6ucbw\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 21 Feb 2023 13:54:31 GMT"
 								},
 								{
 									"key": "Connection",
@@ -596,7 +845,7 @@
 					},
 					"response": [
 						{
-							"name": "Valid Auth Token",
+							"name": "OK - Valid Auth Token",
 							"originalRequest": {
 								"method": "DELETE",
 								"header": [],
@@ -610,15 +859,13 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:3000/events/221cf4e4-e658-4b84-8351-bb8b1ca0fdda",
-									"protocol": "http",
+									"raw": "{{HOST}}/events/{{EVENT_ID}}",
 									"host": [
-										"localhost"
+										"{{HOST}}"
 									],
-									"port": "3000",
 									"path": [
 										"events",
-										"221cf4e4-e658-4b84-8351-bb8b1ca0fdda"
+										"{{EVENT_ID}}"
 									]
 								}
 							},
@@ -629,6 +876,10 @@
 								{
 									"key": "X-Powered-By",
 									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
 								},
 								{
 									"key": "Content-Type",
@@ -644,7 +895,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Tue, 05 Jul 2022 13:53:08 GMT"
+									"value": "Tue, 21 Feb 2023 13:18:27 GMT"
 								},
 								{
 									"key": "Connection",
@@ -659,7 +910,7 @@
 							"body": "1"
 						},
 						{
-							"name": "Invalid Auth Token - Forbidden",
+							"name": "Forbidden - Invalid Auth Token",
 							"originalRequest": {
 								"method": "DELETE",
 								"header": [],
@@ -692,6 +943,10 @@
 									"value": "Express"
 								},
 								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
 									"key": "Content-Type",
 									"value": "application/json; charset=utf-8"
 								},
@@ -705,7 +960,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Tue, 05 Jul 2022 14:42:37 GMT"
+									"value": "Tue, 21 Feb 2023 13:18:09 GMT"
 								},
 								{
 									"key": "Connection",
@@ -720,7 +975,7 @@
 							"body": "{\n    \"message\": \"Forbidden resource\"\n}"
 						},
 						{
-							"name": "No Auth Token - Unauthorized",
+							"name": "Unauthorized - No Auth Token",
 							"originalRequest": {
 								"method": "DELETE",
 								"header": [],
@@ -734,13 +989,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{HOST}}/events/3fceae63-8606-4bfb-a2ff-08bcdf4c6b46",
+									"raw": "{{HOST}}/events/{{EVENT_ID}}",
 									"host": [
 										"{{HOST}}"
 									],
 									"path": [
 										"events",
-										"3fceae63-8606-4bfb-a2ff-08bcdf4c6b46"
+										"{{EVENT_ID}}"
 									]
 								}
 							},
@@ -751,6 +1006,10 @@
 								{
 									"key": "X-Powered-By",
 									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
 								},
 								{
 									"key": "Content-Type",
@@ -766,7 +1025,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Tue, 05 Jul 2022 13:27:21 GMT"
+									"value": "Tue, 21 Feb 2023 13:17:51 GMT"
 								},
 								{
 									"key": "Connection",
@@ -788,6 +1047,254 @@
 			"name": "Event Layers",
 			"item": [
 				{
+					"name": "List Event Layers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/events/{{EVENT_ID}}/layers",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"events",
+								"{{EVENT_ID}}",
+								"layers"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK - Public Event",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/events/{{EVENT_ID}}/layers",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"events",
+										"{{EVENT_ID}}",
+										"layers"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2729"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"aa9-b3puc7XstMK9q5mO6IPraVzPWX8\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 21 Feb 2023 13:51:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"6b514c5e-d505-408b-ab93-7f604b64aebb\",\n        \"createdAt\": \"2023-01-02T12:46:33.102Z\",\n        \"updatedAt\": \"2023-01-25T15:09:02.000Z\",\n        \"version\": 3,\n        \"name\": \"admin-1\",\n        \"information\": \"c78c2827-3e99-4197-aebf-767f20eb3b58 admin-1 layer information\"\n    },\n    {\n        \"id\": \"5f34ee39-bcad-4e9f-b543-aa3b6d58f073\",\n        \"createdAt\": \"2023-01-02T12:46:32.735Z\",\n        \"updatedAt\": \"2023-01-25T15:09:03.000Z\",\n        \"version\": 3,\n        \"name\": \"admin-2\",\n        \"information\": \"c78c2827-3e99-4197-aebf-767f20eb3b58 admin-2 layer information\"\n    },\n    {\n        \"id\": \"fdfa8e31-ead0-4a4a-a073-d679dcfe7f47\",\n        \"createdAt\": \"2023-01-02T12:46:33.692Z\",\n        \"updatedAt\": \"2023-01-02T12:46:33.692Z\",\n        \"version\": 1,\n        \"name\": \"admin-3\",\n        \"information\": \"c78c2827-3e99-4197-aebf-767f20eb3b58 admin-3 layer information\"\n    },\n    {\n        \"id\": \"f47dbd0e-ce0f-44d7-989b-f7ea8a1ae43f\",\n        \"createdAt\": \"2023-01-10T14:36:41.983Z\",\n        \"updatedAt\": \"2023-01-25T15:08:58.000Z\",\n        \"version\": 3,\n        \"name\": \"buildings-damage-none\",\n        \"information\": \"c78c2827-3e99-4197-aebf-767f20eb3b58 buildings-damage-none layer information\"\n    },\n    {\n        \"id\": \"23ea312d-b4d2-484d-8b10-7e422ce72539\",\n        \"createdAt\": \"2023-01-10T14:37:01.273Z\",\n        \"updatedAt\": \"2023-01-25T15:08:58.000Z\",\n        \"version\": 3,\n        \"name\": \"buildings-damage-light\",\n        \"information\": \"c78c2827-3e99-4197-aebf-767f20eb3b58 buildings-damage-light layer information\"\n    },\n    {\n        \"id\": \"9c1869bf-9d1c-4a8e-849c-7cc48e93dd5d\",\n        \"createdAt\": \"2023-01-10T14:37:17.379Z\",\n        \"updatedAt\": \"2023-01-25T15:08:58.000Z\",\n        \"version\": 3,\n        \"name\": \"buildings-damage-moderate\",\n        \"information\": \"c78c2827-3e99-4197-aebf-767f20eb3b58 buildings-damage-moderate layer information\"\n    },\n    {\n        \"id\": \"f8ac0449-56e8-4413-93af-39dd6fb0e02b\",\n        \"createdAt\": \"2023-01-10T14:37:55.380Z\",\n        \"updatedAt\": \"2023-01-25T15:09:04.000Z\",\n        \"version\": 3,\n        \"name\": \"buildings-damage-heavy\",\n        \"information\": \"c78c2827-3e99-4197-aebf-767f20eb3b58 buildings-damage-heavy layer information\"\n    },\n    {\n        \"id\": \"a44968c0-6396-4e0b-a62b-bdf2b50e98fc\",\n        \"createdAt\": \"2023-01-10T13:57:49.903Z\",\n        \"updatedAt\": \"2023-01-25T15:09:04.000Z\",\n        \"version\": 4,\n        \"name\": \"buildings\",\n        \"information\": \"c78c2827-3e99-4197-aebf-767f20eb3b58 buildings layer information\"\n    },\n    {\n        \"id\": \"0529ab01-f811-4c46-885a-95d67afca711\",\n        \"createdAt\": \"2023-01-13T12:43:09.913Z\",\n        \"updatedAt\": \"2023-01-25T15:09:00.000Z\",\n        \"version\": 2,\n        \"name\": \"assessment-area\",\n        \"information\": \"c78c2827-3e99-4197-aebf-767f20eb3b58 assessment-area layer information\"\n    },\n    {\n        \"id\": \"f598160f-d187-48da-9295-023b961d2ca1\",\n        \"createdAt\": \"2023-01-24T11:15:48.910Z\",\n        \"updatedAt\": \"2023-01-25T15:09:11.000Z\",\n        \"version\": 2,\n        \"name\": \"population-density\",\n        \"information\": \"c78c2827-3e99-4197-aebf-767f20eb3b58 population-density layer information\"\n    },\n    {\n        \"id\": \"c3e372a1-f621-41ed-8d3f-03db31b37c12\",\n        \"createdAt\": \"2023-01-13T12:43:10.011Z\",\n        \"updatedAt\": \"2023-01-25T15:09:01.000Z\",\n        \"version\": 2,\n        \"name\": \"wealth-index\",\n        \"information\": \"c78c2827-3e99-4197-aebf-767f20eb3b58 wealth-index layer information\"\n    }\n]"
+						},
+						{
+							"name": "OK - Restricted Event - Valid Auth Token",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/events/{{EVENT_ID}}/layers",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"events",
+										"{{EVENT_ID}}",
+										"layers"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "449"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1c1-g89N1D8ZxxcVQUb4HYMINq1IwXs\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 21 Feb 2023 13:49:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"7c965066-077e-496a-b55f-67cea3b8b412\",\n        \"createdAt\": \"2023-01-02T12:46:28.203Z\",\n        \"updatedAt\": \"2023-02-21T12:39:05.000Z\",\n        \"version\": 2,\n        \"name\": \"admin-1\",\n        \"information\": \"Supporting information about this event layer.\"\n    },\n    {\n        \"id\": \"42be2436-bb03-4bb5-8279-80c52dee5ae3\",\n        \"createdAt\": \"2023-01-02T12:46:29.694Z\",\n        \"updatedAt\": \"2023-01-02T12:46:29.694Z\",\n        \"version\": 1,\n        \"name\": \"admin-2\",\n        \"information\": \"28a22461-9d97-45e7-9fcd-62a527c95b57 admin-2 layer information\"\n    }\n]"
+						},
+						{
+							"name": "Unauthorized - Restricted Event - Invalid Auth Token",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/events/{{EVENT_ID}}/layers",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"events",
+										"{{EVENT_ID}}",
+										"layers"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a-pljHtlo127JYJR4E/RYOPb6ucbw\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 21 Feb 2023 13:48:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Unauthorized\"\n}"
+						},
+						{
+							"name": "Unauthorized - Restricted Event - No Auth Token",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/events/{{EVENT_ID}}/layers",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"events",
+										"{{EVENT_ID}}",
+										"layers"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a-pljHtlo127JYJR4E/RYOPb6ucbw\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 21 Feb 2023 13:47:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Unauthorized\"\n}"
+						}
+					]
+				},
+				{
 					"name": "Read Event Layer",
 					"request": {
 						"method": "GET",
@@ -807,63 +1314,7 @@
 					},
 					"response": [
 						{
-							"name": "Public Event - OK",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/events/221cf4e4-e658-4b84-8351-bb8b1ca0fdda/layers/admin-1",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"events",
-										"221cf4e4-e658-4b84-8351-bb8b1ca0fdda",
-										"layers",
-										"admin-1"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "359"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"167-6gs3y+Tc3dmd1N9TW4Obmmz+ouk\""
-								},
-								{
-									"key": "Date",
-									"value": "Wed, 06 Jul 2022 12:32:35 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"id\": \"565868d8-a264-4f88-b134-f8a860855dd5\",\n    \"createdAt\": \"2022-07-05T13:32:50.692Z\",\n    \"updatedAt\": \"2022-07-05T13:32:50.692Z\",\n    \"version\": 1,\n    \"name\": \"admin-1\",\n    \"geojson\": \"{\\\"type\\\":\\\"Feature\\\",\\\"geometry\\\":{\\\"type\\\":\\\"Point\\\",\\\"coordinates\\\":[125.6,10.1]},\\\"properties\\\":{\\\"name\\\":\\\"Dinagat Islands\\\"}}\",\n    \"information\": \"Supporting information about this event layer.\"\n}"
-						},
-						{
-							"name": "Private Event - Valid Auth Token - OK",
+							"name": "OK - Public Event - Valid Auth Token",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
@@ -889,20 +1340,24 @@
 									"value": "Express"
 								},
 								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
 									"key": "Content-Type",
 									"value": "application/json; charset=utf-8"
 								},
 								{
 									"key": "Content-Length",
-									"value": "359"
+									"value": "339"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"167-Kyl+i57Z2kreRvQvNldVkpQllYg\""
+									"value": "W/\"153-fo0if9CggdpyqyZ2FNZPjkQpPYQ\""
 								},
 								{
 									"key": "Date",
-									"value": "Wed, 06 Jul 2022 12:30:14 GMT"
+									"value": "Tue, 21 Feb 2023 13:37:32 GMT"
 								},
 								{
 									"key": "Connection",
@@ -914,28 +1369,28 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"id\": \"cb4453f9-eeaa-45f0-a953-7a0932fbca45\",\n    \"createdAt\": \"2022-07-05T13:29:50.685Z\",\n    \"updatedAt\": \"2022-07-05T13:29:50.685Z\",\n    \"version\": 1,\n    \"name\": \"admin-1\",\n    \"geojson\": \"{\\\"type\\\":\\\"Feature\\\",\\\"geometry\\\":{\\\"type\\\":\\\"Point\\\",\\\"coordinates\\\":[125.6,10.1]},\\\"properties\\\":{\\\"name\\\":\\\"Dinagat Islands\\\"}}\",\n    \"information\": \"Supporting information about this event layer.\"\n}"
+							"body": "{\n    \"id\": \"08b75ead-6fba-4a13-b20a-a76c57455d79\",\n    \"createdAt\": \"2023-02-21T12:37:29.151Z\",\n    \"updatedAt\": \"2023-02-21T12:37:29.151Z\",\n    \"version\": 1,\n    \"name\": \"admin-1\",\n    \"geojson\": {\n        \"type\": \"Feature\",\n        \"geometry\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n                125.6,\n                10.1\n            ]\n        },\n        \"properties\": {\n            \"name\": \"Dinagat Islands\"\n        }\n    },\n    \"information\": \"Supporting information about this event layer.\"\n}"
 						},
 						{
-							"name": "Private Event - Invalid Auth Token - Forbidden",
+							"name": "OK - Restricted Event - Valid Auth Token",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{HOST}}/events/{{EVENT_ID}}/layer/{{LAYER_NAME}}",
+									"raw": "{{HOST}}/events/{{EVENT_ID}}/layers/{{LAYER_NAME}}",
 									"host": [
 										"{{HOST}}"
 									],
 									"path": [
 										"events",
 										"{{EVENT_ID}}",
-										"layer",
+										"layers",
 										"{{LAYER_NAME}}"
 									]
 								}
 							},
-							"status": "Forbidden",
-							"code": 403,
+							"status": "OK",
+							"code": 200,
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
@@ -943,20 +1398,24 @@
 									"value": "Express"
 								},
 								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
 									"key": "Content-Type",
 									"value": "application/json; charset=utf-8"
 								},
 								{
 									"key": "Content-Length",
-									"value": "32"
+									"value": "339"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"20-Cs3qFDR4Qbl1ZINgMvH00qE9dww\""
+									"value": "W/\"153-1rXW+oAQxduANWFPj/IbFdEpfvM\""
 								},
 								{
 									"key": "Date",
-									"value": "Tue, 05 Jul 2022 14:52:26 GMT"
+									"value": "Tue, 21 Feb 2023 13:39:10 GMT"
 								},
 								{
 									"key": "Connection",
@@ -968,10 +1427,10 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"message\": \"Forbidden resource\"\n}"
+							"body": "{\n    \"id\": \"7c965066-077e-496a-b55f-67cea3b8b412\",\n    \"createdAt\": \"2023-01-02T12:46:28.203Z\",\n    \"updatedAt\": \"2023-02-21T12:39:05.000Z\",\n    \"version\": 2,\n    \"name\": \"admin-1\",\n    \"geojson\": {\n        \"type\": \"Feature\",\n        \"geometry\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n                125.6,\n                10.1\n            ]\n        },\n        \"properties\": {\n            \"name\": \"Dinagat Islands\"\n        }\n    },\n    \"information\": \"Supporting information about this event layer.\"\n}"
 						},
 						{
-							"name": "Private Event - No Auth Token - Unauthorized",
+							"name": "Unauthorized - Invalid Auth Token",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
@@ -997,6 +1456,10 @@
 									"value": "Express"
 								},
 								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
 									"key": "Content-Type",
 									"value": "application/json; charset=utf-8"
 								},
@@ -1010,7 +1473,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Wed, 06 Jul 2022 12:31:58 GMT"
+									"value": "Tue, 21 Feb 2023 13:39:40 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1025,7 +1488,65 @@
 							"body": "{\n    \"message\": \"Unauthorized\"\n}"
 						},
 						{
-							"name": "Not Found",
+							"name": "Unauthorized - No Auth Token",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/events/{{EVENT_ID}}/layers/{{LAYER_NAME}}",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"events",
+										"{{EVENT_ID}}",
+										"layers",
+										"{{LAYER_NAME}}"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a-pljHtlo127JYJR4E/RYOPb6ucbw\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 21 Feb 2023 13:40:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Unauthorized\"\n}"
+						},
+						{
+							"name": "Not Found - Valid Auth Token",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
@@ -1051,6 +1572,10 @@
 									"value": "Express"
 								},
 								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
 									"key": "Content-Type",
 									"value": "application/json; charset=utf-8"
 								},
@@ -1064,7 +1589,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Wed, 06 Jul 2022 12:33:30 GMT"
+									"value": "Tue, 21 Feb 2023 13:37:00 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1087,7 +1612,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"geojson\": \"{\\\"type\\\":\\\"Feature\\\",\\\"geometry\\\":{\\\"type\\\":\\\"Point\\\",\\\"coordinates\\\":[125.6,10.1]},\\\"properties\\\":{\\\"name\\\":\\\"Dinagat Islands\\\"}}\",\n    \"information\": \"Supporting information about this event layer.\"\n}",
+							"raw": "{\n    \"geojson\": {\n        \"type\": \"Feature\",\n        \"geometry\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n                125.6,\n                10.1\n            ]\n        },\n        \"properties\": {\n            \"name\": \"Dinagat Islands\"\n        }\n    },\n    \"information\": \"Supporting information about this event layer.\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1109,13 +1634,13 @@
 					},
 					"response": [
 						{
-							"name": "Valid Auth Token - Created",
+							"name": "Created - Valid Auth Token",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"geojson\": \"{\\\"type\\\":\\\"Feature\\\",\\\"geometry\\\":{\\\"type\\\":\\\"Point\\\",\\\"coordinates\\\":[125.6,10.1]},\\\"properties\\\":{\\\"name\\\":\\\"Dinagat Islands\\\"}}\",\n    \"information\": \"Supporting information about this event layer.\"\n}",
+									"raw": "{\n    \"geojson\": {\n        \"type\": \"Feature\",\n        \"geometry\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n                125.6,\n                10.1\n            ]\n        },\n        \"properties\": {\n            \"name\": \"Dinagat Islands\"\n        }\n    },\n    \"information\": \"Supporting information about this event layer.\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1123,17 +1648,15 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:3000/events/221cf4e4-e658-4b84-8351-bb8b1ca0fdda/layer/admin-1",
-									"protocol": "http",
+									"raw": "{{HOST}}/events/{{EVENT_ID}}/layers/{{LAYER_NAME}}",
 									"host": [
-										"localhost"
+										"{{HOST}}"
 									],
-									"port": "3000",
 									"path": [
 										"events",
-										"221cf4e4-e658-4b84-8351-bb8b1ca0fdda",
-										"layer",
-										"admin-1"
+										"{{EVENT_ID}}",
+										"layers",
+										"{{LAYER_NAME}}"
 									]
 								}
 							},
@@ -1146,20 +1669,24 @@
 									"value": "Express"
 								},
 								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
 									"key": "Content-Type",
 									"value": "application/json; charset=utf-8"
 								},
 								{
 									"key": "Content-Length",
-									"value": "359"
+									"value": "339"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"167-Kyl+i57Z2kreRvQvNldVkpQllYg\""
+									"value": "W/\"153-6tJhcXZFO1oB8MmVvjXQgZgZg5Q\""
 								},
 								{
 									"key": "Date",
-									"value": "Tue, 05 Jul 2022 15:29:50 GMT"
+									"value": "Tue, 21 Feb 2023 13:31:59 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1171,16 +1698,16 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"id\": \"cb4453f9-eeaa-45f0-a953-7a0932fbca45\",\n    \"createdAt\": \"2022-07-05T13:29:50.685Z\",\n    \"updatedAt\": \"2022-07-05T13:29:50.685Z\",\n    \"version\": 1,\n    \"name\": \"admin-1\",\n    \"geojson\": \"{\\\"type\\\":\\\"Feature\\\",\\\"geometry\\\":{\\\"type\\\":\\\"Point\\\",\\\"coordinates\\\":[125.6,10.1]},\\\"properties\\\":{\\\"name\\\":\\\"Dinagat Islands\\\"}}\",\n    \"information\": \"Supporting information about this event layer.\"\n}"
+							"body": "{\n    \"id\": \"91b368f3-7221-41ee-9381-c8ca2df7f034\",\n    \"createdAt\": \"2023-02-21T12:31:59.112Z\",\n    \"updatedAt\": \"2023-02-21T12:31:59.112Z\",\n    \"version\": 1,\n    \"name\": \"admin-1\",\n    \"geojson\": {\n        \"type\": \"Feature\",\n        \"geometry\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n                125.6,\n                10.1\n            ]\n        },\n        \"properties\": {\n            \"name\": \"Dinagat Islands\"\n        }\n    },\n    \"information\": \"Supporting information about this event layer.\"\n}"
 						},
 						{
-							"name": "Invalid Auth Token - Forbidden",
+							"name": "Forbidden - Invalid Auth Token",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"geojson\": \"{\\\"type\\\":\\\"Feature\\\",\\\"geometry\\\":{\\\"type\\\":\\\"Point\\\",\\\"coordinates\\\":[125.6,10.1]},\\\"properties\\\":{\\\"name\\\":\\\"Dinagat Islands\\\"}}\",\n    \"information\": \"Supporting information about this event layer.\"\n}",
+									"raw": "{\n    \"geojson\": {\n        \"type\": \"Feature\",\n        \"geometry\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n                125.6,\n                10.1\n            ]\n        },\n        \"properties\": {\n            \"name\": \"Dinagat Islands\"\n        }\n    },\n    \"information\": \"Supporting information about this event layer.\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1188,14 +1715,14 @@
 									}
 								},
 								"url": {
-									"raw": "{{HOST}}/events/{{EVENT_ID}}/layer/{{LAYER_NAME}}",
+									"raw": "{{HOST}}/events/{{EVENT_ID}}/layers/{{LAYER_NAME}}",
 									"host": [
 										"{{HOST}}"
 									],
 									"path": [
 										"events",
 										"{{EVENT_ID}}",
-										"layer",
+										"layers",
 										"{{LAYER_NAME}}"
 									]
 								}
@@ -1207,6 +1734,10 @@
 								{
 									"key": "X-Powered-By",
 									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
 								},
 								{
 									"key": "Content-Type",
@@ -1222,7 +1753,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Tue, 05 Jul 2022 15:31:10 GMT"
+									"value": "Tue, 21 Feb 2023 13:33:23 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1237,13 +1768,13 @@
 							"body": "{\n    \"message\": \"Forbidden resource\"\n}"
 						},
 						{
-							"name": "No Auth Token - Unauthorized",
+							"name": "Unauthorized - No Auth Token",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"geojson\": \"{\\\"type\\\":\\\"Feature\\\",\\\"geometry\\\":{\\\"type\\\":\\\"Point\\\",\\\"coordinates\\\":[125.6,10.1]},\\\"properties\\\":{\\\"name\\\":\\\"Dinagat Islands\\\"}}\",\n    \"information\": \"Supporting information about this event layer.\"\n}",
+									"raw": "{\n    \"geojson\": {\n        \"type\": \"Feature\",\n        \"geometry\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n                125.6,\n                10.1\n            ]\n        },\n        \"properties\": {\n            \"name\": \"Dinagat Islands\"\n        }\n    },\n    \"information\": \"Supporting information about this event layer.\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1251,14 +1782,14 @@
 									}
 								},
 								"url": {
-									"raw": "{{HOST}}/events/{{EVENT_ID}}/layer/{{LAYER_NAME}}",
+									"raw": "{{HOST}}/events/{{EVENT_ID}}/layers/{{LAYER_NAME}}",
 									"host": [
 										"{{HOST}}"
 									],
 									"path": [
 										"events",
 										"{{EVENT_ID}}",
-										"layer",
+										"layers",
 										"{{LAYER_NAME}}"
 									]
 								}
@@ -1270,6 +1801,10 @@
 								{
 									"key": "X-Powered-By",
 									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
 								},
 								{
 									"key": "Content-Type",
@@ -1285,7 +1820,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Tue, 05 Jul 2022 15:30:33 GMT"
+									"value": "Tue, 21 Feb 2023 13:33:46 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1321,22 +1856,20 @@
 					},
 					"response": [
 						{
-							"name": "Valid Auth Token - OK",
+							"name": "OK - Valid Auth Token",
 							"originalRequest": {
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:3000/events/221cf4e4-e658-4b84-8351-bb8b1ca0fdda/layers/admin-1",
-									"protocol": "http",
+									"raw": "{{HOST}}/events/{{EVENT_ID}}/layers/{{LAYER_NAME}}",
 									"host": [
-										"localhost"
+										"{{HOST}}"
 									],
-									"port": "3000",
 									"path": [
 										"events",
-										"221cf4e4-e658-4b84-8351-bb8b1ca0fdda",
+										"{{EVENT_ID}}",
 										"layers",
-										"admin-1"
+										"{{LAYER_NAME}}"
 									]
 								}
 							},
@@ -1347,6 +1880,10 @@
 								{
 									"key": "X-Powered-By",
 									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
 								},
 								{
 									"key": "Content-Type",
@@ -1362,7 +1899,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Wed, 06 Jul 2022 13:06:51 GMT"
+									"value": "Tue, 21 Feb 2023 13:35:45 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1377,19 +1914,19 @@
 							"body": "1"
 						},
 						{
-							"name": "Invalid Auth Token - Forbidden",
+							"name": "Forbidden - Invalid Auth Token",
 							"originalRequest": {
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{HOST}}/events/{{EVENT_ID}}/layer/{{LAYER_NAME}}",
+									"raw": "{{HOST}}/events/{{EVENT_ID}}/layers/{{LAYER_NAME}}",
 									"host": [
 										"{{HOST}}"
 									],
 									"path": [
 										"events",
 										"{{EVENT_ID}}",
-										"layer",
+										"layers",
 										"{{LAYER_NAME}}"
 									]
 								}
@@ -1401,6 +1938,10 @@
 								{
 									"key": "X-Powered-By",
 									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
 								},
 								{
 									"key": "Content-Type",
@@ -1416,7 +1957,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Tue, 05 Jul 2022 14:53:42 GMT"
+									"value": "Tue, 21 Feb 2023 13:35:19 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1431,7 +1972,7 @@
 							"body": "{\n    \"message\": \"Forbidden resource\"\n}"
 						},
 						{
-							"name": "No Auth Token - Unauthorized",
+							"name": "Unauthorized - No Auth Token",
 							"originalRequest": {
 								"method": "DELETE",
 								"header": [],
@@ -1457,6 +1998,10 @@
 									"value": "Express"
 								},
 								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
 									"key": "Content-Type",
 									"value": "application/json; charset=utf-8"
 								},
@@ -1470,7 +2015,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Wed, 06 Jul 2022 13:07:10 GMT"
+									"value": "Tue, 21 Feb 2023 13:34:42 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1485,7 +2030,7 @@
 							"body": "{\n    \"message\": \"Unauthorized\"\n}"
 						},
 						{
-							"name": "Not Found",
+							"name": "Not Found - Valid Auth Token",
 							"originalRequest": {
 								"method": "DELETE",
 								"header": [],
@@ -1511,6 +2056,10 @@
 									"value": "Express"
 								},
 								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
 									"key": "Content-Type",
 									"value": "application/json; charset=utf-8"
 								},
@@ -1524,7 +2073,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Wed, 06 Jul 2022 13:07:27 GMT"
+									"value": "Tue, 21 Feb 2023 13:36:01 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1559,17 +2108,15 @@
 			},
 			"response": [
 				{
-					"name": "Hello World",
+					"name": "OK - Hello World",
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/",
-							"protocol": "http",
+							"raw": "{{HOST}}/",
 							"host": [
-								"localhost"
+								"{{HOST}}"
 							],
-							"port": "3000",
 							"path": [
 								""
 							]
@@ -1582,6 +2129,10 @@
 						{
 							"key": "X-Powered-By",
 							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
 						},
 						{
 							"key": "Content-Type",
@@ -1597,7 +2148,7 @@
 						},
 						{
 							"key": "Date",
-							"value": "Tue, 05 Jul 2022 13:02:07 GMT"
+							"value": "Tue, 21 Feb 2023 13:41:57 GMT"
 						},
 						{
 							"key": "Connection",
@@ -1642,7 +2193,7 @@
 			},
 			"response": [
 				{
-					"name": "Private Event - Token",
+					"name": "Created - Restricted Event - Valid Event Code",
 					"originalRequest": {
 						"method": "POST",
 						"header": [],
@@ -1651,21 +2202,19 @@
 							"urlencoded": [
 								{
 									"key": "code",
-									"value": "RVXaCUeUT4gBwzvy",
+									"value": "beirut",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3000/events/221cf4e4-e658-4b84-8351-bb8b1ca0fdda/code",
-							"protocol": "http",
+							"raw": "{{HOST}}/events/{{EVENT_ID}}/code",
 							"host": [
-								"localhost"
+								"{{HOST}}"
 							],
-							"port": "3000",
 							"path": [
 								"events",
-								"221cf4e4-e658-4b84-8351-bb8b1ca0fdda",
+								"{{EVENT_ID}}",
 								"code"
 							]
 						}
@@ -1679,6 +2228,10 @@
 							"value": "Express"
 						},
 						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
 							"key": "Content-Type",
 							"value": "application/json; charset=utf-8"
 						},
@@ -1688,11 +2241,11 @@
 						},
 						{
 							"key": "ETag",
-							"value": "W/\"b9-sLQEewbO7qm8wAmvOmjnlwMeKNw\""
+							"value": "W/\"b9-fh69yIMtfrF6yCNA1ikpXVoRABY\""
 						},
 						{
 							"key": "Date",
-							"value": "Tue, 05 Jul 2022 13:07:06 GMT"
+							"value": "Tue, 21 Feb 2023 13:45:51 GMT"
 						},
 						{
 							"key": "Connection",
@@ -1704,10 +2257,10 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"message\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJldmVudElkIjoiZWZhNjc4OGEtYjA3NS00YTU3LWFmYmEtZGI5ODNjMjY3ODcyIiwiaWF0IjoxNjU3MDI2NDI2fQ.RA0hNnozs4gdhkcNgyqmyImfvB6TAaZwrkzV8H-L3dI\"\n}"
+					"body": "{\n    \"message\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJldmVudElkIjoiMjhhMjI0NjEtOWQ5Ny00NWU3LTlmY2QtNjJhNTI3Yzk1YjU3IiwiaWF0IjoxNjc2OTg3MTUxfQ.vfY8HGotJF6t_g2JoS9-c9ymVb_Cs8ojC6e-4OZlt0o\"\n}"
 				},
 				{
-					"name": "Private Event - Unauthorized",
+					"name": "Unauthorized - Restricted Event - Invalid Event Code",
 					"originalRequest": {
 						"method": "POST",
 						"header": [],
@@ -1742,6 +2295,10 @@
 							"value": "Express"
 						},
 						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
 							"key": "Content-Type",
 							"value": "application/json; charset=utf-8"
 						},
@@ -1755,7 +2312,7 @@
 						},
 						{
 							"key": "Date",
-							"value": "Tue, 05 Jul 2022 13:08:49 GMT"
+							"value": "Tue, 21 Feb 2023 13:43:16 GMT"
 						},
 						{
 							"key": "Connection",
@@ -1770,7 +2327,7 @@
 					"body": "{\n    \"message\": \"Unauthorized\"\n}"
 				},
 				{
-					"name": "Public Event - Error",
+					"name": "Bad Request - Public Event",
 					"originalRequest": {
 						"method": "POST",
 						"header": [],
@@ -1779,7 +2336,7 @@
 							"urlencoded": [
 								{
 									"key": "code",
-									"value": "RVXaCUeUT4gBwzvy",
+									"value": "password",
 									"type": "text"
 								}
 							]
@@ -1805,6 +2362,10 @@
 							"value": "Express"
 						},
 						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
 							"key": "Content-Type",
 							"value": "application/json; charset=utf-8"
 						},
@@ -1818,7 +2379,7 @@
 						},
 						{
 							"key": "Date",
-							"value": "Tue, 05 Jul 2022 13:09:39 GMT"
+							"value": "Tue, 21 Feb 2023 13:44:52 GMT"
 						},
 						{
 							"key": "Connection",
