@@ -8,6 +8,8 @@ enum EventLayerName {
     buildingsDamageLight = 'buildings-damage-light',
     buildingsDamageModerate = 'buildings-damage-moderate',
     buildingsDamageHeavy = 'buildings-damage-heavy',
+    buildingsDamageNoneAndLight = 'buildings-damage-none-and-light',
+    buildingsDamageModerateAndHeavy = 'buildings-damage-moderate-and-heavy',
     buildings = 'buildings',
     assessmentArea = 'assessment-area',
     populationDensity = 'population-density',
