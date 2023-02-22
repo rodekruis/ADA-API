@@ -29,6 +29,7 @@ The following sections describe the data structure representations of **Event** 
     "endDate": "2023-12-31", // yyyy-mm-dd
     "access": "Public", // Public, Restricted
     "peopleAffected": 0, // integer
+    "peopleAffectedPercentage": 0, // float (0.0 - 1.0)
     "buildingsDamaged": 0, // integer
     "buildingsDamagedPercentage": 0, // float (0.0 - 1.0)
     "adminLevelLabels": "Province,District,Municipality", // comma separated strings
@@ -46,9 +47,10 @@ The following sections describe the data structure representations of **Event** 
             {
                 "type": "Feature",
                 "properties": {
+                    "people_affected": 6789, // integer used by admin layers
+                    "people_affected_percentage": 0.23, // // float (0.0 - 1.0) used by admin layers
                     "building_damage": 123, // integer used by admin layers
                     "building_damage_percentage": 0.45, // float (0.0 - 1.0) used by admin layers
-                    "people_affected": 6789, // integer used by admin layers
                     "population_density": 42, // integer used by population-density layer
                     "rwi": 0.2 // float (-10.0 to 10.0) used by wealth-index layer
                 },

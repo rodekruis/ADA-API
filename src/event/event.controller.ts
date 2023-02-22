@@ -71,6 +71,8 @@ export default class EventController {
         eventEntity.endDate = createEventDto.endDate;
         eventEntity.access = createEventDto.access;
         eventEntity.peopleAffected = createEventDto.peopleAffected;
+        eventEntity.peopleAffectedPercentage =
+            createEventDto.peopleAffectedPercentage;
         eventEntity.buildingsDamaged = createEventDto.buildingsDamaged;
         eventEntity.buildingsDamagedPercentage =
             createEventDto.buildingsDamagedPercentage;
@@ -133,6 +135,9 @@ export default class EventController {
         if (updateEventDto.access) eventEntity.access = updateEventDto.access;
         if (updateEventDto.peopleAffected)
             eventEntity.peopleAffected = updateEventDto.peopleAffected;
+        if (updateEventDto.peopleAffectedPercentage)
+            eventEntity.peopleAffectedPercentage =
+                updateEventDto.peopleAffectedPercentage;
         if (updateEventDto.buildingsDamaged)
             eventEntity.buildingsDamaged = updateEventDto.buildingsDamaged;
         if (updateEventDto.buildingsDamagedPercentage)
