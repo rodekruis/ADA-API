@@ -53,6 +53,12 @@ export default class CreateEventDto {
     readonly peopleAffected!: number;
 
     @ApiProperty({ example: 0 })
+    @IsNumber()
+    @Min(0)
+    @Max(1)
+    readonly peopleAffectedPercentage!: number;
+
+    @ApiProperty({ example: 0 })
     @IsInt()
     @Min(0)
     readonly buildingsDamaged!: number;

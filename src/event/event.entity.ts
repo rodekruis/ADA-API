@@ -55,6 +55,12 @@ export default class EventEntity extends BaseEntity {
     @Min(0)
     peopleAffected!: number;
 
+    @Column('float')
+    @IsNumber()
+    @Min(0)
+    @Max(1)
+    peopleAffectedPercentage!: number;
+
     @Column()
     @IsInt()
     @Min(0)
@@ -92,6 +98,7 @@ export const sortEventEntityFieldsNames: EventEntityFieldsName[] = [
     'endDate',
     'access',
     'peopleAffected',
+    'peopleAffectedPercentage',
     'buildingsDamaged',
     'buildingsDamagedPercentage',
     ...baseEntityFieldsNames,
@@ -106,6 +113,7 @@ export const searchEventEntityFieldsNames: EventEntityFieldsName[] = [
     'endDate',
     'access',
     'peopleAffected',
+    'peopleAffectedPercentage',
     'buildingsDamaged',
     'buildingsDamagedPercentage',
 ];
