@@ -1,3 +1,13 @@
+# [0.3.0](https://github.com/rodekruis/ADA-API/compare/v0.2.1...v0.3.0) (2023-02-23)
+
+
+### Features
+
+* add event layers for 2 level building damage ([f300586](https://github.com/rodekruis/ADA-API/commit/f30058652e047dd4d410c6b090da9260ccc25ff0))
+* add people affected percentage to event object ([e1b61b7](https://github.com/rodekruis/ADA-API/commit/e1b61b7c751ef830c97e5f650e954e56f73cf345))
+
+
+
 ## [0.2.1](https://github.com/rodekruis/ADA-API/compare/v0.2.0...v0.2.1) (2023-02-21)
 
 

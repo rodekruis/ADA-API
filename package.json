@@ -1,6 +1,6 @@
 {
   "name": "ada-api",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "REST API for ADA",
   "author": "Gulfaraz Rahman",
   "private": true,
