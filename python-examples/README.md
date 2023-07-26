@@ -1,4 +1,4 @@
-## [python-examples]
+## python-examples
 
 Python scripts to create / edit / delete events through ADA-API
 
