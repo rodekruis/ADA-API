@@ -12,8 +12,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 engine = create_engine(
-    f"postgresql://{os.getenv('SQL_USERNAME')}@510-postgresql-server:{os.getenv('SQL_PASSWORD')}"
-    f"@510-postgresql-server.postgres.database.azure.com:5432/global510")
+    f"postgresql://{os.getenv('SQL_USERNAME')}@510-postgresql-flex-server:{os.getenv('SQL_PASSWORD')}"
+    f"@510-postgresql-flex-server.postgres.database.azure.com:5432/global510")
 
 
 def get_worldpop_data(base_url, model, country, filename, filepath):
