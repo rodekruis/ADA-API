@@ -25,10 +25,10 @@
   },
   "dependencies": {
     "@nestjs/common": "^8.0.6",
-    "@nestjs/core": "^8.0.6",
+    "@nestjs/core": "^11.1.1",
     "@nestjs/jwt": "^8.0.1",
-    "@nestjs/platform-express": "^8.0.6",
-    "@nestjs/swagger": "^5.0.9",
+    "@nestjs/platform-express": "^11.1.1",
+    "@nestjs/swagger": "^11.2.0",
     "@nestjs/typeorm": "^9.0.1",
     "@types/geojson": "^7946.0.10",
     "argon2": "^0.28.3",
