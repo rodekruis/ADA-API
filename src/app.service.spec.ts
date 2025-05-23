@@ -1,5 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { I18nRequestScopeService } from 'nestjs-i18n';
+
 import AppService from './app.service';
 
 describe('AppService', () => {
@@ -12,9 +13,7 @@ describe('AppService', () => {
                 AppService,
                 {
                     provide: I18nRequestScopeService,
-                    useValue: {
-                        translate: jest.fn(),
-                    },
+                    useValue: { translate: jest.fn() },
                 },
             ],
         }).compile();

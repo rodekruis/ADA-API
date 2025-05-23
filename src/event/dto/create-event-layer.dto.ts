@@ -1,5 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsString } from 'class-validator';
+import { GeoJSON } from 'geojson';
 
 export default class CreateEventLayerDto {
     @ApiProperty({

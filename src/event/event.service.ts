@@ -1,14 +1,15 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { I18nRequestScopeService } from 'nestjs-i18n';
+import { I18nService } from 'nestjs-i18n';
 import { Equal, FindManyOptions, FindOneOptions, Repository } from 'typeorm';
-import { getOrderClause } from '../shared/sort';
+
 import getWhereClause from '../shared/search';
+import { getOrderClause } from '../shared/sort';
 import EventEntity, {
+    eventEntityFieldsNames,
+    EventId,
     searchEventEntityFieldsNames,
     sortEventEntityFieldsNames,
-    EventId,
-    eventEntityFieldsNames,
 } from './event.entity';
 
 @Injectable()
@@ -22,7 +23,7 @@ export default class EventService {
     constructor(
         @InjectRepository(EventEntity)
         private eventsRepository: Repository<EventEntity>,
-        private readonly i18n: I18nRequestScopeService,
+        private readonly i18n: I18nService,
     ) {
         this.prepareTranslations();
     }

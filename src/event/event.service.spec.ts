@@ -1,6 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { I18nRequestScopeService } from 'nestjs-i18n';
+
 import EventEntity from './event.entity';
 import EventService from './event.service';
 

@@ -2,16 +2,9 @@
   "moduleFileExtensions": ["js", "json", "ts"],
   "rootDir": "src",
   "testRegex": ".*\\.spec\\.ts$",
-  "transform": {
-    "^.+\\.(t|j)s$": "ts-jest"
-  },
+  "transform": { "^.+\\.(t|j)s$": "ts-jest" },
   "coverageThreshold": {
-    "global": {
-      "branches": 80,
-      "functions": 20,
-      "lines": 60,
-      "statements": 60
-    }
+    "global": { "branches": 80, "functions": 20, "lines": 60, "statements": 60 }
   },
   "collectCoverageFrom": [
     "**/*.(t|j)s",

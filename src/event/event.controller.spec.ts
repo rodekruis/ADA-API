@@ -1,9 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
+
 import AuthService from '../auth/auth.service';
-import EventCodeService from './event-code.service';
-import EventLayerService from './event-layer.service';
 import EventController from './event.controller';
 import EventService from './event.service';
+import EventCodeService from './event-code.service';
+import EventLayerService from './event-layer.service';
 
 describe('EventController', () => {
     let controller: EventController;
@@ -24,10 +25,7 @@ describe('EventController', () => {
                 },
                 {
                     provide: EventCodeService,
-                    useValue: {
-                        find: jest.fn(),
-                        save: jest.fn(),
-                    },
+                    useValue: { find: jest.fn(), save: jest.fn() },
                 },
                 {
                     provide: EventLayerService,
