@@ -1,7 +1,7 @@
 import { JwtService } from '@nestjs/jwt';
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { I18nRequestScopeService } from 'nestjs-i18n';
+import { I18nService } from 'nestjs-i18n';
 
 import EventEntity from '../event/event.entity';
 import EventCodeEntity from '../event/event-code.entity';
@@ -27,7 +27,7 @@ describe('AuthService', () => {
                     useValue: { sign: jest.fn(), verify: jest.fn() },
                 },
                 {
-                    provide: I18nRequestScopeService,
+                    provide: I18nService,
                     useValue: {
                         translate: jest.fn((key) => Promise.resolve(key)),
                     },
