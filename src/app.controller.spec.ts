@@ -1,4 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
+
 import AppController from './app.controller';
 import AppService from './app.service';
 import AppServiceMock from './app.service.mock';
@@ -12,10 +13,7 @@ describe('AppController', () => {
             controllers: [AppController],
             providers: [
                 AppService,
-                {
-                    provide: AppService,
-                    useFactory: AppServiceMock,
-                },
+                { provide: AppService, useFactory: AppServiceMock },
             ],
         }).compile();
 

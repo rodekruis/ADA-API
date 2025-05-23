@@ -1,5 +1,6 @@
 import { CallHandler, ExecutionContext } from '@nestjs/common';
 import { of } from 'rxjs';
+
 import HttpResponseInterceptor from './http-response.interceptor';
 
 describe('HttpResponseInterceptor', () => {

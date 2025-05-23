@@ -11,10 +11,7 @@ const pinoTargetHttpPrint: TransportTargetOptions = {
         all: true,
         translateTime: true,
         relativeUrl: true,
-        prettyOptions: {
-            ignore: 'pid,hostname',
-            singleLine: true,
-        },
+        prettyOptions: { ignore: 'pid,hostname', singleLine: true },
     },
     level: process.env.NODE_ENV === 'production' ? 'info' : 'debug',
 };

@@ -1,13 +1,14 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import EventLayerService from './event-layer.service';
+
 import AuthModule from '../auth/auth.module';
-import EventService from './event.service';
 import EventController from './event.controller';
 import EventEntity from './event.entity';
+import EventService from './event.service';
 import EventCodeEntity from './event-code.entity';
 import EventCodeService from './event-code.service';
 import EventLayerEntity from './event-layer.entity';
+import EventLayerService from './event-layer.service';
 
 @Module({
     imports: [

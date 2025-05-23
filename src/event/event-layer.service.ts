@@ -1,11 +1,12 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { I18nRequestScopeService } from 'nestjs-i18n';
-import { Repository, FindOneOptions, FindManyOptions, Equal } from 'typeorm';
-import EventLayerName from './event-layer-name.enum';
-import EventLayerEntity from './event-layer.entity';
-import { EventId } from './event.entity';
+import { I18nService } from 'nestjs-i18n';
+import { Equal, FindManyOptions, FindOneOptions, Repository } from 'typeorm';
+
 import { baseEntityFieldsNames } from '../shared/base.entity';
+import { EventId } from './event.entity';
+import EventLayerEntity from './event-layer.entity';
+import EventLayerName from './event-layer-name.enum';
 
 @Injectable()
 export default class EventLayerService {
@@ -14,7 +15,7 @@ export default class EventLayerService {
     constructor(
         @InjectRepository(EventLayerEntity)
         private eventLayersRepository: Repository<EventLayerEntity>,
-        private readonly i18n: I18nRequestScopeService,
+        private readonly i18n: I18nService,
     ) {
         this.prepareTranslations();
     }
@@ -55,9 +56,8 @@ export default class EventLayerService {
             where: { event: Equal(eventId), name },
         };
 
-        const eventLayerEntity = await this.eventLayersRepository.findOne(
-            findOneOptions,
-        );
+        const eventLayerEntity =
+            await this.eventLayersRepository.findOne(findOneOptions);
 
         if (!eventLayerEntity)
             throw new NotFoundException([this.eventLayerNotFound]);
@@ -76,7 +76,7 @@ export default class EventLayerService {
                 { id: Equal(eventLayer.id) },
                 eventLayerEntity,
             );
-        } catch (error) {
+        } catch {
             await this.eventLayersRepository.save(eventLayerEntity);
         }
 

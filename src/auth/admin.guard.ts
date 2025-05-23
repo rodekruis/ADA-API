@@ -1,8 +1,8 @@
 /* eslint-disable class-methods-use-this */
 import {
-    Injectable,
     CanActivate,
     ExecutionContext,
+    Injectable,
     UnauthorizedException,
 } from '@nestjs/common';
 import { Observable } from 'rxjs';

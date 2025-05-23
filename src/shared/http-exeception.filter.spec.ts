@@ -5,13 +5,12 @@ import {
     NotFoundException,
     UnauthorizedException,
 } from '@nestjs/common';
+
 import HttpExceptionFilter from './http-exception.filter';
 
 describe('HttpExceptionFilter', () => {
     let httpExceptionFilter: HttpExceptionFilter;
-    const errors = {
-        email: ['Email is required'],
-    };
+    const errors = { email: ['Email is required'] };
 
     beforeEach(() => {
         httpExceptionFilter = new HttpExceptionFilter();
@@ -32,18 +31,20 @@ describe('HttpExceptionFilter', () => {
         beforeEach(() => {
             mockJson = jest.fn();
 
-            mockStatus = jest.fn().mockImplementation(() => ({
-                json: mockJson,
-            }));
+            mockStatus = jest
+                .fn()
+                .mockImplementation(() => ({ json: mockJson }));
 
-            mockGetResponse = jest.fn().mockImplementation(() => ({
-                status: mockStatus,
-            }));
+            mockGetResponse = jest
+                .fn()
+                .mockImplementation(() => ({ status: mockStatus }));
 
-            mockHttpArgumentsHost = jest.fn().mockImplementation(() => ({
-                getResponse: mockGetResponse,
-                getRequest: jest.fn(),
-            }));
+            mockHttpArgumentsHost = jest
+                .fn()
+                .mockImplementation(() => ({
+                    getResponse: mockGetResponse,
+                    getRequest: jest.fn(),
+                }));
 
             mockArgumentsHost = {
                 switchToHttp: mockHttpArgumentsHost,

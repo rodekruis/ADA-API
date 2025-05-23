@@ -1,6 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { I18nRequestScopeService } from 'nestjs-i18n';
+import { I18nService } from 'nestjs-i18n';
+
 import EventLayerEntity from './event-layer.entity';
 import EventLayerService from './event-layer.service';
 
@@ -16,7 +17,7 @@ describe('EventLayerService', () => {
                     useValue: { findOne: jest.fn() },
                 },
                 {
-                    provide: I18nRequestScopeService,
+                    provide: I18nService,
                     useValue: {
                         translate: jest.fn((key) => Promise.resolve(key)),
                     },

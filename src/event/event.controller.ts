@@ -1,35 +1,36 @@
 import {
-    Controller,
-    Get,
-    Post,
     Body,
-    Patch,
-    Param,
+    Controller,
     Delete,
-    Query,
-    UseGuards,
+    Get,
+    Param,
     ParseEnumPipe,
     ParseUUIDPipe,
+    Patch,
+    Post,
+    Query,
+    UseGuards,
 } from '@nestjs/common';
 import { ApiBearerAuth, ApiParam, ApiQuery, ApiTags } from '@nestjs/swagger';
-import defaultSort, { getSortEntityFieldNames } from '../shared/sort';
-import EventGuard from '../auth/event.guard';
-import AuthService from '../auth/auth.service';
+
 import AdminGuard from '../auth/admin.guard';
-import EventService from './event.service';
-import EventEntity, {
-    sortEventEntityFieldsNames,
-    EventId,
-} from './event.entity';
+import AuthService from '../auth/auth.service';
+import EventGuard from '../auth/event.guard';
+import defaultSort, { getSortEntityFieldNames } from '../shared/sort';
+import AccessEventDto from './dto/access-event.dto';
 import CreateEventDto from './dto/create-event.dto';
+import CreateEventLayerDto from './dto/create-event-layer.dto';
 import UpdateEventDto from './dto/update-event.dto';
+import EventEntity, {
+    EventId,
+    sortEventEntityFieldsNames,
+} from './event.entity';
+import EventService from './event.service';
 import EventCodeEntity from './event-code.entity';
 import EventCodeService from './event-code.service';
-import AccessEventDto from './dto/access-event.dto';
-import EventLayerName from './event-layer-name.enum';
-import CreateEventLayerDto from './dto/create-event-layer.dto';
 import EventLayerEntity from './event-layer.entity';
 import EventLayerService from './event-layer.service';
+import EventLayerName from './event-layer-name.enum';
 
 @Controller('events')
 export default class EventController {
@@ -41,11 +42,7 @@ export default class EventController {
     ) {}
 
     @Get()
-    @ApiQuery({
-        name: 'search',
-        type: String,
-        required: false,
-    })
+    @ApiQuery({ name: 'search', type: String, required: false })
     @ApiQuery({
         name: 'sort',
         enum: getSortEntityFieldNames(sortEventEntityFieldsNames),
@@ -176,10 +173,7 @@ export default class EventController {
 
     @Get(':id/layers/:name')
     @UseGuards(EventGuard)
-    @ApiParam({
-        name: 'name',
-        enum: EventLayerName,
-    })
+    @ApiParam({ name: 'name', enum: EventLayerName })
     @ApiBearerAuth()
     @ApiTags('event-layer')
     readLayer(
@@ -192,10 +186,7 @@ export default class EventController {
 
     @Post(':id/layers/:name')
     @UseGuards(AdminGuard)
-    @ApiParam({
-        name: 'name',
-        enum: EventLayerName,
-    })
+    @ApiParam({ name: 'name', enum: EventLayerName })
     @ApiBearerAuth()
     @ApiTags('event-layer')
     async createLayer(
@@ -228,10 +219,7 @@ export default class EventController {
 
     @Delete(':id/layers/:name')
     @UseGuards(AdminGuard)
-    @ApiParam({
-        name: 'name',
-        enum: EventLayerName,
-    })
+    @ApiParam({ name: 'name', enum: EventLayerName })
     @ApiBearerAuth()
     @ApiTags('event-layer')
     removeLayer(

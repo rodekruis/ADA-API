@@ -1,6 +1,7 @@
 {
   "tabWidth": 4,
   "trailingComma": "all",
+  "objectWrap": "collapse",
   "overrides": [
     {
       "files": ["*.json", "*.yml", ".prettierrc"],

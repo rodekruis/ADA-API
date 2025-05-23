@@ -1,5 +1,6 @@
 import path from 'path';
 import { DataSource, DataSourceOptions } from 'typeorm';
+
 import NamingStrategy from './naming-strategy';
 
 export const ormConfig: DataSourceOptions = {

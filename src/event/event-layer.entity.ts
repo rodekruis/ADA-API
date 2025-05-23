@@ -1,11 +1,13 @@
+import { IsEnum, IsNotEmpty, IsString } from 'class-validator';
+import { GeoJSON } from 'geojson';
 import {
-    Entity,
-    PrimaryGeneratedColumn,
     Column,
+    Entity,
     JoinColumn,
     ManyToOne,
+    PrimaryGeneratedColumn,
 } from 'typeorm';
-import { IsEnum, IsNotEmpty, IsString } from 'class-validator';
+
 import BaseEntity, { baseEntityFieldsNames } from '../shared/base.entity';
 import EventEntity from './event.entity';
 import EventLayerName from './event-layer-name.enum';

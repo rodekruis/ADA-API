@@ -1,13 +1,14 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { I18nRequestScopeService } from 'nestjs-i18n';
-import { Repository, FindManyOptions, FindOneOptions } from 'typeorm';
+import { I18nService } from 'nestjs-i18n';
+import { FindManyOptions, FindOneOptions, Repository } from 'typeorm';
+
 import getWhereClause from '../shared/search';
 import { getOrderClause } from '../shared/sort';
 import EventCodeEntity, {
+    EventCodeId,
     searchEventCodeEntityFieldsNames,
     sortEventCodeEntityFieldsNames,
-    EventCodeId,
 } from './event-code.entity';
 
 @Injectable()
@@ -21,7 +22,7 @@ export default class EventCodeService {
     constructor(
         @InjectRepository(EventCodeEntity)
         private eventCodesRepository: Repository<EventCodeEntity>,
-        private readonly i18n: I18nRequestScopeService,
+        private readonly i18n: I18nService,
     ) {
         this.prepareTranslations();
     }
@@ -66,9 +67,8 @@ export default class EventCodeService {
                 sortEventCodeEntityFieldsNames,
             ),
         };
-        const eventCodeEntity = await this.eventCodesRepository.findOne(
-            findOneOptions,
-        );
+        const eventCodeEntity =
+            await this.eventCodesRepository.findOne(findOneOptions);
 
         if (!eventCodeEntity)
             throw new NotFoundException([this.eventCodeNotFound]);

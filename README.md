@@ -84,11 +84,11 @@ Protected APIs are accessible by providing a [Bearer](https://swagger.io/docs/sp
 
 ### How to access the restricted data?
 
--   Admin access is granted by using `ADMIN_CODE` (see [ENVIRONMENT](./docs/ENVIRONMENT.md)) as token.
-    -   Required to Create Event, Update Event, Delete Event, Create Event Layer, and Delete Event Layer.
--   Event read access is granted by using the response from [POST /events/{id}/code](https://ada.510.global/api/swagger/#/event-code/EventController_code) as token.
-    -   POST body should send the `code` set for event with id {id}.
-    -   Required to Read Restricted Event, and Read Restricted Event Layer.
+- Admin access is granted by using `ADMIN_CODE` (see [ENVIRONMENT](./docs/ENVIRONMENT.md)) as token.
+    - Required to Create Event, Update Event, Delete Event, Create Event Layer, and Delete Event Layer.
+- Event read access is granted by using the response from [POST /events/{id}/code](https://ada.510.global/api/swagger/#/event-code/EventController_code) as token.
+    - POST body should send the `code` set for event with id {id}.
+    - Required to Read Restricted Event, and Read Restricted Event Layer.
 
 ## Installation
 

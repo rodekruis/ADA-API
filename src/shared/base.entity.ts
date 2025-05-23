@@ -1,12 +1,12 @@
 import {
-    Entity,
-    PrimaryGeneratedColumn,
     BaseEntity as TypeOrmBaseEntity,
-    CreateDateColumn,
-    UpdateDateColumn,
-    VersionColumn,
     BeforeInsert,
     BeforeUpdate,
+    CreateDateColumn,
+    Entity,
+    PrimaryGeneratedColumn,
+    UpdateDateColumn,
+    VersionColumn,
 } from 'typeorm';
 
 type BaseEntityFieldsName = NonNullable<keyof BaseEntity>;

@@ -1,14 +1,15 @@
+import { hash as argonHash } from 'argon2';
+import { IsDate, IsJWT, IsNotEmpty, IsOptional } from 'class-validator';
 import {
-    Entity,
-    PrimaryGeneratedColumn,
-    Column,
-    JoinColumn,
-    OneToOne,
     BeforeInsert,
     BeforeUpdate,
+    Column,
+    Entity,
+    JoinColumn,
+    OneToOne,
+    PrimaryGeneratedColumn,
 } from 'typeorm';
-import { IsDate, IsJWT, IsNotEmpty, IsOptional } from 'class-validator';
-import argon2 from 'argon2';
+
 import BaseEntity, { baseEntityFieldsNames } from '../shared/base.entity';
 import EventEntity from './event.entity';
 
@@ -34,7 +35,7 @@ export default class EventCodeEntity extends BaseEntity {
     @BeforeInsert()
     @BeforeUpdate()
     async hashCode() {
-        this.code = await argon2.hash(this.code);
+        this.code = await argonHash(this.code);
     }
 }
 

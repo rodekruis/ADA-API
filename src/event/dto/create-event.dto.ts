@@ -10,6 +10,8 @@ import {
     Max,
     Min,
 } from 'class-validator';
+import { GeoJSON } from 'geojson';
+
 import EventAccess from '../event-access.enum';
 import EventType from '../event-type.enum';
 

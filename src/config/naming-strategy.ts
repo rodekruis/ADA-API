@@ -1,5 +1,5 @@
-import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 import { snakeCase } from 'typeorm/util/StringUtils';
+import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 
 class NamingStrategy extends SnakeNamingStrategy {
     tableName = (tableName: string, customName: string) => {

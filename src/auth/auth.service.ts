@@ -5,16 +5,15 @@ import {
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { InjectRepository } from '@nestjs/typeorm';
+import { verify as argonVerify } from 'argon2';
+import { I18nService } from 'nestjs-i18n';
 import { Equal, Repository } from 'typeorm';
-import argon2 from 'argon2';
-import { I18nRequestScopeService } from 'nestjs-i18n';
-import EventCodeEntity from '../event/event-code.entity';
-import EventAccess from '../event/event-access.enum';
-import EventEntity, { EventId } from '../event/event.entity';
 
-type JwtToken = {
-    eventId: EventId;
-};
+import EventEntity, { EventId } from '../event/event.entity';
+import EventAccess from '../event/event-access.enum';
+import EventCodeEntity from '../event/event-code.entity';
+
+type JwtToken = { eventId: EventId };
 
 @Injectable()
 export default class AuthService {
@@ -26,7 +25,7 @@ export default class AuthService {
         @InjectRepository(EventEntity)
         private eventsRepository: Repository<EventEntity>,
         private readonly jwtService: JwtService,
-        private readonly i18n: I18nRequestScopeService,
+        private readonly i18n: I18nService,
     ) {
         this.prepareTranslations();
     }
@@ -50,9 +49,9 @@ export default class AuthService {
         });
         if (!eventCode) throw new UnauthorizedException();
         try {
-            const verify = await argon2.verify(eventCode.code, code);
+            const verify = await argonVerify(eventCode.code, code);
             if (!verify) throw new UnauthorizedException();
-        } catch (error) {
+        } catch {
             throw new UnauthorizedException();
         }
         return this.jwtService.sign({ eventId } as JwtToken);
@@ -91,7 +90,7 @@ export default class AuthService {
                 );
             }
             return eventAccess;
-        } catch (error) {
+        } catch {
             throw new UnauthorizedException();
         }
     }

@@ -1,15 +1,17 @@
 import {
+    IsDateString,
+    IsEnum,
+    IsInt,
+    IsNotEmpty,
+    IsNumber,
     IsOptional,
     IsString,
-    IsNotEmpty,
-    IsDateString,
-    IsInt,
     Max,
     Min,
-    IsEnum,
-    IsNumber,
 } from 'class-validator';
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { GeoJSON } from 'geojson';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+
 import BaseEntity, { baseEntityFieldsNames } from '../shared/base.entity';
 import EventAccess from './event-access.enum';
 import EventType from './event-type.enum';
