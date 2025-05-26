@@ -8,6 +8,7 @@ import { NestFactory, Reflector } from '@nestjs/core';
 import {
     DocumentBuilder,
     SwaggerCustomOptions,
+    SwaggerDocumentOptions,
     SwaggerModule,
 } from '@nestjs/swagger';
 import { json, urlencoded } from 'express';
@@ -45,7 +46,10 @@ async function bootstrap() {
         .setVersion(serverConfig.version)
         .addBearerAuth()
         .build();
-    const document = SwaggerModule.createDocument(app, config);
+    const documentOptions: SwaggerDocumentOptions = {
+        autoTagControllers: false,
+    };
+    const document = SwaggerModule.createDocument(app, config, documentOptions);
     const options: SwaggerCustomOptions = {
         customCss: serverConfig.swaggerCustomCss,
         customSiteTitle: serverConfig.title,
