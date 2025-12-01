@@ -34,7 +34,7 @@
     "argon2": "^0.43.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.2",
-    "express": "^5.1.0",
+    "express": "^5.2.0",
     "mysql2": "^3.14.1",
     "nestjs-i18n": "^10.5.1",
     "nestjs-pino": "^4.4.0",
