@@ -24,7 +24,7 @@
     "migration:run": "npx typeorm migration:run -d dist/config/orm.config.js"
   },
   "dependencies": {
-    "@nestjs/common": "^11.1.2",
+    "@nestjs/common": "^11.1.17",
     "@nestjs/core": "^11.1.2",
     "@nestjs/jwt": "^11.0.0",
     "@nestjs/platform-express": "^11.1.16",
